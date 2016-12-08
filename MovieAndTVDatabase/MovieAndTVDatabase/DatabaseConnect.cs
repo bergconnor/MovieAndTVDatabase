@@ -25,7 +25,7 @@ namespace MovieAndTVDatabase
             server = "mysql.cis.ksu.edu";
             database = "cberg1";
             uid = "cberg1";
-            password = "qy98R6de3c340d";
+            password = "3c340d";
 
             string connString = "SERVER=" + server + ";" +
                                 "DATABASE=" + database + ";" +
