@@ -70,36 +70,6 @@ namespace MovieAndTVDatabase
             }
         }
 
-        public void Insert()
-        {
-            string email = "cberg1@ksu.edu";
-            string password = "password";
-            DateTime dt = DateTime.Today;
-            string start = dt.ToString("yyyy/MM/dd");
-            dt.AddYears(1);
-            string end = dt.ToString("yyyy/MM/dd");
-            string accessMovies = "TRUE";
-            string accessSeries = "TRUE";
-            string query = String.Format("INERT INTO accounts (email,password,start,end,access_movie,access_series) VALUES ('{0}','{1}','{2}','{3}',{4},{5})", 
-                email, password, start, end, accessMovies, accessSeries);
-
-            if (this.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-                this.CloseConnection();
-            }
-        }
-
-        public void Update()
-        {
-
-        }
-
-        public void Delete()
-        {
-
-        }
 
         public bool CheckPassword(string email, string password)
         {
@@ -162,48 +132,30 @@ namespace MovieAndTVDatabase
             }
         }
 
-        /*public List<string>[] Select()
+        public string GetShowLink(string name)
         {
-            string email = info[0];
-            string query = String.Format("SELECT password FROM accounts where email='{0}'", email);
-
-            List<string>[] result = new List<string>[info.Count];
-            result[0] = new List<string>();
-            
+            string query = String.Format("SELECT poster FROM shows where name='{0}'", name);
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader rdr = cmd.ExecuteReader();
+                List<string>[] result = new List<string>[1];
+                result[0] = new List<string>();
 
                 while (rdr.Read())
                 {
-                    result[0].Add(rdr["password"] + "");
+                    result[0].Add(rdr["poster"] + "");
                 }
 
                 rdr.Close();
                 this.CloseConnection();
 
-                return result;
+                if (result[0].Count > 0)
+                {
+                    return result[0][0];
+                }
             }
-            else
-            {
-                return result;
-            }
-        }*/
-
-        public int Count()
-        {
-            return 0;
-        }
-
-        public void Backup()
-        {
-
-        }
-
-        public void Restore()
-        {
-
+            return "";
         }
     }
 }

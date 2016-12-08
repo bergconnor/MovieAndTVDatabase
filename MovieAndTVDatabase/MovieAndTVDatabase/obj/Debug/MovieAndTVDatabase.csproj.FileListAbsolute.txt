@@ -8,3 +8,15 @@ c:\users\cberg1\documents\visual studio 2015\Projects\MovieAndTVDatabase\MovieAn
 c:\users\cberg1\documents\visual studio 2015\Projects\MovieAndTVDatabase\MovieAndTVDatabase\bin\Debug\MySql.Data.dll
 c:\users\cberg1\documents\visual studio 2015\Projects\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.exe
 c:\users\cberg1\documents\visual studio 2015\Projects\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.pdb
+U:\git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\bin\Debug\MovieAndTVDatabase.exe.config
+U:\git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.exe
+U:\git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.pdb
+U:\git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\bin\Debug\MovieAndTVDatabase.exe
+U:\git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\bin\Debug\MovieAndTVDatabase.pdb
+U:\git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\bin\Debug\MySql.Data.dll
+U:\git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.csprojResolveAssemblyReference.cache
+U:\git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Properties.Resources.resources
+U:\git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.csproj.GenerateResource.Cache
+U:\git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Homepage.resources
+U:\git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Watch.resources
+U:\git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Login.resources
