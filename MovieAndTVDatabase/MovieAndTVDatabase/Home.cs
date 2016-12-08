@@ -10,14 +10,11 @@ using System.Windows.Forms;
 
 namespace MovieAndTVDatabase
 {
-    public partial class Homepage : Form
+    public partial class Home : Form
     {
-        public Homepage()
+        public Home()
         {
             InitializeComponent();
-            Watch watchForm = new Watch();
-            watchForm.MdiParent = this;
-            watchForm.Show();
         }
     }
 }

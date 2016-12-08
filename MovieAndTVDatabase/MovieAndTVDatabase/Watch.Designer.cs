@@ -36,17 +36,23 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(120, 12);
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Location = new System.Drawing.Point(207, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(338, 389);
+            this.pictureBox1.Size = new System.Drawing.Size(422, 486);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // watchBtn
             // 
-            this.watchBtn.Location = new System.Drawing.Point(158, 446);
+            this.watchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.watchBtn.Location = new System.Drawing.Point(198, 558);
+            this.watchBtn.Margin = new System.Windows.Forms.Padding(4);
             this.watchBtn.Name = "watchBtn";
-            this.watchBtn.Size = new System.Drawing.Size(271, 23);
+            this.watchBtn.Size = new System.Drawing.Size(339, 29);
             this.watchBtn.TabIndex = 1;
             this.watchBtn.Text = "Watch Show";
             this.watchBtn.UseVisualStyleBackColor = true;
@@ -54,20 +60,24 @@
             // 
             // showTxt
             // 
-            this.showTxt.Location = new System.Drawing.Point(158, 420);
+            this.showTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.showTxt.Location = new System.Drawing.Point(198, 525);
+            this.showTxt.Margin = new System.Windows.Forms.Padding(4);
             this.showTxt.Name = "showTxt";
-            this.showTxt.Size = new System.Drawing.Size(271, 20);
+            this.showTxt.Size = new System.Drawing.Size(338, 22);
             this.showTxt.TabIndex = 2;
+            this.showTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Watch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(604, 481);
+            this.ClientSize = new System.Drawing.Size(819, 643);
             this.ControlBox = false;
             this.Controls.Add(this.showTxt);
             this.Controls.Add(this.watchBtn);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Watch";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

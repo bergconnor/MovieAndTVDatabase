@@ -28,7 +28,7 @@ namespace MovieAndTVDatabase
             if (db.CheckPassword(email, password))
             {
                 this.Hide();
-                Homepage homepageForm = new Homepage();
+                Container homepageForm = new Container();
                 homepageForm.Show(this);
             }
             else

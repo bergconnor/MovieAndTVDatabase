@@ -13,25 +13,30 @@ namespace MovieAndTVDatabase
     public partial class Watch : Form
     {
         private DatabaseConnect db;
+        private string defaultImageString;
 
         public Watch()
         {
             InitializeComponent();
-            db = new DatabaseConnect();
+            this.db = new DatabaseConnect();
+            this.defaultImageString = "http://www.amfmph.com/wp-content/plugins/" +
+                                    "social-media-builder//img/no-image.png";
+            this.pictureBox1.Load(defaultImageString);
+            this.pictureBox1.Refresh();
         }
 
         private void watchBtn_Click(object sender, EventArgs e)
         {
-            string name = showTxt.Text;
-            string show = db.GetShowLink(name);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            string name = this.showTxt.Text;
+            string show = this.db.GetShowLink(name);
+            //pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             if (show.Length > 0)
             {
-                pictureBox1.Load(show);
+                this.pictureBox1.Load(show);
             }
             else
             {
-                pictureBox1.Load("http://www.amfmph.com/wp-content/plugins/social-media-builder//img/no-image.png");
+                this.pictureBox1.Load(defaultImageString);
             }
         }
     }

@@ -20,3 +20,16 @@ U:\git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieA
 U:\git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Homepage.resources
 U:\git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Watch.resources
 U:\git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Login.resources
+C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\bin\Debug\MovieAndTVDatabase.exe.config
+C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.exe
+C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.pdb
+C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\bin\Debug\MovieAndTVDatabase.exe
+C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\bin\Debug\MovieAndTVDatabase.pdb
+C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.csprojResolveAssemblyReference.cache
+C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Properties.Resources.resources
+C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Login.resources
+C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Watch.resources
+C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.csproj.GenerateResource.Cache
+C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Account.resources
+C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Container.resources
+C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Home.resources

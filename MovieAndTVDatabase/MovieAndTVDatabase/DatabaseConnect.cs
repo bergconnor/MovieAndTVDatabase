@@ -105,6 +105,38 @@ namespace MovieAndTVDatabase
             return false;
         }
 
+        private int GetNumberOfUsers(string email)
+        {
+            string query = String.Format("SELECT count(*) count" +
+                                         "FROM users u" +
+                                           "JOIN accounts a" +
+                                             "ON a.id = u.account_id" +
+                                         "WHERE a.email = '{0}'" +
+                                         "GROUP BY a.id", email);
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                List<string>[] result = new List<string>[1];
+                result[0] = new List<string>();
+
+                while (rdr.Read())
+                {
+                    result[0].Add(rdr["count"] + "");
+                }
+
+                rdr.Close();
+                this.CloseConnection();
+
+                if (result[0].Count > 0)
+                {
+                    return Convert.ToInt16(result[0][0]);
+                }
+            }
+            return -1;
+        }
+
         public bool SignUp(string email, string password)
         {
             DateTime dt = DateTime.Today;
@@ -115,6 +147,27 @@ namespace MovieAndTVDatabase
             string accessSeries = "TRUE";
             string query = String.Format("INSERT INTO accounts (email,password,start,end,access_movie,access_series) VALUES ('{0}','{1}','{2}','{3}',{4},{5})",
                 email, password, start, end, accessMovies, accessSeries);
+            try
+            {
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+                    this.CloseConnection();
+                }
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
+                return false;
+            }
+        }
+
+        public bool AddUser(string name, string account_id)
+        {
+            string query = String.Format("INSERT INTO users (name, account_id)" +
+                                         "VALUES ('{0}','{1}')", name, account_id);
             try
             {
                 if (this.OpenConnection() == true)
