@@ -1,0 +1,10 @@
+c:\users\cberg1\documents\visual studio 2015\Projects\MovieAndTVDatabase\MovieAndTVDatabase\bin\Debug\MovieAndTVDatabase.exe.config
+c:\users\cberg1\documents\visual studio 2015\Projects\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.csprojResolveAssemblyReference.cache
+c:\users\cberg1\documents\visual studio 2015\Projects\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Properties.Resources.resources
+c:\users\cberg1\documents\visual studio 2015\Projects\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.UserInterface.resources
+c:\users\cberg1\documents\visual studio 2015\Projects\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.csproj.GenerateResource.Cache
+c:\users\cberg1\documents\visual studio 2015\Projects\MovieAndTVDatabase\MovieAndTVDatabase\bin\Debug\MovieAndTVDatabase.exe
+c:\users\cberg1\documents\visual studio 2015\Projects\MovieAndTVDatabase\MovieAndTVDatabase\bin\Debug\MovieAndTVDatabase.pdb
+c:\users\cberg1\documents\visual studio 2015\Projects\MovieAndTVDatabase\MovieAndTVDatabase\bin\Debug\MySql.Data.dll
+c:\users\cberg1\documents\visual studio 2015\Projects\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.exe
+c:\users\cberg1\documents\visual studio 2015\Projects\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.pdb
