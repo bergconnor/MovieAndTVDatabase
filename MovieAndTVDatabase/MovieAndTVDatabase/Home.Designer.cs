@@ -35,31 +35,34 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Location = new System.Drawing.Point(103, 63);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(360, 92);
+            this.label1.Size = new System.Drawing.Size(270, 75);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Home";
+            this.label1.Text = "Home2";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // usersCombo
             // 
             this.usersCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.usersCombo.FormattingEnabled = true;
-            this.usersCombo.Location = new System.Drawing.Point(332, 226);
+            this.usersCombo.Location = new System.Drawing.Point(249, 184);
+            this.usersCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.usersCombo.MaxDropDownItems = 5;
             this.usersCombo.Name = "usersCombo";
-            this.usersCombo.Size = new System.Drawing.Size(121, 24);
+            this.usersCombo.Size = new System.Drawing.Size(92, 21);
             this.usersCombo.TabIndex = 1;
             // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 614);
+            this.ClientSize = new System.Drawing.Size(614, 499);
             this.ControlBox = false;
             this.Controls.Add(this.usersCombo);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "Home";
             this.ShowInTaskbar = false;
