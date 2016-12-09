@@ -105,14 +105,14 @@ namespace MovieAndTVDatabase
             return false;
         }
 
-        private int GetNumberOfUsers(string email)
+        private int GetNumberOfUsers(string id)
         {
-            string query = String.Format("SELECT count(*) count" +
-                                         "FROM users u" +
-                                           "JOIN accounts a" +
-                                             "ON a.id = u.account_id" +
-                                         "WHERE a.email = '{0}'" +
-                                         "GROUP BY a.id", email);
+            string query = String.Format("SELECT count(*) count " +
+                                         "FROM users u " +
+                                           "JOIN accounts a " +
+                                             "ON a.id = u.account_id " +
+                                         "WHERE a.id = {0} " +
+                                         "GROUP BY a.id", id);
 
             if (this.OpenConnection() == true)
             {
@@ -137,11 +137,37 @@ namespace MovieAndTVDatabase
             return -1;
         }
 
-        public bool SignUp(string email, string password)
+        private string GetAccountID(string email)
+        {
+            string query = String.Format("SELECT id FROM accounts where email='{0}'", email);
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                List<string>[] result = new List<string>[1];
+                result[0] = new List<string>();
+
+                while (rdr.Read())
+                {
+                    result[0].Add(rdr["id"] + "");
+                }
+
+                rdr.Close();
+                this.CloseConnection();
+
+                if (result[0].Count > 0)
+                {
+                    return result[0][0];
+                }
+            }
+            return "";
+        }
+
+        public int SignUp(string name, string email, string password)
         {
             DateTime dt = DateTime.Today;
             string start = dt.ToString("yyyy/MM/dd");
-            dt.AddYears(1);
+            dt = dt.AddYears(1);
             string end = dt.ToString("yyyy/MM/dd");
             string accessMovies = "TRUE";
             string accessSeries = "TRUE";
@@ -154,35 +180,109 @@ namespace MovieAndTVDatabase
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.ExecuteNonQuery();
                     this.CloseConnection();
+                    return AddUser(name, email);
                 }
-                return true;
             }
             catch (MySqlException ex)
             {
                 this.CloseConnection();
-                return false;
+                return 1;
             }
+            return 2;
         }
 
-        public bool AddUser(string name, string account_id)
+        public int AddUser(string name, string email)
         {
+            string id = GetAccountID(email);
             string query = String.Format("INSERT INTO users (name, account_id)" +
-                                         "VALUES ('{0}','{1}')", name, account_id);
+                                         "VALUES ('{0}','{1}')", name, id);
             try
             {
-                if (this.OpenConnection() == true)
+                if (GetNumberOfUsers(id) < 5)
                 {
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.ExecuteNonQuery();
-                    this.CloseConnection();
+                    if (this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand(query, conn);
+                        cmd.ExecuteNonQuery();
+                        this.CloseConnection();
+                    }
                 }
-                return true;
+                else
+                {
+                    return 3;
+                }
             }
             catch (MySqlException ex)
             {
                 this.CloseConnection();
-                return false;
+                return 4;
             }
+            return 0;
+        }
+
+        public int RemoveUser(string name, string email)
+        {
+            string id = GetAccountID(email);
+            string query = String.Format("DELETE u " +
+                                         "FROM users u " +
+                                           "JOIN accounts a " +
+                                             "ON a.id = u.account_id " +
+                                         "WHERE a.email='{0}' " +
+                                           "AND u.name='{1}'", email, name);
+
+            try
+            {
+                if (GetNumberOfUsers(id) > 1)
+                {
+                    if (this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand(query, conn);
+                        cmd.ExecuteNonQuery();
+                        this.CloseConnection();
+                    }
+                }
+                else
+                {
+                    return 3;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
+                return 4;
+            }
+            return 0;
+        }
+
+        public List<string> GetUsers(string email)
+        {
+            string query = String.Format("SELECT u.name user " +
+                                         "FROM users u " +
+                                           "JOIN accounts a " +
+                                             "ON a.id = u.account_id " +
+                                         "WHERE email='{0}'", email);
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                List<string>[] result = new List<string>[1];
+                result[0] = new List<string>();
+
+                while (rdr.Read())
+                {
+                    result[0].Add(rdr["user"] + "");
+                }
+
+                rdr.Close();
+                this.CloseConnection();
+
+                if (result[0].Count > 0)
+                {
+                    return result[0];
+                }
+            }
+            return new List<string>();
         }
 
         public string GetShowLink(string name)

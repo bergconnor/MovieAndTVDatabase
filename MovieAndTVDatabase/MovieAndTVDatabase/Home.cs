@@ -12,9 +12,27 @@ namespace MovieAndTVDatabase
 {
     public partial class Home : Form
     {
-        public Home()
+        private DatabaseConnect db;
+        private string email;
+
+        public Home(string email)
         {
             InitializeComponent();
+            db = new DatabaseConnect();
+            this.email = email;
+            FillUsers();
+        }
+
+        private void FillUsers()
+        {
+            List<string> users = db.GetUsers(email);
+            usersCombo.Items.Clear();
+            usersCombo.ResetText();
+
+            foreach (string user in users)
+            {
+                usersCombo.Items.Add(user);
+            }
         }
     }
 }

@@ -33,3 +33,4 @@ C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVData
 C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Account.resources
 C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Container.resources
 C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Home.resources
+C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.SignUp.resources

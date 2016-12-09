@@ -28,8 +28,8 @@ namespace MovieAndTVDatabase
             if (db.CheckPassword(email, password))
             {
                 this.Hide();
-                Container homepageForm = new Container();
-                homepageForm.Show(this);
+                Container container = new Container(email);
+                container.Show(this);
             }
             else
             {
@@ -39,17 +39,12 @@ namespace MovieAndTVDatabase
 
         private void signupBtn_Click(object sender, EventArgs e)
         {
-            string email = emailTxt.Text;
-            string password = passTxt.Text;
-
-            if (db.SignUp(email, password))
-            {
-                resultsTxt.Text = "You successfully signed up.";
-            }
-            else
-            {
-                resultsTxt.Text = "Email address is already in use.";
-            }
+            emailTxt.Text = "";
+            passTxt.Text = "";
+            this.Hide();
+            SignUp form = new SignUp(this);
+            form.Show();
+            resultsTxt.Text = "You successfully signed up.";
         }
     }
 }

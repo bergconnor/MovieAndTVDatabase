@@ -12,10 +12,13 @@ namespace MovieAndTVDatabase
 {
     public partial class Container : Form
     {
-        public Container()
+        private string email;
+
+        public Container(string email)
         {
             InitializeComponent();
-            Home form = new Home();
+            this.email = email;
+            Home form = new Home(email);
             form.MdiParent = this;
             form.Show();
         }
@@ -36,7 +39,7 @@ namespace MovieAndTVDatabase
         private void accountToolStripMenuItem_Click(object sender, EventArgs e)
         {
             closeChildren();
-            Account form = new Account();
+            Account form = new Account(email);
             form.MdiParent = this;
             form.Show();
         }
@@ -52,7 +55,7 @@ namespace MovieAndTVDatabase
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             closeChildren();
-            Home form = new Home();
+            Home form = new Home(email);
             form.MdiParent = this;
             form.Show();
         }

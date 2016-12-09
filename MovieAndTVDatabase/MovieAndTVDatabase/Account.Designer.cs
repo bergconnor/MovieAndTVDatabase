@@ -29,35 +29,62 @@
         private void InitializeComponent()
         {
             this.addUserBtn = new System.Windows.Forms.Button();
-            this.userTxt = new System.Windows.Forms.TextBox();
+            this.nameTxt = new System.Windows.Forms.TextBox();
             this.resultTxt = new System.Windows.Forms.TextBox();
+            this.usersCombo = new System.Windows.Forms.ComboBox();
+            this.rmvUserBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addUserBtn
             // 
-            this.addUserBtn.Location = new System.Drawing.Point(301, 176);
+            this.addUserBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.addUserBtn.Location = new System.Drawing.Point(310, 310);
             this.addUserBtn.Name = "addUserBtn";
-            this.addUserBtn.Size = new System.Drawing.Size(131, 49);
+            this.addUserBtn.Size = new System.Drawing.Size(216, 49);
             this.addUserBtn.TabIndex = 0;
             this.addUserBtn.Text = "Add User";
             this.addUserBtn.UseVisualStyleBackColor = true;
             this.addUserBtn.Click += new System.EventHandler(this.addUserBtn_Click);
             // 
-            // userTxt
+            // nameTxt
             // 
-            this.userTxt.Location = new System.Drawing.Point(254, 231);
-            this.userTxt.Name = "userTxt";
-            this.userTxt.Size = new System.Drawing.Size(216, 22);
-            this.userTxt.TabIndex = 1;
+            this.nameTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.nameTxt.Location = new System.Drawing.Point(310, 110);
+            this.nameTxt.Name = "nameTxt";
+            this.nameTxt.Size = new System.Drawing.Size(216, 22);
+            this.nameTxt.TabIndex = 1;
             // 
             // resultTxt
             // 
-            this.resultTxt.Location = new System.Drawing.Point(254, 271);
+            this.resultTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.resultTxt.Location = new System.Drawing.Point(310, 138);
             this.resultTxt.Multiline = true;
             this.resultTxt.Name = "resultTxt";
             this.resultTxt.ReadOnly = true;
             this.resultTxt.Size = new System.Drawing.Size(216, 157);
             this.resultTxt.TabIndex = 2;
+            // 
+            // usersCombo
+            // 
+            this.usersCombo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.usersCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.usersCombo.FormattingEnabled = true;
+            this.usersCombo.Location = new System.Drawing.Point(310, 380);
+            this.usersCombo.MaxDropDownItems = 5;
+            this.usersCombo.Name = "usersCombo";
+            this.usersCombo.Size = new System.Drawing.Size(216, 24);
+            this.usersCombo.TabIndex = 3;
+            // 
+            // rmvUserBtn
+            // 
+            this.rmvUserBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rmvUserBtn.Location = new System.Drawing.Point(310, 410);
+            this.rmvUserBtn.Name = "rmvUserBtn";
+            this.rmvUserBtn.Size = new System.Drawing.Size(216, 49);
+            this.rmvUserBtn.TabIndex = 4;
+            this.rmvUserBtn.Text = "Remove User";
+            this.rmvUserBtn.UseVisualStyleBackColor = true;
+            this.rmvUserBtn.Click += new System.EventHandler(this.rmvUserBtn_Click);
             // 
             // Account
             // 
@@ -65,8 +92,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 614);
             this.ControlBox = false;
+            this.Controls.Add(this.rmvUserBtn);
+            this.Controls.Add(this.usersCombo);
             this.Controls.Add(this.resultTxt);
-            this.Controls.Add(this.userTxt);
+            this.Controls.Add(this.nameTxt);
             this.Controls.Add(this.addUserBtn);
             this.Name = "Account";
             this.ShowInTaskbar = false;
@@ -80,7 +109,9 @@
         #endregion
 
         private System.Windows.Forms.Button addUserBtn;
-        private System.Windows.Forms.TextBox userTxt;
+        private System.Windows.Forms.TextBox nameTxt;
         private System.Windows.Forms.TextBox resultTxt;
+        private System.Windows.Forms.ComboBox usersCombo;
+        private System.Windows.Forms.Button rmvUserBtn;
     }
 }
