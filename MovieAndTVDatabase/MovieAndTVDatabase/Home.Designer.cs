@@ -37,7 +37,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(238, 21);
+            this.label1.Location = new System.Drawing.Point(279, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(360, 92);
             this.label1.TabIndex = 0;
@@ -58,8 +58,8 @@
             // 
             // logoutBtn
             // 
-            this.logoutBtn.Location = new System.Drawing.Point(920, 39);
-            this.logoutBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logoutBtn.Location = new System.Drawing.Point(706, 25);
+            this.logoutBtn.Margin = new System.Windows.Forms.Padding(4);
             this.logoutBtn.Name = "logoutBtn";
             this.logoutBtn.Size = new System.Drawing.Size(100, 28);
             this.logoutBtn.TabIndex = 2;
