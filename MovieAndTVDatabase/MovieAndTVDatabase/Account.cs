@@ -63,7 +63,15 @@ namespace MovieAndTVDatabase
 
         private void rmvUserBtn_Click(object sender, EventArgs e)
         {
-            if (usersCombo.SelectedItem != null)
+            if (usersCombo.SelectedItem == null)
+            {
+                resultTxt.Text = "Select a user before attempting to remove one.";
+            }
+            else if (String.Compare(usersCombo.SelectedItem.ToString(), this.user) == 0 )
+            {
+                resultTxt.Text = "Can't remove the currently selected user.";
+            }
+            else
             {
                 string user = usersCombo.SelectedItem.ToString();
                 int result = db.RemoveUser(user, email);
@@ -76,10 +84,6 @@ namespace MovieAndTVDatabase
                     resultTxt.Text = "Can't delete user. Each account must have at least one user.";
                 }
                 FillUsers();
-            }
-            else
-            {
-                resultTxt.Text = "Select a user before attempting to remove one.";
             }
         }
 
