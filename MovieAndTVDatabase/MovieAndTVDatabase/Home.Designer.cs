@@ -37,9 +37,10 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(279, 13);
+            this.label1.Location = new System.Drawing.Point(121, 67);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(360, 92);
+            this.label1.Size = new System.Drawing.Size(270, 75);
             this.label1.TabIndex = 0;
             this.label1.Text = "Home2";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -48,20 +49,19 @@
             // 
             this.usersCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.usersCombo.FormattingEnabled = true;
-            this.usersCombo.Location = new System.Drawing.Point(12, 149);
-            this.usersCombo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.usersCombo.Location = new System.Drawing.Point(9, 121);
+            this.usersCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.usersCombo.MaxDropDownItems = 5;
             this.usersCombo.Name = "usersCombo";
-            this.usersCombo.Size = new System.Drawing.Size(121, 24);
+            this.usersCombo.Size = new System.Drawing.Size(92, 21);
             this.usersCombo.TabIndex = 1;
             this.usersCombo.SelectedIndexChanged += new System.EventHandler(this.usersCombo_SelectedIndexChanged);
             // 
             // logoutBtn
             // 
-            this.logoutBtn.Location = new System.Drawing.Point(706, 25);
-            this.logoutBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.logoutBtn.Location = new System.Drawing.Point(530, 20);
             this.logoutBtn.Name = "logoutBtn";
-            this.logoutBtn.Size = new System.Drawing.Size(100, 28);
+            this.logoutBtn.Size = new System.Drawing.Size(75, 23);
             this.logoutBtn.TabIndex = 2;
             this.logoutBtn.Text = "Logout";
             this.logoutBtn.UseVisualStyleBackColor = true;
@@ -71,24 +71,24 @@
             // 
             this.genreCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genreCombo.FormattingEnabled = true;
-            this.genreCombo.Location = new System.Drawing.Point(535, 283);
-            this.genreCombo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.genreCombo.Location = new System.Drawing.Point(401, 230);
+            this.genreCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.genreCombo.MaxDropDownItems = 5;
             this.genreCombo.Name = "genreCombo";
-            this.genreCombo.Size = new System.Drawing.Size(121, 24);
+            this.genreCombo.Size = new System.Drawing.Size(92, 21);
             this.genreCombo.TabIndex = 3;
             // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 614);
+            this.ClientSize = new System.Drawing.Size(614, 499);
             this.ControlBox = false;
             this.Controls.Add(this.genreCombo);
             this.Controls.Add(this.logoutBtn);
             this.Controls.Add(this.usersCombo);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "Home";
             this.ShowInTaskbar = false;
