@@ -344,7 +344,6 @@ namespace MovieAndTVDatabase
 
         public List<string> GetGenres()
         {
-            string genre = "Happy";
             string query = String.Format("SELECT name " +
                                          "FROM genres");
 
@@ -403,6 +402,69 @@ namespace MovieAndTVDatabase
             {
                 return "";
             }
+        }
+
+        public List<string> GetResults(string genre, string actor, string show, string type)
+        {
+            string genre2a = "join show_genre sg on s.id = sg.show_id join genres g on sg.genre_id = g.id ";
+            string genre2b = String.Format("and g.name = '{0}'", genre);
+            string actor2a = "join show_actor sa on s.id = sa.show_id join actors a  on sa.actor_id = a.id ";
+            string actor2b = String.Format("and a.name like '%{0}%'", actor);
+            string type2a = "";
+            string type2b = "";
+
+            if (actor == "")
+            {
+                actor2a = "";
+                actor2b = "";
+            }
+
+            if (genre == "All Genres")
+            {
+                genre2a = "";
+                genre2b = "";
+            }
+
+            switch (type)
+            {
+                case "Movies":
+                    type2a = "join movies m on s.id = m.show_id";
+                    type2b = "and m.show_id = s.id";
+                    break;
+                case "TV Shows":
+                    type2a = "join series se on s.id = se.show_id";
+                    type2b = "and se.show_id = s.id";
+                    break;
+            }
+
+            string query = String.Format("SELECT distinct s.name " +
+                                         "FROM shows s {0} {1} {2} " +
+                                         "WHERE s.name like '%{3}%' {4} {5} {6} order by name",genre2a,actor2a,type2a,show,actor2b,genre2b,type2b);
+
+
+
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                List<string>[] result = new List<string>[1];
+                result[0] = new List<string>();
+
+                while (rdr.Read())
+                {
+                    result[0].Add(rdr["name"] + "");
+                }
+
+                rdr.Close();
+                this.CloseConnection();
+
+                if (result[0].Count > 0)
+                {
+                    return result[0];
+                }
+            }
+            return new List<string>();
         }
     }
 }

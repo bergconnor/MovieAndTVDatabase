@@ -44,6 +44,8 @@
             this.infoButton = new System.Windows.Forms.Button();
             this.resultLabel = new System.Windows.Forms.Label();
             this.watchButton = new System.Windows.Forms.Button();
+            this.movieLabel = new System.Windows.Forms.Label();
+            this.movieCombo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -156,26 +158,29 @@
             // 
             // resultCombo
             // 
+            this.resultCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.resultCombo.FormattingEnabled = true;
-            this.resultCombo.Location = new System.Drawing.Point(225, 298);
+            this.resultCombo.Location = new System.Drawing.Point(225, 276);
             this.resultCombo.Name = "resultCombo";
-            this.resultCombo.Size = new System.Drawing.Size(167, 21);
+            this.resultCombo.Size = new System.Drawing.Size(329, 163);
             this.resultCombo.TabIndex = 11;
             // 
             // searchButton
             // 
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(11, 388);
+            this.searchButton.Location = new System.Drawing.Point(11, 440);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(167, 47);
             this.searchButton.TabIndex = 12;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // infoButton
             // 
+            this.infoButton.Enabled = false;
             this.infoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.infoButton.Location = new System.Drawing.Point(429, 290);
+            this.infoButton.Location = new System.Drawing.Point(225, 444);
             this.infoButton.Name = "infoButton";
             this.infoButton.Size = new System.Drawing.Size(146, 34);
             this.infoButton.TabIndex = 13;
@@ -186,7 +191,7 @@
             // 
             this.resultLabel.AutoSize = true;
             this.resultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultLabel.Location = new System.Drawing.Point(266, 270);
+            this.resultLabel.Location = new System.Drawing.Point(357, 248);
             this.resultLabel.Name = "resultLabel";
             this.resultLabel.Size = new System.Drawing.Size(84, 25);
             this.resultLabel.TabIndex = 14;
@@ -194,13 +199,33 @@
             // 
             // watchButton
             // 
+            this.watchButton.Enabled = false;
             this.watchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.watchButton.Location = new System.Drawing.Point(429, 334);
+            this.watchButton.Location = new System.Drawing.Point(408, 444);
             this.watchButton.Name = "watchButton";
             this.watchButton.Size = new System.Drawing.Size(146, 34);
             this.watchButton.TabIndex = 15;
             this.watchButton.Text = "Watch Show";
             this.watchButton.UseVisualStyleBackColor = true;
+            // 
+            // movieLabel
+            // 
+            this.movieLabel.AutoSize = true;
+            this.movieLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.movieLabel.Location = new System.Drawing.Point(12, 371);
+            this.movieLabel.Name = "movieLabel";
+            this.movieLabel.Size = new System.Drawing.Size(103, 25);
+            this.movieLabel.TabIndex = 16;
+            this.movieLabel.Text = "Movie/TV";
+            // 
+            // movieCombo
+            // 
+            this.movieCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.movieCombo.FormattingEnabled = true;
+            this.movieCombo.Location = new System.Drawing.Point(12, 399);
+            this.movieCombo.Name = "movieCombo";
+            this.movieCombo.Size = new System.Drawing.Size(182, 21);
+            this.movieCombo.TabIndex = 17;
             // 
             // Home
             // 
@@ -208,6 +233,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 499);
             this.ControlBox = false;
+            this.Controls.Add(this.movieCombo);
+            this.Controls.Add(this.movieLabel);
             this.Controls.Add(this.watchButton);
             this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.infoButton);
@@ -254,5 +281,7 @@
         private System.Windows.Forms.Button infoButton;
         private System.Windows.Forms.Label resultLabel;
         private System.Windows.Forms.Button watchButton;
+        private System.Windows.Forms.Label movieLabel;
+        private System.Windows.Forms.ComboBox movieCombo;
     }
 }

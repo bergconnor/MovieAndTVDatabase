@@ -39,10 +39,14 @@ namespace MovieAndTVDatabase
             genreCombo.Items.Clear();
             genreCombo.ResetText();
 
+            genreCombo.Items.Add("All Genres");
+
             foreach (string genre in genres)
             {
                 genreCombo.Items.Add(genre);
             }
+
+            genreCombo.Text = "All Genres";
         }
 
         private void logoutBtn_Click(object sender, EventArgs e)
@@ -61,11 +65,43 @@ namespace MovieAndTVDatabase
             this.email = ((Container)this.MdiParent).Email;
             FillUsers();
             FillGenres();
+            FillMovieTV();
             string user = ((Container)this.MdiParent).User;
             if (user != null)
             {
                 usersCombo.Text = user;
             }
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            string genre = genreCombo.Text;
+            string actor = actorText.Text;
+            string show = showText.Text;
+            string type = movieCombo.Text;
+
+            List<string> results = db.GetResults(genre, actor, show, type);
+            resultCombo.Items.Clear();
+            resultCombo.ResetText();
+
+            foreach (string result in results)
+            {
+                resultCombo.Items.Add(result);
+            }
+
+        }
+
+        private void FillMovieTV()
+        {
+            
+            movieCombo.Items.Clear();
+            movieCombo.ResetText();
+
+            movieCombo.Items.Add("Both");
+            movieCombo.Items.Add("Movies");
+            movieCombo.Items.Add("TV Shows");
+
+            movieCombo.Text = "Both";
         }
     }
 }
