@@ -34,6 +34,7 @@
             this.usersCombo = new System.Windows.Forms.ComboBox();
             this.rmvUserBtn = new System.Windows.Forms.Button();
             this.currentUserLbl = new System.Windows.Forms.Label();
+            this.endLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // addUserBtn
@@ -42,7 +43,7 @@
             this.addUserBtn.Location = new System.Drawing.Point(310, 310);
             this.addUserBtn.Name = "addUserBtn";
             this.addUserBtn.Size = new System.Drawing.Size(216, 49);
-            this.addUserBtn.TabIndex = 0;
+            this.addUserBtn.TabIndex = 2;
             this.addUserBtn.Text = "Add User";
             this.addUserBtn.UseVisualStyleBackColor = true;
             this.addUserBtn.Click += new System.EventHandler(this.addUserBtn_Click);
@@ -63,7 +64,7 @@
             this.resultTxt.Name = "resultTxt";
             this.resultTxt.ReadOnly = true;
             this.resultTxt.Size = new System.Drawing.Size(216, 157);
-            this.resultTxt.TabIndex = 2;
+            this.resultTxt.TabIndex = 0;
             // 
             // usersCombo
             // 
@@ -90,17 +91,29 @@
             // currentUserLbl
             // 
             this.currentUserLbl.AutoSize = true;
-            this.currentUserLbl.Location = new System.Drawing.Point(38, 13);
+            this.currentUserLbl.Location = new System.Drawing.Point(12, 40);
             this.currentUserLbl.Name = "currentUserLbl";
-            this.currentUserLbl.Size = new System.Drawing.Size(0, 17);
-            this.currentUserLbl.TabIndex = 5;
+            this.currentUserLbl.Size = new System.Drawing.Size(97, 17);
+            this.currentUserLbl.TabIndex = 0;
+            this.currentUserLbl.Text = "Current User: ";
+            // 
+            // endLbl
+            // 
+            this.endLbl.AutoSize = true;
+            this.endLbl.Location = new System.Drawing.Point(12, 67);
+            this.endLbl.Name = "endLbl";
+            this.endLbl.Size = new System.Drawing.Size(123, 17);
+            this.endLbl.TabIndex = 5;
+            this.endLbl.Text = "Subscription End: ";
             // 
             // Account
             // 
+            this.AcceptButton = this.addUserBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 614);
             this.ControlBox = false;
+            this.Controls.Add(this.endLbl);
             this.Controls.Add(this.currentUserLbl);
             this.Controls.Add(this.rmvUserBtn);
             this.Controls.Add(this.usersCombo);
@@ -125,5 +138,6 @@
         private System.Windows.Forms.ComboBox usersCombo;
         private System.Windows.Forms.Button rmvUserBtn;
         private System.Windows.Forms.Label currentUserLbl;
+        private System.Windows.Forms.Label endLbl;
     }
 }

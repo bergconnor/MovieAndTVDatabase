@@ -15,6 +15,7 @@ namespace MovieAndTVDatabase
         private DatabaseConnect db;
         private string email;
         private string user;
+        private string end;
 
         public Account()
         {
@@ -91,7 +92,9 @@ namespace MovieAndTVDatabase
         {
             this.email = ((Container)this.MdiParent).Email;
             this.user = ((Container)this.MdiParent).User;
-            resultTxt.Text = String.Format("User {0} selected.", this.user);
+            this.end = (db.GetSubscriptionEnd(this.email)).Split(' ')[0];
+            currentUserLbl.Text += this.user;
+            endLbl.Text += this.end;
             FillUsers();
         }
     }

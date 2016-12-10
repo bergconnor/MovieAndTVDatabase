@@ -312,6 +312,35 @@ namespace MovieAndTVDatabase
             return new List<string>();
         }
 
+        public string GetSubscriptionEnd(string email)
+        {
+            string query = String.Format("SELECT end " +
+                             "FROM accounts " +
+                             "WHERE email='{0}'", email);
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                List<string>[] result = new List<string>[1];
+                result[0] = new List<string>();
+
+                while (rdr.Read())
+                {
+                    result[0].Add(rdr["end"] + "");
+                }
+
+                rdr.Close();
+                this.CloseConnection();
+
+                if (result[0].Count > 0)
+                {
+                    return result[0][0];
+                }
+            }
+            return "";
+        }
+
         public string GetShowLink(string name)
         {
             try

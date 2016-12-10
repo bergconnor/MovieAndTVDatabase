@@ -65,11 +65,12 @@
             this.showTxt.Margin = new System.Windows.Forms.Padding(4);
             this.showTxt.Name = "showTxt";
             this.showTxt.Size = new System.Drawing.Size(338, 22);
-            this.showTxt.TabIndex = 2;
+            this.showTxt.TabIndex = 0;
             this.showTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Watch
             // 
+            this.AcceptButton = this.watchBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(819, 643);
