@@ -37,3 +37,6 @@ C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVData
 C:\Users\Rubic\Desktop\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\bin\Debug\MovieAndTVDatabase.exe.config
 C:\Users\Rubic\Desktop\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.exe
 C:\Users\Rubic\Desktop\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.pdb
+U:\cis560\Project\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\bin\Debug\MovieAndTVDatabase.exe.config
+U:\cis560\Project\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.exe
+U:\cis560\Project\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.pdb
