@@ -33,6 +33,18 @@ namespace MovieAndTVDatabase
             }
         }
 
+        private void FillGenres()
+        {
+            List<string> genres = db.GetGenres();
+            genreCombo.Items.Clear();
+            genreCombo.ResetText();
+
+            foreach (string genre in genres)
+            {
+                genreCombo.Items.Add(genre);
+            }
+        }
+
         private void logoutBtn_Click(object sender, EventArgs e)
         {
             ((Container)this.MdiParent).logout(); 
@@ -48,6 +60,7 @@ namespace MovieAndTVDatabase
         {
             this.email = ((Container)this.MdiParent).Email;
             FillUsers();
+            FillGenres();
             string user = ((Container)this.MdiParent).User;
             if (user != null)
             {

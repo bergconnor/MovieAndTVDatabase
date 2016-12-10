@@ -341,6 +341,37 @@ namespace MovieAndTVDatabase
             return "";
         }
 
+
+        public List<string> GetGenres()
+        {
+            string genre = "Happy";
+            string query = String.Format("SELECT name " +
+                                         "FROM genres");
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                List<string>[] result = new List<string>[1];
+                result[0] = new List<string>();
+
+                while (rdr.Read())
+                {
+                    result[0].Add(rdr["name"] + "");
+                }
+
+                rdr.Close();
+                this.CloseConnection();
+
+                if (result[0].Count > 0)
+                {
+                    return result[0];
+                }
+            }
+            return new List<string>();
+        }
+
+
         public string GetShowLink(string name)
         {
             try
