@@ -31,6 +31,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.watchBtn = new System.Windows.Forms.Button();
             this.showTxt = new System.Windows.Forms.TextBox();
+            this.currentUserLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,6 +69,15 @@
             this.showTxt.TabIndex = 0;
             this.showTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // currentUserLbl
+            // 
+            this.currentUserLbl.AutoSize = true;
+            this.currentUserLbl.Location = new System.Drawing.Point(12, 43);
+            this.currentUserLbl.Name = "currentUserLbl";
+            this.currentUserLbl.Size = new System.Drawing.Size(97, 17);
+            this.currentUserLbl.TabIndex = 2;
+            this.currentUserLbl.Text = "Current User: ";
+            // 
             // Watch
             // 
             this.AcceptButton = this.watchBtn;
@@ -75,6 +85,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(819, 643);
             this.ControlBox = false;
+            this.Controls.Add(this.currentUserLbl);
             this.Controls.Add(this.showTxt);
             this.Controls.Add(this.watchBtn);
             this.Controls.Add(this.pictureBox1);
@@ -83,6 +94,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Shown += new System.EventHandler(this.Watch_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -94,5 +106,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button watchBtn;
         private System.Windows.Forms.TextBox showTxt;
+        private System.Windows.Forms.Label currentUserLbl;
     }
 }

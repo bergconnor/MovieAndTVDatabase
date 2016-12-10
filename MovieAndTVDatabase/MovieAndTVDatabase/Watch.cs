@@ -13,6 +13,8 @@ namespace MovieAndTVDatabase
     public partial class Watch : Form
     {
         private DatabaseConnect db;
+        private string email;
+        private string user;
         private string defaultImageString;
 
         public Watch()
@@ -38,6 +40,13 @@ namespace MovieAndTVDatabase
             {
                 this.pictureBox1.Load(defaultImageString);
             }
+        }
+
+        private void Watch_Shown(object sender, EventArgs e)
+        {
+            this.email = ((Container)this.MdiParent).Email;
+            this.user = ((Container)this.MdiParent).User;
+            currentUserLbl.Text += this.user;
         }
     }
 }
