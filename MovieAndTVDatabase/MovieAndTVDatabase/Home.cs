@@ -15,12 +15,10 @@ namespace MovieAndTVDatabase
         private DatabaseConnect db;
         private string email;
 
-        public Home(string email)
+        public Home()
         {
             InitializeComponent();
-            db = new DatabaseConnect();
-            this.email = email;
-            FillUsers();
+            this.db = new DatabaseConnect();
         }
 
         private void FillUsers()
@@ -32,6 +30,28 @@ namespace MovieAndTVDatabase
             foreach (string user in users)
             {
                 usersCombo.Items.Add(user);
+            }
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            ((Container)this.MdiParent).logout(); 
+        }
+
+        private void usersCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ((Container)MdiParent).User = usersCombo.SelectedItem.ToString();
+            ((Container)MdiParent).EnableMenuItems();
+        }
+
+        private void Home_Shown(object sender, EventArgs e)
+        {
+            this.email = ((Container)this.MdiParent).Email;
+            FillUsers();
+            string user = ((Container)this.MdiParent).User;
+            if (user != null)
+            {
+                usersCombo.Text = user;
             }
         }
     }

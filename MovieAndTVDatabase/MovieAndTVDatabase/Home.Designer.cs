@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.usersCombo = new System.Windows.Forms.ComboBox();
+            this.logoutBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -53,6 +54,17 @@
             this.usersCombo.Name = "usersCombo";
             this.usersCombo.Size = new System.Drawing.Size(92, 21);
             this.usersCombo.TabIndex = 1;
+            this.usersCombo.SelectedIndexChanged += new System.EventHandler(this.usersCombo_SelectedIndexChanged);
+            // 
+            // logoutBtn
+            // 
+            this.logoutBtn.Location = new System.Drawing.Point(690, 32);
+            this.logoutBtn.Name = "logoutBtn";
+            this.logoutBtn.Size = new System.Drawing.Size(75, 23);
+            this.logoutBtn.TabIndex = 2;
+            this.logoutBtn.Text = "Logout";
+            this.logoutBtn.UseVisualStyleBackColor = true;
+            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
             // 
             // Home
             // 
@@ -60,6 +72,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 499);
             this.ControlBox = false;
+            this.Controls.Add(this.logoutBtn);
             this.Controls.Add(this.usersCombo);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -68,6 +81,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Shown += new System.EventHandler(this.Home_Shown);
             this.ResumeLayout(false);
 
         }
@@ -76,5 +90,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox usersCombo;
+        private System.Windows.Forms.Button logoutBtn;
     }
 }

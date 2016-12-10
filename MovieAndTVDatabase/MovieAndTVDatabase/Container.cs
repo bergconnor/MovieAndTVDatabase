@@ -12,15 +12,23 @@ namespace MovieAndTVDatabase
 {
     public partial class Container : Form
     {
-        private string email;
+        private Login login;
 
-        public Container(string email)
+        public bool UserClosing { get; set; }
+        public string Email { get; set; }
+        public string User { get; set; }
+
+        public Container(Login login, string email)
         {
             InitializeComponent();
-            this.email = email;
-            Home form = new Home(email);
-            form.MdiParent = this;
-            form.Show();
+            DisableMenuItems();
+            this.login = login;
+            this.Email = email;
+            UserClosing = false;
+
+            Home home = new Home();
+            home.MdiParent = this;
+            home.Show();
         }
 
         private void Homepage_FormClosing(object sender, FormClosingEventArgs e)
@@ -39,7 +47,7 @@ namespace MovieAndTVDatabase
         private void accountToolStripMenuItem_Click(object sender, EventArgs e)
         {
             closeChildren();
-            Account form = new Account(email);
+            Account form = new Account();
             form.MdiParent = this;
             form.Show();
         }
@@ -55,9 +63,38 @@ namespace MovieAndTVDatabase
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             closeChildren();
-            Home form = new Home(email);
+            Home form = new Home();
             form.MdiParent = this;
             form.Show();
+        }
+
+        public void logout()
+        {
+            UserClosing = true;
+            this.login.Show();
+            this.Close();
+        }
+
+        private void Container_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!UserClosing)
+            {
+                Application.Exit();
+            }
+        }
+
+        public void EnableMenuItems()
+        {
+            this.homeToolStripMenuItem.Enabled = true;
+            this.accountToolStripMenuItem.Enabled = true;
+            this.watchToolStripMenuItem.Enabled = true;
+        }
+
+        public void DisableMenuItems()
+        {
+            this.homeToolStripMenuItem.Enabled = false;
+            this.accountToolStripMenuItem.Enabled = false;
+            this.watchToolStripMenuItem.Enabled = false;
         }
     }
 }

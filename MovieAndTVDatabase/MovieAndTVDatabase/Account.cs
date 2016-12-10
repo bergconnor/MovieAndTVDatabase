@@ -14,13 +14,12 @@ namespace MovieAndTVDatabase
     {
         private DatabaseConnect db;
         private string email;
+        private string user;
 
-        public Account(string email)
+        public Account()
         {
             InitializeComponent();
             this.db = new DatabaseConnect();
-            this.email = email;
-            FillUsers();
         }
 
         private void FillUsers()
@@ -51,11 +50,11 @@ namespace MovieAndTVDatabase
                         resultTxt.Text = String.Format("Welcome {0}!", name);
                         FillUsers();
                         break;
-                    case 3:
-                        resultTxt.Text = "Too many users. Each account can only have 5 users.";
-                        break;
-                    case 4:
+                    case 1062:
                         resultTxt.Text = "Duplicate name. Please enter a unique name for this account.";
+                        break;
+                    case 1644:
+                        resultTxt.Text = "Too many users. Each account can only have 5 users.";
                         break;
                 }
             }
@@ -64,16 +63,31 @@ namespace MovieAndTVDatabase
 
         private void rmvUserBtn_Click(object sender, EventArgs e)
         {
-            string user = usersCombo.SelectedItem.ToString();
-            int result = db.RemoveUser(user, email);
-            if (result == 0)
+            if (usersCombo.SelectedItem != null)
             {
-                resultTxt.Text = String.Format("{0} successfully removed.", user);
+                string user = usersCombo.SelectedItem.ToString();
+                int result = db.RemoveUser(user, email);
+                if (result == 0)
+                {
+                    resultTxt.Text = String.Format("{0} successfully removed.", user);
+                }
+                else if (result == 3)
+                {
+                    resultTxt.Text = "Can't delete user. Each account must have at least one user.";
+                }
+                FillUsers();
             }
-            else if (result == 3)
+            else
             {
-                resultTxt.Text = "Can't delete user. Each account must have at least one user.";
+                resultTxt.Text = "Select a user before attempting to remove one.";
             }
+        }
+
+        private void Account_Shown(object sender, EventArgs e)
+        {
+            this.email = ((Container)this.MdiParent).Email;
+            this.user = ((Container)this.MdiParent).User;
+            resultTxt.Text = String.Format("User {0} selected.", this.user);
             FillUsers();
         }
     }

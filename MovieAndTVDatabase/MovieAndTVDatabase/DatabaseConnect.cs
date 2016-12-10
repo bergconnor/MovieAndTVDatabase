@@ -191,31 +191,58 @@ namespace MovieAndTVDatabase
             return 2;
         }
 
+        private List<int> getUserIDs()
+        {
+            string query = "SELECT id from users";
+            List<int> ids = new List<int>();
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    ids.Add(Convert.ToInt32(rdr["id"]));
+                }
+
+                rdr.Close();
+                this.CloseConnection();
+            }
+
+            return ids;
+        }
+
         public int AddUser(string name, string email)
         {
-            string id = GetAccountID(email);
-            string query = String.Format("INSERT INTO users (name, account_id)" +
-                                         "VALUES ('{0}','{1}')", name, id);
+            Random rnd = new Random();
+            List<int> user_ids = getUserIDs();
+            string account_id = GetAccountID(email);
+
+            int user_id;
+            while (true)
+            {
+                user_id = rnd.Next(1, 10000);
+                if (!user_ids.Contains(user_id))
+                {
+                    break;
+                }
+            }
+
+            string query = String.Format("INSERT INTO users (id, name, account_id)" +
+                                         "VALUES ({0},'{1}',{2})", user_id, name, account_id);
             try
             {
-                if (GetNumberOfUsers(id) < 5)
-                {
                     if (this.OpenConnection() == true)
                     {
                         MySqlCommand cmd = new MySqlCommand(query, conn);
                         cmd.ExecuteNonQuery();
                         this.CloseConnection();
                     }
-                }
-                else
-                {
-                    return 3;
-                }
             }
             catch (MySqlException ex)
             {
                 this.CloseConnection();
-                return 4;
+                return ex.Number;
             }
             return 0;
         }
@@ -287,28 +314,35 @@ namespace MovieAndTVDatabase
 
         public string GetShowLink(string name)
         {
-            string query = String.Format("SELECT poster FROM shows where name='{0}'", name);
-            if (this.OpenConnection() == true)
+            try
             {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                List<string>[] result = new List<string>[1];
-                result[0] = new List<string>();
-
-                while (rdr.Read())
+                string query = String.Format("SELECT poster FROM shows where name='{0}'", name);
+                if (this.OpenConnection() == true)
                 {
-                    result[0].Add(rdr["poster"] + "");
-                }
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    List<string>[] result = new List<string>[1];
+                    result[0] = new List<string>();
 
-                rdr.Close();
-                this.CloseConnection();
+                    while (rdr.Read())
+                    {
+                        result[0].Add(rdr["poster"] + "");
+                    }
 
-                if (result[0].Count > 0)
-                {
-                    return result[0][0];
+                    rdr.Close();
+                    this.CloseConnection();
+
+                    if (result[0].Count > 0)
+                    {
+                        return result[0][0];
+                    }
                 }
+                return "";
             }
-            return "";
+            catch (MySqlException ex)
+            {
+                return "";
+            }
         }
     }
 }

@@ -28,13 +28,16 @@ namespace MovieAndTVDatabase
             if (db.CheckPassword(email, password))
             {
                 this.Hide();
-                Container container = new Container(email);
+                Container container = new Container(this, email);
                 container.Show(this);
             }
             else
             {
                 resultsTxt.Text = "Invalid email address or password.";
             }
+            emailTxt.Text = "";
+            passTxt.Text = "";
+            resultsTxt.Text = "";
         }
 
         private void signupBtn_Click(object sender, EventArgs e)

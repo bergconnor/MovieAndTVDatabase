@@ -33,6 +33,7 @@
             this.resultTxt = new System.Windows.Forms.TextBox();
             this.usersCombo = new System.Windows.Forms.ComboBox();
             this.rmvUserBtn = new System.Windows.Forms.Button();
+            this.currentUserLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // addUserBtn
@@ -86,12 +87,21 @@
             this.rmvUserBtn.UseVisualStyleBackColor = true;
             this.rmvUserBtn.Click += new System.EventHandler(this.rmvUserBtn_Click);
             // 
+            // currentUserLbl
+            // 
+            this.currentUserLbl.AutoSize = true;
+            this.currentUserLbl.Location = new System.Drawing.Point(38, 13);
+            this.currentUserLbl.Name = "currentUserLbl";
+            this.currentUserLbl.Size = new System.Drawing.Size(0, 17);
+            this.currentUserLbl.TabIndex = 5;
+            // 
             // Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 614);
             this.ControlBox = false;
+            this.Controls.Add(this.currentUserLbl);
             this.Controls.Add(this.rmvUserBtn);
             this.Controls.Add(this.usersCombo);
             this.Controls.Add(this.resultTxt);
@@ -101,6 +111,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Shown += new System.EventHandler(this.Account_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,5 +124,6 @@
         private System.Windows.Forms.TextBox resultTxt;
         private System.Windows.Forms.ComboBox usersCombo;
         private System.Windows.Forms.Button rmvUserBtn;
+        private System.Windows.Forms.Label currentUserLbl;
     }
 }
