@@ -302,12 +302,39 @@ namespace MovieAndTVDatabase
                 rdr.Close();
                 this.CloseConnection();
 
-                if (result[0].Count > 0)
-                {
-                    return result[0];
-                }
+                return result[0];
             }
-            return new List<string>();
+            return null;
+        }
+
+        public List<string>[] GetUserIDs(string email)
+        {
+            string query = String.Format("SELECT u.name, u.id " +
+                                         "FROM users u " +
+                                           "JOIN accounts a " +
+                                             "ON a.id = u.account_id " +
+                                         "WHERE email='{0}'", email);
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                List<string>[] result = new List<string>[2];
+                result[0] = new List<string>();
+                result[1] = new List<string>();
+
+                while (rdr.Read())
+                {
+                    result[0].Add(rdr["name"] + "");
+                    result[1].Add(rdr["id"] + "");
+                }
+
+                rdr.Close();
+                this.CloseConnection();
+
+                return result;
+            }
+            return null;
         }
 
         public string GetSubscriptionEnd(string email)
@@ -339,7 +366,6 @@ namespace MovieAndTVDatabase
             return "";
         }
 
-
         public List<string> GetGenres()
         {
             string query = String.Format("SELECT name " +
@@ -367,7 +393,6 @@ namespace MovieAndTVDatabase
             }
             return new List<string>();
         }
-
 
         public string GetShowLink(string name)
         {
@@ -436,7 +461,7 @@ namespace MovieAndTVDatabase
             }
         }
 
-        public List<string> GetResults(string genre, string actor, string show, string type)
+        public List<string>[] GetResults(string genre, string actor, string show, string type)
         {
             string genre2a = "join show_genre sg on s.id = sg.show_id join genres g on sg.genre_id = g.id ";
             string genre2b = String.Format("and g.name = '{0}'", genre);
@@ -469,34 +494,37 @@ namespace MovieAndTVDatabase
                     break;
             }
 
-            string query = String.Format("SELECT distinct s.name " +
+            string query = String.Format("SELECT display_name(s.name) as name, poster " +
                                          "FROM shows s {0} {1} {2} " +
-                                         "WHERE s.name like '%{3}%' {4} {5} {6} order by name",genre2a,actor2a,type2a,show,actor2b,genre2b,type2b);
-
-
-
-
-            if (this.OpenConnection() == true)
+                                         "WHERE s.name like '%{3}%' {4} {5} {6} order by s.name",genre2a,actor2a,type2a,show,actor2b,genre2b,type2b);
+            try
             {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                List<string>[] result = new List<string>[1];
-                result[0] = new List<string>();
-
-                while (rdr.Read())
+                if (this.OpenConnection() == true)
                 {
-                    result[0].Add(rdr["name"] + "");
-                }
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    List<string>[] result = new List<string>[2];
+                    result[0] = new List<string>();
+                    result[1] = new List<string>();
 
-                rdr.Close();
-                this.CloseConnection();
+                    while (rdr.Read())
+                    {
+                        result[0].Add(rdr["name"] + "");
+                        result[1].Add(rdr["poster"] + "");
+                    }
 
-                if (result[0].Count > 0)
-                {
-                    return result[0];
+                    rdr.Close();
+                    this.CloseConnection();
+
+                    return result;
                 }
             }
-            return new List<string>();
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
+                return null;
+            }
+            return null;
         }
 
         public string getSingleUser(string email, string user)
@@ -952,5 +980,106 @@ namespace MovieAndTVDatabase
         }
 
 
+        public List<string>[] GetFavoriteGenres(string user_id)
+        {
+            string query = String.Format("select x.genre_id as genre_id, count(*) count " +
+                                         "from (select * from vfavorites " +
+                                               "where user_id = {0}) x " +
+                                         "group by x.genre_id " +
+                                         "order by count desc", user_id);
+
+            if (this.OpenConnection() == true)
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    List<string>[] result = new List<string>[2];
+                    result[0] = new List<string>();
+                    result[1] = new List<string>();
+
+                    while (rdr.Read())
+                    {
+                        result[0].Add(rdr["genre_id"] + "");
+                        result[1].Add(rdr["count"] + "");
+                    }
+
+                    rdr.Close();
+                    this.CloseConnection();
+
+                    return result;
+                }
+                catch (MySqlException ex)
+                {
+                    this.CloseConnection();
+                    return null;
+                }
+
+            }
+            return null;
+        }
+
+        public List<string> GetRecommendations(string email, string user)
+        {
+            List<string>[] users = GetUserIDs(email);
+            int index = users[0].IndexOf(user);
+            string userID = users[1][index];
+            List<string>[] genres = GetFavoriteGenres(userID);
+
+            string query = "select display_name(a.name) name from ";
+            string join = "(select s.id, s.name " +
+                          "from shows s " +
+                              "join show_genre sg " +
+                                "on sg.show_id = s.id " +
+                              "join genres g " +
+                                "on g.id = sg.genre_id " +
+                          "where g.id = {0}) {1} ";
+
+            char letter = 'a';
+            int limit = Math.Min(genres[0].Count, 4);
+
+            for (int i = 0; i < limit; i++)
+            {
+                query += String.Format(join, genres[0][i], letter);
+                if ( i > 0)
+                {
+                    query += String.Format("on {0}.id = {1}.id ", letter, (char)(letter - 1));
+                }
+                query += "join ";
+                letter++;
+            }
+            query = query.Remove(query.Length - 5);
+            query += "order by name";
+
+            if (this.OpenConnection() == true)
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    List<string>[] result = new List<string>[1];
+                    result[0] = new List<string>();
+
+                    while (rdr.Read())
+                    {
+                        result[0].Add(rdr["name"] + "");
+                    }
+
+                    rdr.Close();
+                    this.CloseConnection();
+
+                    return result[0];
+                }
+                catch (MySqlException ex)
+                {
+                    this.CloseConnection();
+                    return new List<string>();
+                }
+
+            }
+            return new List<string>();
+        }
+
+        //public bool CheckExpired
     }
 }

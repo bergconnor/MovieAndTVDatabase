@@ -87,11 +87,11 @@ namespace MovieAndTVDatabase
             string show = showText.Text;
             string type = movieCombo.Text;
 
-            List<string> results = db.GetResults(genre, actor, show, type);
+            List<string>[] results = db.GetResults(genre, actor, show, type);
             resultCombo.Items.Clear();
             resultCombo.ResetText();
 
-            foreach (string result in results)
+            foreach (string result in results[0])
             {
                 resultCombo.Items.Add(result);
             }
@@ -129,6 +129,30 @@ namespace MovieAndTVDatabase
         private void watchButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void recommendButton_Click(object sender, EventArgs e)
+        {
+            string user = ((Container)this.MdiParent).User;
+            List<string> shows = db.GetRecommendations(email, user);
+            resultCombo.Items.Clear();
+            resultCombo.ResetText();
+
+            if (shows.Count == 0)
+            {
+                MessageBox.Show("Favorite some shows to get recommendations");
+            }
+            else if (shows.Count > 25)
+            {
+                MessageBox.Show("Favorite more shows to improve result.");
+            }
+            else
+            {
+                foreach (string result in shows)
+                {
+                    resultCombo.Items.Add(result);
+                }
+            }
         }
     }
 }

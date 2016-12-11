@@ -14,7 +14,7 @@ FROM users u
     LEFT JOIN show_genre sg
       ON sg.show_id = s.id
     LEFT JOIN genres g
-      ON g.id = sg.genre_id
+      ON g.id = sg.genre_id;
 
 CREATE VIEW vhistory
 AS SELECT u.id AS user_id,
@@ -27,4 +27,4 @@ FROM users u
     LEFT JOIN show_genre sg
       ON sg.show_id = s.id
     LEFT JOIN genres g
-      ON g.id = sg.genre_id
+      ON g.id = sg.genre_id;

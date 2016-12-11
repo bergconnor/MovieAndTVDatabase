@@ -96,6 +96,7 @@ namespace MovieAndTVDatabase
             currentUserLbl.Text += this.user;
             endLbl.Text += this.end;
             FillUsers();
+            nameTxt.Focus();
         }
     }
 }
