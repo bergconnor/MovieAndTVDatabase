@@ -38,6 +38,7 @@
             this.pass2Lbl = new System.Windows.Forms.Label();
             this.nameTxt = new System.Windows.Forms.TextBox();
             this.nameLbl = new System.Windows.Forms.Label();
+            this.backBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // resultsTxt
@@ -90,10 +91,10 @@
             // 
             // signupBtn
             // 
-            this.signupBtn.Location = new System.Drawing.Point(15, 274);
+            this.signupBtn.Location = new System.Drawing.Point(200, 274);
             this.signupBtn.Margin = new System.Windows.Forms.Padding(4);
             this.signupBtn.Name = "signupBtn";
-            this.signupBtn.Size = new System.Drawing.Size(350, 28);
+            this.signupBtn.Size = new System.Drawing.Size(163, 28);
             this.signupBtn.TabIndex = 5;
             this.signupBtn.Text = "Sign Up";
             this.signupBtn.UseVisualStyleBackColor = true;
@@ -136,12 +137,24 @@
             this.nameLbl.TabIndex = 0;
             this.nameLbl.Text = "Name";
             // 
+            // backBtn
+            // 
+            this.backBtn.Location = new System.Drawing.Point(13, 274);
+            this.backBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(163, 28);
+            this.backBtn.TabIndex = 6;
+            this.backBtn.Text = "Back";
+            this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
             // SignUp
             // 
             this.AcceptButton = this.signupBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 311);
+            this.Controls.Add(this.backBtn);
             this.Controls.Add(this.nameLbl);
             this.Controls.Add(this.nameTxt);
             this.Controls.Add(this.pass2Lbl);
@@ -175,5 +188,6 @@
         private System.Windows.Forms.Label pass2Lbl;
         private System.Windows.Forms.TextBox nameTxt;
         private System.Windows.Forms.Label nameLbl;
+        private System.Windows.Forms.Button backBtn;
     }
 }

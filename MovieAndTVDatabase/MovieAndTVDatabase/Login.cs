@@ -14,10 +14,13 @@ namespace MovieAndTVDatabase
     {
         private DatabaseConnect db;
 
+        public TextBox result { get; set; }
+
         public Login()
         {
             InitializeComponent();
             db = new DatabaseConnect();
+            result = this.resultsTxt;
         }
 
         private void loginBtn_Click(object sender, EventArgs e)
@@ -33,11 +36,11 @@ namespace MovieAndTVDatabase
             }
             else
             {
-                resultsTxt.Text = "Invalid email address or password.";
+                result.Text = "Invalid email address or password.";
             }
             emailTxt.Text = "";
             passTxt.Text = "";
-            resultsTxt.Text = "";
+            result.Text = "";
         }
 
         private void signupBtn_Click(object sender, EventArgs e)
@@ -47,7 +50,7 @@ namespace MovieAndTVDatabase
             this.Hide();
             SignUp form = new SignUp(this);
             form.Show();
-            resultsTxt.Text = "You successfully signed up.";
+            //resultsTxt.Text = "You successfully signed up.";
         }
     }
 }

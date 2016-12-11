@@ -42,27 +42,28 @@ namespace MovieAndTVDatabase
                 {
                     case 0:
                         UserClosing = true;
+                        form.result.Text = "You successfully signed up.";
                         form.Show();
                         this.Close();
                         break;
                     case 1:
-                        resultsTxt.Text = "Email address already in use.";
+                        form.result.Text = "Email address already in use.";
                         emailTxt.Text = "";
                         break;
                     case 2:
-                        resultsTxt.Text = "Connection error, try again.";
+                        form.result.Text = "Connection error, try again.";
                         break;
                     case 3:
-                        resultsTxt.Text = "You have too many users.";
+                        form.result.Text = "You have too many users.";
                         break;
                     case 4:
-                        resultsTxt.Text = "Username already taken for this account.";
+                        form.result.Text = "Username already taken for this account.";
                         break;
                 }
             }
             else
             {
-                resultsTxt.Text = "Passwords do not match.";
+                form.result.Text = "Passwords do not match.";
             }
         }
 
@@ -72,6 +73,14 @@ namespace MovieAndTVDatabase
             {
                 Application.Exit();
             }
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            UserClosing = true;
+            form.result.Text = "You did not sign up.";
+            form.Show();
+            this.Close();
         }
     }
 }
