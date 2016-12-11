@@ -40,7 +40,6 @@ namespace MovieAndTVDatabase
             }
             emailTxt.Text = "";
             passTxt.Text = "";
-            result.Text = "";
         }
 
         private void signupBtn_Click(object sender, EventArgs e)
