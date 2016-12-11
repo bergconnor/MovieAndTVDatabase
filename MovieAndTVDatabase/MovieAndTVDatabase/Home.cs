@@ -58,6 +58,7 @@ namespace MovieAndTVDatabase
         {
             ((Container)MdiParent).User = usersCombo.SelectedItem.ToString();
             ((Container)MdiParent).EnableMenuItems();
+            recommendButton.Enabled = true;
         }
 
         private void Home_Shown(object sender, EventArgs e)
@@ -102,6 +103,22 @@ namespace MovieAndTVDatabase
             movieCombo.Items.Add("TV Shows");
 
             movieCombo.Text = "Both";
+        }
+
+        private void infoButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void resultCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            infoButton.Enabled = true;
+            watchButton.Enabled = true;
+        }
+
+        private void watchButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

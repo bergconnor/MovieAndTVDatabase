@@ -46,25 +46,26 @@
             this.watchButton = new System.Windows.Forms.Button();
             this.movieLabel = new System.Windows.Forms.Label();
             this.movieCombo = new System.Windows.Forms.ComboBox();
+            this.recommendButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(171, 29);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(208, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(270, 75);
+            this.label1.Size = new System.Drawing.Size(184, 48);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Home2";
+            this.label1.Text = "Home";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // usersCombo
             // 
             this.usersCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.usersCombo.FormattingEnabled = true;
-            this.usersCombo.Location = new System.Drawing.Point(11, 83);
-            this.usersCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.usersCombo.Location = new System.Drawing.Point(12, 49);
+            this.usersCombo.Margin = new System.Windows.Forms.Padding(2);
             this.usersCombo.MaxDropDownItems = 5;
             this.usersCombo.Name = "usersCombo";
             this.usersCombo.Size = new System.Drawing.Size(116, 21);
@@ -73,7 +74,7 @@
             // 
             // logoutBtn
             // 
-            this.logoutBtn.Location = new System.Drawing.Point(530, 20);
+            this.logoutBtn.Location = new System.Drawing.Point(527, 22);
             this.logoutBtn.Name = "logoutBtn";
             this.logoutBtn.Size = new System.Drawing.Size(75, 23);
             this.logoutBtn.TabIndex = 2;
@@ -86,7 +87,7 @@
             this.genreCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genreCombo.FormattingEnabled = true;
             this.genreCombo.Location = new System.Drawing.Point(11, 297);
-            this.genreCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.genreCombo.Margin = new System.Windows.Forms.Padding(2);
             this.genreCombo.MaxDropDownItems = 5;
             this.genreCombo.Name = "genreCombo";
             this.genreCombo.Size = new System.Drawing.Size(183, 21);
@@ -106,7 +107,7 @@
             // 
             this.userLabel.AutoSize = true;
             this.userLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userLabel.Location = new System.Drawing.Point(6, 56);
+            this.userLabel.Location = new System.Drawing.Point(12, 22);
             this.userLabel.Name = "userLabel";
             this.userLabel.Size = new System.Drawing.Size(123, 25);
             this.userLabel.TabIndex = 5;
@@ -164,6 +165,7 @@
             this.resultCombo.Name = "resultCombo";
             this.resultCombo.Size = new System.Drawing.Size(329, 163);
             this.resultCombo.TabIndex = 11;
+            this.resultCombo.SelectedIndexChanged += new System.EventHandler(this.resultCombo_SelectedIndexChanged);
             // 
             // searchButton
             // 
@@ -186,6 +188,7 @@
             this.infoButton.TabIndex = 13;
             this.infoButton.Text = "More Information";
             this.infoButton.UseVisualStyleBackColor = true;
+            this.infoButton.Click += new System.EventHandler(this.infoButton_Click);
             // 
             // resultLabel
             // 
@@ -207,6 +210,7 @@
             this.watchButton.TabIndex = 15;
             this.watchButton.Text = "Watch Show";
             this.watchButton.UseVisualStyleBackColor = true;
+            this.watchButton.Click += new System.EventHandler(this.watchButton_Click);
             // 
             // movieLabel
             // 
@@ -227,12 +231,24 @@
             this.movieCombo.Size = new System.Drawing.Size(182, 21);
             this.movieCombo.TabIndex = 17;
             // 
+            // recommendButton
+            // 
+            this.recommendButton.Enabled = false;
+            this.recommendButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recommendButton.Location = new System.Drawing.Point(12, 85);
+            this.recommendButton.Name = "recommendButton";
+            this.recommendButton.Size = new System.Drawing.Size(182, 38);
+            this.recommendButton.TabIndex = 18;
+            this.recommendButton.Text = "Recommend Shows";
+            this.recommendButton.UseVisualStyleBackColor = true;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 499);
             this.ControlBox = false;
+            this.Controls.Add(this.recommendButton);
             this.Controls.Add(this.movieCombo);
             this.Controls.Add(this.movieLabel);
             this.Controls.Add(this.watchButton);
@@ -251,7 +267,7 @@
             this.Controls.Add(this.logoutBtn);
             this.Controls.Add(this.usersCombo);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Home";
             this.ShowInTaskbar = false;
@@ -283,5 +299,6 @@
         private System.Windows.Forms.Button watchButton;
         private System.Windows.Forms.Label movieLabel;
         private System.Windows.Forms.ComboBox movieCombo;
+        private System.Windows.Forms.Button recommendButton;
     }
 }
