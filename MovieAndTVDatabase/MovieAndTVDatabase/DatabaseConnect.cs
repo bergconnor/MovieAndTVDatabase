@@ -502,41 +502,6 @@ namespace MovieAndTVDatabase
             return new List<string>();
         }
 
-
-        public string GetShowId(string name)
-        {
-            try
-            {
-                string query = String.Format("SELECT id FROM shows where name='{0}'", name);
-                if (this.OpenConnection() == true)
-                {
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    MySqlDataReader rdr = cmd.ExecuteReader();
-                    List<string>[] result = new List<string>[1];
-                    result[0] = new List<string>();
-
-                    while (rdr.Read())
-                    {
-                        result[0].Add(rdr["id"] + "");
-                    }
-
-                    rdr.Close();
-                    this.CloseConnection();
-
-                    if (result[0].Count > 0)
-                    {
-                        return result[0][0];
-                    }
-                }
-                return "";
-            }
-            catch (MySqlException ex)
-            {
-                return "";
-            }
-
-        }
-
         public string getSingleUser(string email, string user)
         {
             string query = String.Format("SELECT u.id id " +
@@ -624,80 +589,6 @@ namespace MovieAndTVDatabase
             catch (MySqlException ex)
             {
                 return "";
-            }
-        }
-        public string getSingleUser(string email, string user)
-        {
-            string query = String.Format("SELECT u.id id " +
-                                         "FROM users u " +
-                                           "JOIN accounts a " +
-                                             "ON a.id = u.account_id " +
-                                         "WHERE email='{0}' and u.name = '{1}'", email, user);
-            if (this.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                List<string>[] result = new List<string>[1];
-                result[0] = new List<string>();
-                while (rdr.Read())
-                {
-                    result[0].Add(rdr["id"] + "");
-                }
-                rdr.Close();
-                this.CloseConnection();
-                if (result[0].Count > 0)
-                {
-                    return result[0][0];
-                }
-            }
-            //return new List<string>();
-            return "";
-        }
-        public void addHistory(string email, string userName, string showName)
-        {
-            string showId = GetShowId(showName);//"10";
-            string date = "20161210";
-            DateTime today = DateTime.Today;
-            date = today.ToString("yyyy/MM/dd");
-            string userId = getSingleUser(email, userName);
-            try
-            {
-                string query = String.Format("insert into history(user_id, show_id, date) values({0}, {1}, '{2}')", userId, showId, date);
-                if (this.OpenConnection() == true)
-                {
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.ExecuteReader();
-                    this.CloseConnection();
-                }
-                //return "";
-            }
-            catch (MySqlException ex)
-            {
-                //return "";
-            }
-        }
-
-        public void addFavorite(string email, string userName, string showName)
-        {
-            string showId = GetShowId(showName);//"10";
-            string date = "20161210";
-            DateTime today = DateTime.Today;
-            date = today.ToString("yyyy/MM/dd");
-            string userId = getSingleUser(email, userName);
-            try
-            {
-                string query = String.Format("insert into favorites(user_id, show_id, date) values({0}, {1}, '{2}')", userId, showId, date);
-                if (this.OpenConnection() == true)
-                {
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.ExecuteReader();
-                    this.CloseConnection();
-                }
-                //return "";
-            }
-            catch (MySqlException ex)
-            {
-                //return "";
             }
         }
 
