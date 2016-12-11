@@ -1,0 +1,11 @@
+Things we can improve in the future:
+    - styling
+    - recommendations algorithm
+    - 
+
+Things to do:
+    - add copyright information
+    - add TMDB logo
+    - write essay
+    - extend subscription
+    - ability check if subscription has ended
