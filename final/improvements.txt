@@ -1,0 +1,4 @@
+Things we can improve in the future:
+    - styling
+    - recommendations algorithm
+    - 
