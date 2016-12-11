@@ -73,7 +73,7 @@
             // logoutBtn
             // 
             this.logoutBtn.Location = new System.Drawing.Point(707, 25);
-            this.logoutBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logoutBtn.Margin = new System.Windows.Forms.Padding(4);
             this.logoutBtn.Name = "logoutBtn";
             this.logoutBtn.Size = new System.Drawing.Size(100, 28);
             this.logoutBtn.TabIndex = 2;
@@ -139,7 +139,7 @@
             // actorText
             // 
             this.actorText.Location = new System.Drawing.Point(15, 428);
-            this.actorText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.actorText.Margin = new System.Windows.Forms.Padding(4);
             this.actorText.Name = "actorText";
             this.actorText.Size = new System.Drawing.Size(243, 22);
             this.actorText.TabIndex = 8;
@@ -158,7 +158,7 @@
             // showText
             // 
             this.showText.Location = new System.Drawing.Point(15, 305);
-            this.showText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.showText.Margin = new System.Windows.Forms.Padding(4);
             this.showText.Name = "showText";
             this.showText.Size = new System.Drawing.Size(243, 22);
             this.showText.TabIndex = 10;
@@ -168,7 +168,7 @@
             this.resultCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.resultCombo.FormattingEnabled = true;
             this.resultCombo.Location = new System.Drawing.Point(300, 340);
-            this.resultCombo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.resultCombo.Margin = new System.Windows.Forms.Padding(4);
             this.resultCombo.Name = "resultCombo";
             this.resultCombo.Size = new System.Drawing.Size(437, 200);
             this.resultCombo.TabIndex = 11;
@@ -177,7 +177,7 @@
             // 
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchButton.Location = new System.Drawing.Point(15, 542);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(4);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(223, 58);
             this.searchButton.TabIndex = 12;
@@ -187,15 +187,15 @@
             // 
             // infoButton
             // 
-            this.infoButton.Enabled = false;
             this.infoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infoButton.Location = new System.Drawing.Point(300, 546);
-            this.infoButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.infoButton.Margin = new System.Windows.Forms.Padding(4);
             this.infoButton.Name = "infoButton";
             this.infoButton.Size = new System.Drawing.Size(195, 42);
             this.infoButton.TabIndex = 13;
             this.infoButton.Text = "More Information";
             this.infoButton.UseVisualStyleBackColor = true;
+            this.infoButton.Click += new System.EventHandler(this.infoButton_Click);
             // 
             // resultLabel
             // 
@@ -210,10 +210,9 @@
             // 
             // watchButton
             // 
-            this.watchButton.Enabled = false;
             this.watchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.watchButton.Location = new System.Drawing.Point(544, 546);
-            this.watchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.watchButton.Margin = new System.Windows.Forms.Padding(4);
             this.watchButton.Name = "watchButton";
             this.watchButton.Size = new System.Drawing.Size(195, 42);
             this.watchButton.TabIndex = 15;
@@ -237,7 +236,7 @@
             this.movieCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.movieCombo.FormattingEnabled = true;
             this.movieCombo.Location = new System.Drawing.Point(16, 491);
-            this.movieCombo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.movieCombo.Margin = new System.Windows.Forms.Padding(4);
             this.movieCombo.Name = "movieCombo";
             this.movieCombo.Size = new System.Drawing.Size(241, 24);
             this.movieCombo.TabIndex = 17;

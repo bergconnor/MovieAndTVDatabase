@@ -106,8 +106,13 @@ namespace MovieAndTVDatabase
 
         private void watchButton_Click(object sender, EventArgs e)
         {
+        }
+
+        private void infoButton_Click(object sender, EventArgs e)
+        {
             Information form = new Information(this);
-            form.Show()
+            form.MdiParent = this.MdiParent;
+            form.Show();
             this.Hide();
         }
     }

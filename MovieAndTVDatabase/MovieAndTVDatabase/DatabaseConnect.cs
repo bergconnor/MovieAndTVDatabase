@@ -404,6 +404,41 @@ namespace MovieAndTVDatabase
             }
         }
 
+        public List<string>[] GetMovieDetails(string name)
+        {
+            try
+            {
+                string query = String.Format("SELECT homepage, description " +
+                                             "FROM shows where name='{0}'", name);
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    List<string>[] result = new List<string>[1];
+                    result[0] = new List<string>();
+
+                    while (rdr.Read())
+                    {
+                        result[0].Add(rdr["homepage"] + "");
+                        result[1].Add(rdr["description"] + "");
+                    }
+
+                    rdr.Close();
+                    this.CloseConnection();
+
+                    if (result[0].Count > 0 && result[1].Count > 0)
+                    {
+                        return result;
+                    }
+                }
+                return null;
+            }
+            catch (MySqlException ex)
+            {
+                return null;
+            }
+        }
+
         public List<string> GetResults(string genre, string actor, string show, string type)
         {
             string genre2a = "join show_genre sg on s.id = sg.show_id join genres g on sg.genre_id = g.id ";

@@ -13,11 +13,18 @@ namespace MovieAndTVDatabase
     public partial class Information : Form
     {
         private Home home;
+        private string title;
 
-        public Information(Home form))
+        public Information(Home form, string title)
         {
             InitializeComponent();
-            this.home = Form;
+            this.home = form;
+            this.title = title;
+        }
+
+        private void LoadDetails()
+        {
+            //List<string>[] details = this.db.GetMov
         }
     }
 }
