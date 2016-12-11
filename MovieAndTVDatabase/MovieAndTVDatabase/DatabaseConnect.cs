@@ -169,10 +169,8 @@ namespace MovieAndTVDatabase
             string start = dt.ToString("yyyy/MM/dd");
             dt = dt.AddYears(1);
             string end = dt.ToString("yyyy/MM/dd");
-            string accessMovies = "TRUE";
-            string accessSeries = "TRUE";
-            string query = String.Format("INSERT INTO accounts (email,password,start,end,access_movie,access_series) VALUES ('{0}','{1}','{2}','{3}',{4},{5})",
-                email, password, start, end, accessMovies, accessSeries);
+            string query = String.Format("INSERT INTO accounts (email,password,start,end) VALUES ('{0}','{1}','{2}','{3}')",
+                email, password, start, end);
             try
             {
                 if (this.OpenConnection() == true)
@@ -872,5 +870,6 @@ namespace MovieAndTVDatabase
             return new List<string>();
         }
 
+        //public bool CheckExpired
     }
 }

@@ -19,8 +19,6 @@ CREATE TABLE accounts(id 			int primary key auto_increment,
 					  password		varchar(50) not null,
 					  start 		date not null,
 					  end 			date not null,
-					  access_movie	boolean not null,
-					  access_series	boolean not null,
 					  constraint 	accounts_uq unique(email));
 
 CREATE TABLE users(id 			int primary key,

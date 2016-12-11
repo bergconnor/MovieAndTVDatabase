@@ -2,3 +2,9 @@ Things we can improve in the future:
     - styling
     - recommendations algorithm
     - 
+
+Things to do:
+    - add copyright information
+    - add TMDB logo
+    - write essay
+    

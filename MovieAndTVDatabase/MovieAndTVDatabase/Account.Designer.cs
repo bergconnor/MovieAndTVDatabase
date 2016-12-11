@@ -35,6 +35,7 @@
             this.rmvUserBtn = new System.Windows.Forms.Button();
             this.currentUserLbl = new System.Windows.Forms.Label();
             this.endLbl = new System.Windows.Forms.Label();
+            this.subscriptionLengthLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // addUserBtn
@@ -100,11 +101,20 @@
             // endLbl
             // 
             this.endLbl.AutoSize = true;
-            this.endLbl.Location = new System.Drawing.Point(12, 67);
+            this.endLbl.Location = new System.Drawing.Point(12, 69);
             this.endLbl.Name = "endLbl";
             this.endLbl.Size = new System.Drawing.Size(123, 17);
             this.endLbl.TabIndex = 5;
             this.endLbl.Text = "Subscription End: ";
+            // 
+            // subscriptionLengthLbl
+            // 
+            this.subscriptionLengthLbl.AutoSize = true;
+            this.subscriptionLengthLbl.Location = new System.Drawing.Point(12, 98);
+            this.subscriptionLengthLbl.Name = "subscriptionLengthLbl";
+            this.subscriptionLengthLbl.Size = new System.Drawing.Size(157, 17);
+            this.subscriptionLengthLbl.TabIndex = 6;
+            this.subscriptionLengthLbl.Text = "Length of Membership: ";
             // 
             // Account
             // 
@@ -113,6 +123,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 614);
             this.ControlBox = false;
+            this.Controls.Add(this.subscriptionLengthLbl);
             this.Controls.Add(this.endLbl);
             this.Controls.Add(this.currentUserLbl);
             this.Controls.Add(this.rmvUserBtn);
@@ -139,5 +150,6 @@
         private System.Windows.Forms.Button rmvUserBtn;
         private System.Windows.Forms.Label currentUserLbl;
         private System.Windows.Forms.Label endLbl;
+        private System.Windows.Forms.Label subscriptionLengthLbl;
     }
 }
