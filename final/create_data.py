@@ -9,11 +9,11 @@ HIST_FILE   = 'history.sql'
 FAV_FILE    = 'favorites.sql'
 FORMAT      = '%Y-%m-%d'
 
-NUM_SHOWS       = 2196
+NUM_SHOWS       = 2189
 MAX_USER_ID     = 10000
 MAX_USERS       = 5
-MAX_WATCHED     = 10
-MAX_FAVORITED   = 5
+MAX_WATCHED     = 20
+MAX_FAVORITED   = 10
 
 VALUES_IDX  = 5
 ID_IDX      = 0
