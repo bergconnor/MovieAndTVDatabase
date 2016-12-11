@@ -47,17 +47,17 @@ namespace MovieAndTVDatabase
                         this.Close();
                         break;
                     case 1:
-                        form.result.Text = "Email address already in use.";
+                        resultsTxt.Text = "Email address already in use.";
                         emailTxt.Text = "";
                         break;
                     case 2:
-                        form.result.Text = "Connection error, try again.";
+                        resultsTxt.Text = "Connection error, try again.";
                         break;
                     case 3:
-                        form.result.Text = "You have too many users.";
+                        resultsTxt.Text = "You have too many users.";
                         break;
                     case 4:
-                        form.result.Text = "Username already taken for this account.";
+                        resultsTxt.Text = "Username already taken for this account.";
                         break;
                 }
             }

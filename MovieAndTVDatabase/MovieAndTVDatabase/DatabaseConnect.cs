@@ -169,10 +169,8 @@ namespace MovieAndTVDatabase
             string start = dt.ToString("yyyy/MM/dd");
             dt = dt.AddYears(1);
             string end = dt.ToString("yyyy/MM/dd");
-            string accessMovies = "TRUE";
-            string accessSeries = "TRUE";
-            string query = String.Format("INSERT INTO accounts (email,password,start,end,access_movie,access_series) VALUES ('{0}','{1}','{2}','{3}',{4},{5})",
-                email, password, start, end, accessMovies, accessSeries);
+            string query = String.Format("INSERT INTO accounts (email,password,start,end) VALUES ('{0}','{1}','{2}','{3}')",
+                email, password, start, end);
             try
             {
                 if (this.OpenConnection() == true)
@@ -404,7 +402,7 @@ namespace MovieAndTVDatabase
             }
         }
 
-        public List<string>[] GetMovieDetails(string name)
+        public string[] GetMovieDetails(string name)
         {
             try
             {
@@ -414,19 +412,18 @@ namespace MovieAndTVDatabase
                 {
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader rdr = cmd.ExecuteReader();
-                    List<string>[] result = new List<string>[1];
-                    result[0] = new List<string>();
+                    string[] result = new string[2];
 
                     while (rdr.Read())
                     {
-                        result[0].Add(rdr["homepage"] + "");
-                        result[1].Add(rdr["description"] + "");
+                        result[0] = (rdr["homepage"] + "");
+                        result[1] = (rdr["description"] + "");
                     }
 
                     rdr.Close();
                     this.CloseConnection();
 
-                    if (result[0].Count > 0 && result[1].Count > 0)
+                    if (result.Length > 0)
                     {
                         return result;
                     }
@@ -743,6 +740,217 @@ namespace MovieAndTVDatabase
             }
             return new List<string>();
         }
+
+        public List<string> GetActors(string title)
+        {
+            string query = String.Format("SELECT a.name name " +
+                                         "FROM actors a " +
+                                           "JOIN show_actor sa " +
+                                             "ON sa.actor_id = a.id " +
+                                           "JOIN shows s " +
+                                             "ON s.id = sa.show_id " +
+                                         "WHERE s.name='{0}'", title);
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                List<string>[] result = new List<string>[1];
+                result[0] = new List<string>();
+
+                while (rdr.Read())
+                {
+                    result[0].Add(rdr["name"] + "");
+                }
+
+                rdr.Close();
+                this.CloseConnection();
+
+                if (result[0].Count > 0)
+                {
+                    return result[0];
+                }
+            }
+            return new List<string>();
+        }
+
+        public List<string> GetShowGenres(string title)
+        {
+            string query = String.Format("SELECT g.name name " +
+                                         "FROM genres g " +
+                                           "JOIN show_genre sg " +
+                                             "ON sg.genre_id = g.id " +
+                                           "JOIN shows s " +
+                                             "ON s.id = sg.show_id " +
+                                         "WHERE s.name='{0}'", title);
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                List<string>[] result = new List<string>[1];
+                result[0] = new List<string>();
+
+                while (rdr.Read())
+                {
+                    result[0].Add(rdr["name"] + "");
+                }
+
+                rdr.Close();
+                this.CloseConnection();
+
+                if (result[0].Count > 0)
+                {
+                    return result[0];
+                }
+            }
+            return new List<string>();
+        }
+
+        public string MovieTVShow(string title)
+        {
+
+            string query = String.Format("SELECT distinct s.name " +
+                                         "FROM shows s " +
+                                            "JOIN movies m " + 
+                                                "ON s.id = m.show_id " +
+                                         "WHERE s.name = '{0}'", title);
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                List<string>[] result = new List<string>[1];
+                result[0] = new List<string>();
+
+                while (rdr.Read())
+                {
+                    result[0].Add(rdr["name"] + "");
+                }
+
+                rdr.Close();
+                this.CloseConnection();
+
+                if (result[0].Count > 0)
+                {
+                    return "Movie";
+                }
+            }
+
+            return "TV Show";
+        }
+
+        public string GetChannel(string title)
+        {
+            try
+            {
+                string query = String.Format("SELECT se.channel FROM series se JOIN shows s on s.id = se.show_id  WHERE s.name='{0}'", title);
+
+
+
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    string result= "";
+                    while (rdr.Read())
+                    {
+                        result = (rdr["channel"] + "");
+                    }
+                    rdr.Close();
+                    this.CloseConnection();
+                    return result;
+                }
+                return "";
+            }
+            catch (MySqlException ex)
+            {
+                return "";
+            }
+        }
+
+        public int GetSeason(string id)
+        {
+            string query = String.Format("SELECT num " +
+                                         "FROM seasons " +
+                                         "WHERE show_id = {0}", id);
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                int result = 0;
+
+                while (rdr.Read())
+                {
+                    result = Convert.ToInt32(rdr["num"] + "");
+                }
+
+                rdr.Close();
+                this.CloseConnection();
+
+                if (result > 0)
+                {
+                    return result;
+                }
+            }
+            return 0;
+        }
+
+        public int GetEpisode(string id, string season)
+        {
+            string query = String.Format("SELECT num " +
+                                         "FROM episodes " +
+                                         "WHERE show_id = {0} and season_num = {1}", id,season);
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                int result = 0;
+
+                while (rdr.Read())
+                {
+                    result = Convert.ToInt32(rdr["num"] + "");
+                }
+
+                rdr.Close();
+                this.CloseConnection();
+
+                if (result > 0)
+                {
+                    return result;
+                }
+            }
+            return 0;
+        }
+
+        public string GetETitle(string id, string episode)
+        {
+            string query = String.Format("SELECT name " +
+                                         "FROM episodes " +
+                                         "WHERE show_id = {0} and num = {1}", id, episode);
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                string result = "";
+
+                while (rdr.Read())
+                {
+                    result = (rdr["name"] + "");
+                }
+
+                rdr.Close();
+                this.CloseConnection();
+                
+                    return result;
+
+            }
+            return "";
+        }
+
 
     }
 }

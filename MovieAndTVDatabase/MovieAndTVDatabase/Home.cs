@@ -113,7 +113,11 @@ namespace MovieAndTVDatabase
 
         private void infoButton_Click(object sender, EventArgs e)
         {
-
+            string title = resultCombo.Text;
+            Information form = new Information(this, title);
+            form.MdiParent = this.MdiParent;
+            form.Show();
+            this.Hide();
         }
 
         private void resultCombo_SelectedIndexChanged(object sender, EventArgs e)
