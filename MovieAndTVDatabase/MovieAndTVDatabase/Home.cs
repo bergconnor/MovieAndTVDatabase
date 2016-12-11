@@ -103,5 +103,12 @@ namespace MovieAndTVDatabase
 
             movieCombo.Text = "Both";
         }
+
+        private void watchButton_Click(object sender, EventArgs e)
+        {
+            Information form = new Information(this);
+            form.Show()
+            this.Hide();
+        }
     }
 }
