@@ -85,6 +85,7 @@
             // genreCombo
             // 
             this.genreCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.genreCombo.Enabled = false;
             this.genreCombo.FormattingEnabled = true;
             this.genreCombo.Location = new System.Drawing.Point(11, 297);
             this.genreCombo.Margin = new System.Windows.Forms.Padding(2);
@@ -135,6 +136,7 @@
             // 
             // actorText
             // 
+            this.actorText.Enabled = false;
             this.actorText.Location = new System.Drawing.Point(11, 348);
             this.actorText.Name = "actorText";
             this.actorText.Size = new System.Drawing.Size(183, 20);
@@ -152,6 +154,7 @@
             // 
             // showText
             // 
+            this.showText.Enabled = false;
             this.showText.Location = new System.Drawing.Point(11, 248);
             this.showText.Name = "showText";
             this.showText.Size = new System.Drawing.Size(183, 20);
@@ -160,6 +163,7 @@
             // resultCombo
             // 
             this.resultCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.resultCombo.Enabled = false;
             this.resultCombo.FormattingEnabled = true;
             this.resultCombo.Location = new System.Drawing.Point(225, 276);
             this.resultCombo.Name = "resultCombo";
@@ -169,6 +173,7 @@
             // 
             // searchButton
             // 
+            this.searchButton.Enabled = false;
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchButton.Location = new System.Drawing.Point(11, 440);
             this.searchButton.Name = "searchButton";
@@ -225,6 +230,7 @@
             // movieCombo
             // 
             this.movieCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.movieCombo.Enabled = false;
             this.movieCombo.FormattingEnabled = true;
             this.movieCombo.Location = new System.Drawing.Point(12, 399);
             this.movieCombo.Name = "movieCombo";
@@ -237,7 +243,7 @@
             this.recommendButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recommendButton.Location = new System.Drawing.Point(12, 85);
             this.recommendButton.Name = "recommendButton";
-            this.recommendButton.Size = new System.Drawing.Size(182, 38);
+            this.recommendButton.Size = new System.Drawing.Size(116, 49);
             this.recommendButton.TabIndex = 18;
             this.recommendButton.Text = "Recommend Shows";
             this.recommendButton.UseVisualStyleBackColor = true;

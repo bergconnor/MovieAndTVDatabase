@@ -59,6 +59,12 @@ namespace MovieAndTVDatabase
             ((Container)MdiParent).User = usersCombo.SelectedItem.ToString();
             ((Container)MdiParent).EnableMenuItems();
             recommendButton.Enabled = true;
+            showText.Enabled = true;
+            genreCombo.Enabled = true;
+            actorText.Enabled = true;
+            movieCombo.Enabled = true;
+            searchButton.Enabled = true;
+            resultCombo.Enabled = true;
         }
 
         private void Home_Shown(object sender, EventArgs e)
