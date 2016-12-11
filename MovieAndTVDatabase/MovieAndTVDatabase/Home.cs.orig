@@ -111,7 +111,6 @@ namespace MovieAndTVDatabase
             movieCombo.Text = "Both";
         }
 
-<<<<<<< HEAD
         private void infoButton_Click(object sender, EventArgs e)
         {
 
@@ -125,14 +124,18 @@ namespace MovieAndTVDatabase
 
         private void watchButton_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+        }
 
-=======
-        private void watchButton_Click(object sender, EventArgs e)
+        private void infoButton_Click(object sender, EventArgs e)
         {
             Information form = new Information(this);
-            form.Show()
+            form.MdiParent = this.MdiParent;
+            form.Show();
             this.Hide();
->>>>>>> added information page
+=======
+
+>>>>>>> master
         }
     }
 }

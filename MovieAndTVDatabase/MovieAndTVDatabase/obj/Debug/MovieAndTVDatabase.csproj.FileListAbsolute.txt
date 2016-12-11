@@ -52,3 +52,4 @@ U:\cis560\Project\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\D
 U:\cis560\Project\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.SignUp.resources
 U:\cis560\Project\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Watch.resources
 U:\cis560\Project\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.csproj.GenerateResource.Cache
+C:\Users\Connor\Desktop\Git\MovieAndTVDatabase\MovieAndTVDatabase\MovieAndTVDatabase\obj\Debug\MovieAndTVDatabase.Information.resources
