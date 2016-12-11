@@ -9,3 +9,6 @@ Things to do:
     - write essay
     - extend subscription
     - ability check if subscription has ended
+    - Nasser found some bug on Search page
+    - Since titles have (The) and (A) at the end we need to account for that in search
+    - Information and Watch Buttons need to be disabled if User selects item and the searches again
