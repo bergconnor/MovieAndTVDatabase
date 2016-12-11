@@ -107,7 +107,7 @@ namespace MovieAndTVDatabase
         private void watchButton_Click(object sender, EventArgs e)
         {
             Information form = new Information(this);
-            form.Show()
+            form.Show();
             this.Hide();
         }
     }

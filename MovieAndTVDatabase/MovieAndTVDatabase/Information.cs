@@ -14,10 +14,10 @@ namespace MovieAndTVDatabase
     {
         private Home home;
 
-        public Information(Home form))
+        public Information(Home form)
         {
             InitializeComponent();
-            this.home = Form;
+            this.home = form;
         }
     }
 }
