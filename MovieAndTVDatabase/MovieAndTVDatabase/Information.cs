@@ -135,6 +135,13 @@ namespace MovieAndTVDatabase
                 channelLabel.Text = _parent.Database.GetChannel(_id);
                 fillSeason();
             }
+            else
+            {
+                channelDecoratorLabel.Visible = true;
+                channelLabel.Visible = true;
+                channelDecoratorLabel.Text = "Duration:";
+                channelLabel.Text = _parent.Database.GetDuration(_id) + " Minutes";
+            }
         }
     }
 }
