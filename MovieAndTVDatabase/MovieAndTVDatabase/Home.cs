@@ -128,7 +128,11 @@ namespace MovieAndTVDatabase
 
         private void watchButton_Click(object sender, EventArgs e)
         {
-
+            string title = resultCombo.Text;
+            Watch form = new Watch(this, title);
+            form.MdiParent = this.MdiParent;
+            form.Show();
+            this.Hide();
         }
 
         private void recommendButton_Click(object sender, EventArgs e)
