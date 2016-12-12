@@ -1,7 +1,7 @@
 Things we can improve in the future:
     - styling
     - recommendations algorithm
-    - 
+    - improve search function (search by multiple genres, actors, release date, network, etc.)
 
 Things to do:
     - add copyright information
