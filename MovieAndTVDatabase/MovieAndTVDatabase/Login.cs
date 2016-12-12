@@ -30,15 +30,22 @@ namespace MovieAndTVDatabase
             string email = emailText.Text;
             string password = passwordText.Text;
 
-            if (_database.CheckPassword(email, password))
+            if (email.Length > 0 && password.Length > 0)
             {
-                this.Hide();
-                Controller parent = new Controller(this, email);
-                parent.Show(this);
+                if (_database.CheckPassword(email, password))
+                {
+                    this.Hide();
+                    Controller parent = new Controller(this, email);
+                    parent.Show();
+                }
+                else
+                {
+                    outputText.Text = "Invalid email address or password.";
+                }
             }
             else
             {
-                outputText.Text = "Invalid email address or password.";
+                outputText.Text = "Missing email address and/or password.";
             }
             emailText.Text = "";
             passwordText.Text = "";

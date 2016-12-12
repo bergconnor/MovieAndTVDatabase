@@ -13,6 +13,7 @@ namespace MovieAndTVDatabase
     public partial class Home : Form
     {
         private Controller _parent;
+        private List<string>[] _results;
 
         public Home()
         {
@@ -57,7 +58,7 @@ namespace MovieAndTVDatabase
             actorText.Enabled = true;
             movieCombo.Enabled = true;
             searchButton.Enabled = true;
-            resultCombo.Enabled = true;
+            resultsCombo.Enabled = true;
         }
 
         private void Home_Shown(object sender, EventArgs e)
@@ -94,8 +95,8 @@ namespace MovieAndTVDatabase
 
         private void infoButton_Click(object sender, EventArgs e)
         {
-            string title = resultCombo.Text;
-            Information form = new Information(this, title);
+            string id = _results[1][resultsCombo.SelectedIndex];
+            Information form = new Information(id);
             form.MdiParent = this.MdiParent;
             form.Show();
             this.Hide();
@@ -108,46 +109,55 @@ namespace MovieAndTVDatabase
             string show = showText.Text;
             string type = movieCombo.Text;
 
-            List<string>[] results = _parent.Database.GetResults(genre, actor, show, type);
-            resultCombo.Items.Clear();
-            resultCombo.ResetText();
+            infoButton.Enabled = false;
+            watchButton.Enabled = false;
 
-            foreach (string result in results[0])
+            _results = _parent.Database.GetResults(genre, actor, show, type);
+            resultsCombo.Items.Clear();
+            resultsCombo.ResetText();
+
+            foreach (string result in _results[0])
             {
-                resultCombo.Items.Add(result);
+                resultsCombo.Items.Add(result);
             }
-
         }
 
         private void watchButton_Click(object sender, EventArgs e)
         {
-            _parent.WatchShow();
+            string id = _results[1][resultsCombo.SelectedIndex];
+            Watch form = new Watch(id);
+            form.MdiParent = this.MdiParent;
+            form.Show();
+            this.Hide();
         }
 
         private void recommendButton_Click(object sender, EventArgs e)
         {
-            List<string> shows;
-            int show_count = 25;
+            int show_count = 15;
             int max = 4;
-            while ((shows = _parent.Database.GetRecommendations(_parent.Email, _parent.User, max)).Count < 1)
+            while ((_results = _parent.Database.GetRecommendations(_parent.Email, _parent.User, max))[0].Count < 1)
             {
-                max--;
+                if (--max < 1)
+                    break;
             }
-            resultCombo.Items.Clear();
-            resultCombo.ResetText();
+            resultsCombo.Items.Clear();
+            resultsCombo.ResetText();
 
-            if (shows.Count == 0)
+            infoButton.Enabled = false;
+            watchButton.Enabled = false;
+
+            if (_results[0].Count == 0)
             {
                 MessageBox.Show("Favorite some shows to get recommendations");
             }
-            else if (shows.Count > show_count)
+            else if (_results[0].Count > show_count)
             {
                 MessageBox.Show(String.Format("Over {0} shows found.\r\n" +
                         "Favorite more shows to narrow result.", show_count));
             }
-            foreach (string result in shows)
+            foreach (string result in _results[0])
             {
-                resultCombo.Items.Add(result);
+                resultsCombo.Items.Add(result);
             }
         }
 

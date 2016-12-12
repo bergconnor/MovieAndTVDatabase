@@ -29,22 +29,23 @@
         private void InitializeComponent()
         {
             this.titleLabel = new System.Windows.Forms.Label();
-            this.descriptionTxt = new System.Windows.Forms.TextBox();
-            this.actorLabel = new System.Windows.Forms.Label();
+            this.descriptionText = new System.Windows.Forms.TextBox();
+            this.actorsLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
-            this.homepageLink = new System.Windows.Forms.LinkLabel();
-            this.homepageLabel = new System.Windows.Forms.Label();
-            this.genreLabel = new System.Windows.Forms.Label();
-            this.genreCombo = new System.Windows.Forms.TextBox();
+            this.linkLabel = new System.Windows.Forms.LinkLabel();
+            this.genresLabel = new System.Windows.Forms.Label();
+            this.genresCombo = new System.Windows.Forms.TextBox();
             this.actorsCombo = new System.Windows.Forms.TextBox();
+            this.channelDecoratorLabel = new System.Windows.Forms.Label();
             this.channelLabel = new System.Windows.Forms.Label();
-            this.channel2Label = new System.Windows.Forms.Label();
-            this.seLabel = new System.Windows.Forms.Label();
-            this.seCombo = new System.Windows.Forms.ComboBox();
+            this.seasonsDecoratorLabel = new System.Windows.Forms.Label();
+            this.seasonsCombo = new System.Windows.Forms.ComboBox();
             this.episodeLabel = new System.Windows.Forms.Label();
-            this.episodeCombo = new System.Windows.Forms.ComboBox();
-            this.etitleLabel1 = new System.Windows.Forms.Label();
-            this.etitleLabel2 = new System.Windows.Forms.Label();
+            this.episodesCombo = new System.Windows.Forms.ComboBox();
+            this.episodesDecoratorLabel = new System.Windows.Forms.Label();
+            this.episodesLabel = new System.Windows.Forms.Label();
+            this.dateDecoratorLabel = new System.Windows.Forms.Label();
+            this.dateLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -52,213 +53,244 @@
             this.titleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(10, 25);
-            this.titleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.titleLabel.Location = new System.Drawing.Point(14, 41);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(71, 33);
+            this.titleLabel.Size = new System.Drawing.Size(88, 42);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Title";
             // 
-            // descriptionTxt
+            // descriptionText
             // 
-            this.descriptionTxt.Location = new System.Drawing.Point(157, 317);
-            this.descriptionTxt.Margin = new System.Windows.Forms.Padding(2);
-            this.descriptionTxt.Multiline = true;
-            this.descriptionTxt.Name = "descriptionTxt";
-            this.descriptionTxt.ReadOnly = true;
-            this.descriptionTxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.descriptionTxt.Size = new System.Drawing.Size(419, 84);
-            this.descriptionTxt.TabIndex = 1;
+            this.descriptionText.Location = new System.Drawing.Point(242, 309);
+            this.descriptionText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.descriptionText.Multiline = true;
+            this.descriptionText.Name = "descriptionText";
+            this.descriptionText.ReadOnly = true;
+            this.descriptionText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.descriptionText.Size = new System.Drawing.Size(553, 86);
+            this.descriptionText.TabIndex = 1;
             // 
-            // actorLabel
+            // actorsLabel
             // 
-            this.actorLabel.AutoSize = true;
-            this.actorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.actorLabel.Location = new System.Drawing.Point(7, 187);
-            this.actorLabel.Name = "actorLabel";
-            this.actorLabel.Size = new System.Drawing.Size(140, 25);
-            this.actorLabel.TabIndex = 3;
-            this.actorLabel.Text = "Actor/Actress";
+            this.actorsLabel.AutoSize = true;
+            this.actorsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.actorsLabel.Location = new System.Drawing.Point(57, 408);
+            this.actorsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.actorsLabel.Name = "actorsLabel";
+            this.actorsLabel.Size = new System.Drawing.Size(71, 31);
+            this.actorsLabel.TabIndex = 3;
+            this.actorsLabel.Text = "Cast";
             // 
             // descriptionLabel
             // 
             this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLabel.Location = new System.Drawing.Point(7, 317);
+            this.descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionLabel.Location = new System.Drawing.Point(57, 309);
+            this.descriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(135, 29);
+            this.descriptionLabel.Size = new System.Drawing.Size(141, 29);
             this.descriptionLabel.TabIndex = 4;
-            this.descriptionLabel.Text = "Description";
+            this.descriptionLabel.Text = "Description:";
             // 
-            // homepageLink
+            // linkLabel
             // 
-            this.homepageLink.AutoSize = true;
-            this.homepageLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homepageLink.Location = new System.Drawing.Point(149, 414);
-            this.homepageLink.Name = "homepageLink";
-            this.homepageLink.Size = new System.Drawing.Size(73, 18);
-            this.homepageLink.TabIndex = 5;
-            this.homepageLink.TabStop = true;
-            this.homepageLink.Text = "linkLabel1";
-            this.homepageLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.homepageLink_LinkClicked);
+            this.linkLabel.AutoSize = true;
+            this.linkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel.LinkArea = new System.Windows.Forms.LinkArea(6, 4);
+            this.linkLabel.Location = new System.Drawing.Point(57, 549);
+            this.linkLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.linkLabel.Name = "linkLabel";
+            this.linkLabel.Size = new System.Drawing.Size(350, 27);
+            this.linkLabel.TabIndex = 5;
+            this.linkLabel.TabStop = true;
+            this.linkLabel.Text = "Click here to visit the show\'s homepage!";
+            this.linkLabel.UseCompatibleTextRendering = true;
+            this.linkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.homepageLink_LinkClicked);
             // 
-            // homepageLabel
+            // genresLabel
             // 
-            this.homepageLabel.AutoSize = true;
-            this.homepageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homepageLabel.Location = new System.Drawing.Point(7, 407);
-            this.homepageLabel.Name = "homepageLabel";
-            this.homepageLabel.Size = new System.Drawing.Size(136, 25);
-            this.homepageLabel.TabIndex = 6;
-            this.homepageLabel.Text = "Home Page: ";
+            this.genresLabel.AutoSize = true;
+            this.genresLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genresLabel.Location = new System.Drawing.Point(517, 408);
+            this.genresLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.genresLabel.Name = "genresLabel";
+            this.genresLabel.Size = new System.Drawing.Size(103, 31);
+            this.genresLabel.TabIndex = 7;
+            this.genresLabel.Text = "Genres";
             // 
-            // genreLabel
+            // genresCombo
             // 
-            this.genreLabel.AutoSize = true;
-            this.genreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genreLabel.Location = new System.Drawing.Point(274, 187);
-            this.genreLabel.Name = "genreLabel";
-            this.genreLabel.Size = new System.Drawing.Size(82, 25);
-            this.genreLabel.TabIndex = 7;
-            this.genreLabel.Text = "Genres";
-            // 
-            // genreCombo
-            // 
-            this.genreCombo.Location = new System.Drawing.Point(279, 215);
-            this.genreCombo.Multiline = true;
-            this.genreCombo.Name = "genreCombo";
-            this.genreCombo.ReadOnly = true;
-            this.genreCombo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.genreCombo.Size = new System.Drawing.Size(205, 86);
-            this.genreCombo.TabIndex = 8;
+            this.genresCombo.Location = new System.Drawing.Point(523, 443);
+            this.genresCombo.Margin = new System.Windows.Forms.Padding(4);
+            this.genresCombo.Multiline = true;
+            this.genresCombo.Name = "genresCombo";
+            this.genresCombo.ReadOnly = true;
+            this.genresCombo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.genresCombo.Size = new System.Drawing.Size(272, 81);
+            this.genresCombo.TabIndex = 8;
             // 
             // actorsCombo
             // 
-            this.actorsCombo.Location = new System.Drawing.Point(12, 215);
+            this.actorsCombo.Location = new System.Drawing.Point(57, 443);
+            this.actorsCombo.Margin = new System.Windows.Forms.Padding(4);
             this.actorsCombo.Multiline = true;
             this.actorsCombo.Name = "actorsCombo";
             this.actorsCombo.ReadOnly = true;
             this.actorsCombo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.actorsCombo.Size = new System.Drawing.Size(236, 86);
+            this.actorsCombo.Size = new System.Drawing.Size(403, 81);
             this.actorsCombo.TabIndex = 9;
+            // 
+            // channelDecoratorLabel
+            // 
+            this.channelDecoratorLabel.AutoSize = true;
+            this.channelDecoratorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.channelDecoratorLabel.Location = new System.Drawing.Point(57, 108);
+            this.channelDecoratorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.channelDecoratorLabel.Name = "channelDecoratorLabel";
+            this.channelDecoratorLabel.Size = new System.Drawing.Size(115, 29);
+            this.channelDecoratorLabel.TabIndex = 10;
+            this.channelDecoratorLabel.Text = "Network: ";
+            this.channelDecoratorLabel.Visible = false;
             // 
             // channelLabel
             // 
             this.channelLabel.AutoSize = true;
-            this.channelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.channelLabel.Location = new System.Drawing.Point(12, 63);
+            this.channelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.channelLabel.Location = new System.Drawing.Point(242, 108);
+            this.channelLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.channelLabel.Name = "channelLabel";
-            this.channelLabel.Size = new System.Drawing.Size(104, 25);
-            this.channelLabel.TabIndex = 10;
-            this.channelLabel.Text = "Channel: ";
+            this.channelLabel.Size = new System.Drawing.Size(103, 29);
+            this.channelLabel.TabIndex = 11;
+            this.channelLabel.Text = "Network";
             this.channelLabel.Visible = false;
             // 
-            // channel2Label
+            // seasonsDecoratorLabel
             // 
-            this.channel2Label.AutoSize = true;
-            this.channel2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.channel2Label.Location = new System.Drawing.Point(115, 68);
-            this.channel2Label.Name = "channel2Label";
-            this.channel2Label.Size = new System.Drawing.Size(51, 20);
-            this.channel2Label.TabIndex = 11;
-            this.channel2Label.Text = "label1";
-            this.channel2Label.Visible = false;
+            this.seasonsDecoratorLabel.AutoSize = true;
+            this.seasonsDecoratorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seasonsDecoratorLabel.Location = new System.Drawing.Point(57, 155);
+            this.seasonsDecoratorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.seasonsDecoratorLabel.Name = "seasonsDecoratorLabel";
+            this.seasonsDecoratorLabel.Size = new System.Drawing.Size(107, 29);
+            this.seasonsDecoratorLabel.TabIndex = 12;
+            this.seasonsDecoratorLabel.Text = "Season: ";
+            this.seasonsDecoratorLabel.Visible = false;
             // 
-            // seLabel
+            // seasonsCombo
             // 
-            this.seLabel.AutoSize = true;
-            this.seLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seLabel.Location = new System.Drawing.Point(7, 149);
-            this.seLabel.Name = "seLabel";
-            this.seLabel.Size = new System.Drawing.Size(108, 25);
-            this.seLabel.TabIndex = 12;
-            this.seLabel.Text = "Seasons: ";
-            this.seLabel.Visible = false;
-            // 
-            // seCombo
-            // 
-            this.seCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.seCombo.FormattingEnabled = true;
-            this.seCombo.Location = new System.Drawing.Point(106, 155);
-            this.seCombo.Name = "seCombo";
-            this.seCombo.Size = new System.Drawing.Size(60, 21);
-            this.seCombo.TabIndex = 13;
-            this.seCombo.Visible = false;
-            this.seCombo.SelectedIndexChanged += new System.EventHandler(this.seCombo_SelectedIndexChanged);
+            this.seasonsCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.seasonsCombo.FormattingEnabled = true;
+            this.seasonsCombo.Location = new System.Drawing.Point(242, 157);
+            this.seasonsCombo.Margin = new System.Windows.Forms.Padding(4);
+            this.seasonsCombo.Name = "seasonsCombo";
+            this.seasonsCombo.Size = new System.Drawing.Size(49, 24);
+            this.seasonsCombo.TabIndex = 13;
+            this.seasonsCombo.Visible = false;
+            this.seasonsCombo.SelectedIndexChanged += new System.EventHandler(this.seasonsCombo_SelectedIndexChanged);
             // 
             // episodeLabel
             // 
             this.episodeLabel.AutoSize = true;
             this.episodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.episodeLabel.Location = new System.Drawing.Point(194, 150);
+            this.episodeLabel.Location = new System.Drawing.Point(369, 155);
+            this.episodeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.episodeLabel.Name = "episodeLabel";
-            this.episodeLabel.Size = new System.Drawing.Size(89, 24);
+            this.episodeLabel.Size = new System.Drawing.Size(109, 29);
             this.episodeLabel.TabIndex = 14;
-            this.episodeLabel.Text = "Episodes";
+            this.episodeLabel.Text = "Episode:";
             this.episodeLabel.Visible = false;
             // 
-            // episodeCombo
+            // episodesCombo
             // 
-            this.episodeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.episodeCombo.FormattingEnabled = true;
-            this.episodeCombo.Location = new System.Drawing.Point(289, 153);
-            this.episodeCombo.Name = "episodeCombo";
-            this.episodeCombo.Size = new System.Drawing.Size(54, 21);
-            this.episodeCombo.TabIndex = 15;
-            this.episodeCombo.Visible = false;
-            this.episodeCombo.SelectedIndexChanged += new System.EventHandler(this.episodeCombo_SelectedIndexChanged);
+            this.episodesCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.episodesCombo.FormattingEnabled = true;
+            this.episodesCombo.Location = new System.Drawing.Point(495, 157);
+            this.episodesCombo.Margin = new System.Windows.Forms.Padding(4);
+            this.episodesCombo.Name = "episodesCombo";
+            this.episodesCombo.Size = new System.Drawing.Size(49, 24);
+            this.episodesCombo.TabIndex = 15;
+            this.episodesCombo.Visible = false;
+            this.episodesCombo.SelectedIndexChanged += new System.EventHandler(this.episodeCombo_SelectedIndexChanged);
             // 
-            // etitleLabel1
+            // episodesDecoratorLabel
             // 
-            this.etitleLabel1.AutoSize = true;
-            this.etitleLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.etitleLabel1.Location = new System.Drawing.Point(12, 102);
-            this.etitleLabel1.Name = "etitleLabel1";
-            this.etitleLabel1.Size = new System.Drawing.Size(130, 24);
-            this.etitleLabel1.TabIndex = 16;
-            this.etitleLabel1.Text = "Episode Title: ";
-            this.etitleLabel1.Visible = false;
+            this.episodesDecoratorLabel.AutoSize = true;
+            this.episodesDecoratorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.episodesDecoratorLabel.Location = new System.Drawing.Point(57, 222);
+            this.episodesDecoratorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.episodesDecoratorLabel.Name = "episodesDecoratorLabel";
+            this.episodesDecoratorLabel.Size = new System.Drawing.Size(169, 29);
+            this.episodesDecoratorLabel.TabIndex = 16;
+            this.episodesDecoratorLabel.Text = "Episode Title: ";
+            this.episodesDecoratorLabel.Visible = false;
             // 
-            // etitleLabel2
+            // episodesLabel
             // 
-            this.etitleLabel2.AutoSize = true;
-            this.etitleLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.etitleLabel2.Location = new System.Drawing.Point(137, 105);
-            this.etitleLabel2.Name = "etitleLabel2";
-            this.etitleLabel2.Size = new System.Drawing.Size(38, 20);
-            this.etitleLabel2.TabIndex = 17;
-            this.etitleLabel2.Text = "Title";
-            this.etitleLabel2.Visible = false;
+            this.episodesLabel.AutoSize = true;
+            this.episodesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.episodesLabel.Location = new System.Drawing.Point(242, 222);
+            this.episodesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.episodesLabel.Name = "episodesLabel";
+            this.episodesLabel.Size = new System.Drawing.Size(61, 29);
+            this.episodesLabel.TabIndex = 17;
+            this.episodesLabel.Text = "Title";
+            this.episodesLabel.Visible = false;
+            // 
+            // dateDecoratorLabel
+            // 
+            this.dateDecoratorLabel.AutoSize = true;
+            this.dateDecoratorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateDecoratorLabel.Location = new System.Drawing.Point(57, 266);
+            this.dateDecoratorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dateDecoratorLabel.Name = "dateDecoratorLabel";
+            this.dateDecoratorLabel.Size = new System.Drawing.Size(110, 29);
+            this.dateDecoratorLabel.TabIndex = 20;
+            this.dateDecoratorLabel.Text = "Air Date: ";
+            this.dateDecoratorLabel.Visible = false;
+            // 
+            // dateLabel
+            // 
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel.Location = new System.Drawing.Point(242, 266);
+            this.dateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(63, 29);
+            this.dateLabel.TabIndex = 21;
+            this.dateLabel.Text = "Date";
+            this.dateLabel.Visible = false;
             // 
             // Information
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(614, 475);
+            this.ClientSize = new System.Drawing.Size(819, 585);
             this.ControlBox = false;
-            this.Controls.Add(this.etitleLabel2);
-            this.Controls.Add(this.etitleLabel1);
-            this.Controls.Add(this.episodeCombo);
+            this.Controls.Add(this.dateLabel);
+            this.Controls.Add(this.dateDecoratorLabel);
+            this.Controls.Add(this.episodesLabel);
+            this.Controls.Add(this.episodesDecoratorLabel);
+            this.Controls.Add(this.episodesCombo);
             this.Controls.Add(this.episodeLabel);
-            this.Controls.Add(this.seCombo);
-            this.Controls.Add(this.seLabel);
-            this.Controls.Add(this.channel2Label);
+            this.Controls.Add(this.seasonsCombo);
+            this.Controls.Add(this.seasonsDecoratorLabel);
             this.Controls.Add(this.channelLabel);
+            this.Controls.Add(this.channelDecoratorLabel);
             this.Controls.Add(this.actorsCombo);
-            this.Controls.Add(this.genreCombo);
-            this.Controls.Add(this.genreLabel);
-            this.Controls.Add(this.homepageLabel);
-            this.Controls.Add(this.homepageLink);
+            this.Controls.Add(this.genresCombo);
+            this.Controls.Add(this.genresLabel);
+            this.Controls.Add(this.linkLabel);
             this.Controls.Add(this.descriptionLabel);
-            this.Controls.Add(this.actorLabel);
-            this.Controls.Add(this.descriptionTxt);
+            this.Controls.Add(this.actorsLabel);
+            this.Controls.Add(this.descriptionText);
             this.Controls.Add(this.titleLabel);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "Information";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Shown += new System.EventHandler(this.Information_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,21 +299,22 @@
         #endregion
 
         private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.TextBox descriptionTxt;
-        private System.Windows.Forms.Label actorLabel;
+        private System.Windows.Forms.TextBox descriptionText;
+        private System.Windows.Forms.Label actorsLabel;
         private System.Windows.Forms.Label descriptionLabel;
-        private System.Windows.Forms.LinkLabel homepageLink;
-        private System.Windows.Forms.Label homepageLabel;
-        private System.Windows.Forms.Label genreLabel;
-        private System.Windows.Forms.TextBox genreCombo;
+        private System.Windows.Forms.LinkLabel linkLabel;
+        private System.Windows.Forms.Label genresLabel;
+        private System.Windows.Forms.TextBox genresCombo;
         private System.Windows.Forms.TextBox actorsCombo;
+        private System.Windows.Forms.Label channelDecoratorLabel;
         private System.Windows.Forms.Label channelLabel;
-        private System.Windows.Forms.Label channel2Label;
-        private System.Windows.Forms.Label seLabel;
-        private System.Windows.Forms.ComboBox seCombo;
+        private System.Windows.Forms.Label seasonsDecoratorLabel;
+        private System.Windows.Forms.ComboBox seasonsCombo;
         private System.Windows.Forms.Label episodeLabel;
-        private System.Windows.Forms.ComboBox episodeCombo;
-        private System.Windows.Forms.Label etitleLabel1;
-        private System.Windows.Forms.Label etitleLabel2;
+        private System.Windows.Forms.ComboBox episodesCombo;
+        private System.Windows.Forms.Label episodesDecoratorLabel;
+        private System.Windows.Forms.Label episodesLabel;
+        private System.Windows.Forms.Label dateDecoratorLabel;
+        private System.Windows.Forms.Label dateLabel;
     }
 }

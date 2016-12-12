@@ -55,15 +55,6 @@ namespace MovieAndTVDatabase
             this.Close();
         }
 
-        public void WatchShow()
-        {
-            closeChildren();
-
-            Watch form = new Watch();
-            form.MdiParent = this;
-            form.Show();
-        }
-
         public void EnableMenuItems()
         {
             this.homeToolStripMenuItem.Enabled = true;

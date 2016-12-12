@@ -31,7 +31,7 @@ CREATE TABLE users(id 			int primary key,
 CREATE TABLE shows(id 			int not null primary key auto_increment,
 				   name			varchar(100) not null,
 				   homepage		varchar(200),
-				   poster		varchar(100),
+				   poster		varchar(100) not null,
 				   description	varchar(2000),
 				   constraint   shows_uq unique(name, poster)) CHARACTER SET utf8 COLLATE utf8_general_ci;
 

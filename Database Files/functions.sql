@@ -1,5 +1,6 @@
 /* Delete the functions if they already exist */
 DROP FUNCTION IF EXISTS subscription_length;
+DROP FUNCTION IF EXISTS sanitize_search;
 DROP FUNCTION IF EXISTS display_name;
 
 /* Create the schema for our functions */
@@ -16,6 +17,17 @@ BEGIN
             trim(concat(trim(')' FROM substr(old_name, position('(' IN old_name) + 1)), ' ',
                                   trim(substr(old_name, 1, position('(' IN old_name) - 1))))
     END;
+END;
+$$
+
+CREATE FUNCTION sanitize_search(old_search varchar(100)) RETURNS varchar(100)
+    DETERMINISTIC
+BEGIN
+    IF (strcmp(substring_index(old_search, ' ', 1), 'the') = 0) OR
+       (strcmp(substring_index(old_search, ' ', 1), 'a') = 0) THEN
+            SET old_search = substring(old_search, LOCATE(' ' ,old_search)+1);
+    END IF;
+    RETURN concat('%', old_search, '%');
 END;
 $$
 

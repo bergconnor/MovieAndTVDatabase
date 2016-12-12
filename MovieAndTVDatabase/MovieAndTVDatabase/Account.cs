@@ -21,7 +21,6 @@ namespace MovieAndTVDatabase
         public Account()
         {
             InitializeComponent();
-            _parent = (Controller)MdiParent;
         }
 
         private void fillUsers()
@@ -51,6 +50,7 @@ namespace MovieAndTVDatabase
 
         private void Account_Shown(object sender, EventArgs e)
         {
+            _parent = (Controller)MdiParent;
             updateValues();
             fillUsers();
             nameText.Focus();

@@ -12,45 +12,29 @@ namespace MovieAndTVDatabase
 {
     public partial class Information : Form
     {
-        private Home home;
-        private DatabaseConnect db;
-        private string title;
-        private string id;
+        private Controller _parent;
+        private string _id;
+        private string _homepage;
+        private List<List<string>[]> _episodes;
 
-        public Information(Home form, string title)
+        public Information(string id)
         {
             InitializeComponent();
-            this.home = form;
-            this.title = title;
-            db = new DatabaseConnect();
-            this.id = db.GetShowId(title);
-            LoadDetails();
-            FillActors();
-            FillShowGenres();
-            string type = db.MovieTVShow(title);
-
-            if (type == "TV Show")
-            {
-                channelLabel.Visible = true;
-                channel2Label.Visible = true;
-                seCombo.Visible = true;
-                seLabel.Visible = true;
-                channel2Label.Text = db.GetChannel(title);
-                FillSeason();
-            }
+            _episodes = new List<List<string>[]>();
+            _id = id;
         }
 
-        private void LoadDetails()
+        private void loadDetails()
         {
-            string[] details = this.db.GetMovieDetails(this.title);
-            titleLabel.Text = this.title;
-            descriptionTxt.Text = details[1];
-            homepageLink.Text = details[0];
+            string[] details = _parent.Database.GetMovieDetails(_id);
+            titleLabel.Text = details[0];
+            _homepage = details[1];
+            descriptionText.Text = details[2];
         }
 
-        private void FillActors()
+        private void fillActors()
         {
-            List<string> actors = db.GetActors(this.title);
+            List<string> actors = _parent.Database.GetActors(_id);
             actorsCombo.ResetText();
 
             foreach (string actor in actors)
@@ -59,68 +43,90 @@ namespace MovieAndTVDatabase
             }
         }
 
-        private void FillShowGenres()
+        private void fillShowGenres()
         {
-            List<string> genres = db.GetShowGenres(this.title);
-            genreCombo.ResetText();
+            List<string> genres = _parent.Database.GetShowGenres(_id);
+            genresCombo.ResetText();
 
             foreach (string genre in genres)
             {
-                genreCombo.Text = genreCombo.Text + genre + "\r\n";
+                genresCombo.Text = genresCombo.Text + genre + "\r\n";
             }
         }
 
-        private void FillSeason()
+        private void fillSeason()
         {
-            int num = db.GetSeason(this.id);
-            int temp;
-            seCombo.Items.Clear();
-            seCombo.ResetText();
+            int seasons = _parent.Database.GetSeason(_id);
+            seasonsCombo.Items.Clear();
+            seasonsCombo.ResetText();
 
-            for (int i = 0; i < num; i++)
+            for (int i = 0; i < seasons; i++)
             {
-                temp = i + 1;
-                seCombo.Items.Add(temp.ToString());
+                List<string>[] temp = _parent.Database.GetEpisode(_id, (i + 1).ToString());
+                _episodes.Add(temp);
+                if (_episodes[i][0].Count > 0)
+                    seasonsCombo.Items.Add((i + 1).ToString());
             }
         }
-
 
         private void homepageLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             try
             {
-                System.Diagnostics.Process.Start(homepageLink.Text);
+                System.Diagnostics.Process.Start(_homepage);
             }
             catch { }
         }
 
-        private void seCombo_SelectedIndexChanged(object sender, EventArgs e)
+        private void seasonsCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            etitleLabel1.Visible = false;
-            etitleLabel2.Visible = false;
-            episodeCombo.Visible = true;
+            episodesDecoratorLabel.Visible = false;
+            episodesLabel.Visible = false;
+            dateDecoratorLabel.Visible = false;
+            dateLabel.Visible = false;
+            episodesCombo.Visible = true;
             episodeLabel.Visible = true;
-            int num = db.GetEpisode(this.id, seCombo.Text);
-            int temp;
-            episodeCombo.Items.Clear();
-            episodeCombo.ResetText();
+            int season_num = (seasonsCombo.SelectedIndex + 1);
+            int index = season_num - 1;
+            episodesCombo.Items.Clear();
+            episodesCombo.ResetText();
 
-            for (int i = 0; i < num; i++)
-            {
-                temp = i + 1;
-                episodeCombo.Items.Add(temp.ToString());
-            }
-
+            for (int i = 0; i < _episodes[index][0].Count; i++)
+                episodesCombo.Items.Add(_episodes[index][0][i]);
         }
 
         private void episodeCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            etitleLabel1.Visible = true;
-            etitleLabel2.Visible = true;
-            string result = db.GetETitle(this.id, episodeCombo.Text);
-            int temp;
-            etitleLabel2.Text = result;
+            episodesDecoratorLabel.Visible = true;
+            episodesLabel.Visible = true;
+            dateDecoratorLabel.Visible = true;
+            dateLabel.Visible = true;
 
+            int season_num = (seasonsCombo.SelectedIndex + 1);
+            int sIndex = season_num - 1;
+            int episode_num = (episodesCombo.SelectedIndex + 1);
+            int eIndex = episode_num - 1;
+            episodesLabel.Text = _episodes[sIndex][2][eIndex];
+            dateLabel.Text = _episodes[sIndex][1][eIndex].Split(' ')[0];
+        }
+
+        private void Information_Shown(object sender, EventArgs e)
+        {
+            _parent = (Controller)MdiParent;
+            loadDetails();
+            fillActors();
+            fillShowGenres();
+            string type = _parent.Database.MovieTVShow(_id);
+
+            if (type == "TV Show")
+            {
+                channelDecoratorLabel.Visible = true;
+                channelLabel.Visible = true;
+                seasonsCombo.Visible = true;
+                seasonsDecoratorLabel.Visible = true;
+                channelLabel.Text = _parent.Database.GetChannel(_id);
+                fillSeason();
+            }
         }
     }
 }

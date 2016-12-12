@@ -32,6 +32,7 @@
             this.watchButton = new System.Windows.Forms.Button();
             this.showText = new System.Windows.Forms.TextBox();
             this.userLabel = new System.Windows.Forms.Label();
+            this.favoriteCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,6 +79,19 @@
             this.userLabel.TabIndex = 2;
             this.userLabel.Text = "Current User: ";
             // 
+            // favoriteCheckBox
+            // 
+            this.favoriteCheckBox.AutoSize = true;
+            this.favoriteCheckBox.Enabled = false;
+            this.favoriteCheckBox.Location = new System.Drawing.Point(28, 194);
+            this.favoriteCheckBox.Margin = new System.Windows.Forms.Padding(2);
+            this.favoriteCheckBox.Name = "favoriteCheckBox";
+            this.favoriteCheckBox.Size = new System.Drawing.Size(81, 21);
+            this.favoriteCheckBox.TabIndex = 4;
+            this.favoriteCheckBox.Text = "Favorite";
+            this.favoriteCheckBox.UseVisualStyleBackColor = true;
+            this.favoriteCheckBox.CheckedChanged += new System.EventHandler(this.favoriteCheckBox_CheckedChanged);
+            // 
             // Watch
             // 
             this.AcceptButton = this.watchButton;
@@ -85,6 +99,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(819, 643);
             this.ControlBox = false;
+            this.Controls.Add(this.favoriteCheckBox);
             this.Controls.Add(this.userLabel);
             this.Controls.Add(this.showText);
             this.Controls.Add(this.watchButton);
@@ -107,5 +122,6 @@
         private System.Windows.Forms.Button watchButton;
         private System.Windows.Forms.TextBox showText;
         private System.Windows.Forms.Label userLabel;
+        private System.Windows.Forms.CheckBox favoriteCheckBox;
     }
 }
