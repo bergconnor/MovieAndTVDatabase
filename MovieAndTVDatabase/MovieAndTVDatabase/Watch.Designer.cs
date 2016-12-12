@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.watchBtn = new System.Windows.Forms.Button();
             this.showTxt = new System.Windows.Forms.TextBox();
             this.currentUserLbl = new System.Windows.Forms.Label();
             this.FavoriteCheckBox3 = new System.Windows.Forms.CheckBox();
+            this.showTxt2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,25 +48,14 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // watchBtn
-            // 
-            this.watchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.watchBtn.Location = new System.Drawing.Point(396, 1116);
-            this.watchBtn.Margin = new System.Windows.Forms.Padding(8);
-            this.watchBtn.Name = "watchBtn";
-            this.watchBtn.Size = new System.Drawing.Size(678, 58);
-            this.watchBtn.TabIndex = 1;
-            this.watchBtn.Text = "Watch Show";
-            this.watchBtn.UseVisualStyleBackColor = true;
-            this.watchBtn.Click += new System.EventHandler(this.watchBtn_Click);
-            // 
             // showTxt
             // 
             this.showTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.showTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.showTxt.Location = new System.Drawing.Point(396, 1050);
             this.showTxt.Margin = new System.Windows.Forms.Padding(8);
             this.showTxt.Name = "showTxt";
-            this.showTxt.Size = new System.Drawing.Size(672, 38);
+            this.showTxt.Size = new System.Drawing.Size(672, 64);
             this.showTxt.TabIndex = 0;
             this.showTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -91,18 +80,28 @@
             this.FavoriteCheckBox3.Text = "Favorite";
             this.FavoriteCheckBox3.UseVisualStyleBackColor = true;
             this.FavoriteCheckBox3.CheckedChanged += new System.EventHandler(this.FavoriteCheckBox_CheckedChanged_1);
+            this.FavoriteCheckBox3.CheckStateChanged += new System.EventHandler(this.FavoriteCheckBox_CheckedChanged_1);
+            // 
+            // showTxt2
+            // 
+            this.showTxt2.AutoSize = true;
+            this.showTxt2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.showTxt2.Location = new System.Drawing.Point(639, 1119);
+            this.showTxt2.Name = "showTxt2";
+            this.showTxt2.Size = new System.Drawing.Size(126, 46);
+            this.showTxt2.TabIndex = 4;
+            this.showTxt2.Text = "label1";
             // 
             // Watch
             // 
-            this.AcceptButton = this.watchBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1638, 1286);
             this.ControlBox = false;
+            this.Controls.Add(this.showTxt2);
             this.Controls.Add(this.FavoriteCheckBox3);
             this.Controls.Add(this.currentUserLbl);
             this.Controls.Add(this.showTxt);
-            this.Controls.Add(this.watchBtn);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(8);
             this.Name = "Watch";
@@ -119,9 +118,9 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button watchBtn;
         private System.Windows.Forms.TextBox showTxt;
         private System.Windows.Forms.Label currentUserLbl;
         private System.Windows.Forms.CheckBox FavoriteCheckBox3;
+        private System.Windows.Forms.Label showTxt2;
     }
 }

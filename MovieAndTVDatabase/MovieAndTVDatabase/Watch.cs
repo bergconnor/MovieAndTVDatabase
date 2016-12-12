@@ -39,7 +39,8 @@ namespace MovieAndTVDatabase
             //FillActors();
             //FillShowGenres();
             string type = db.MovieTVShow(title);
-            
+            this.showTxt.Text = title;
+            this.showTxt2.Text = title;
             //this.pictureBox1.Load(defaultImageString);
             this.pictureBox1.Refresh();
         }
@@ -52,7 +53,7 @@ namespace MovieAndTVDatabase
             if (show.Length > 0)
             {
                 this.pictureBox1.Load(show);
-                
+                this.title = name;
 
                 this.FavoriteCheckBox3.Enabled = true;
                 string u = this.db.getSingleUser(this.email, this.user);
@@ -125,7 +126,7 @@ namespace MovieAndTVDatabase
 
         private void FavoriteCheckBox_CheckedChanged_1(object sender, EventArgs e)
         {
-            string name = this.showTxt.Text;
+            string name = this.title;
             if (this.FavoriteCheckBox3.Checked)
             {
                 this.db.addFavorite(this.email, this.user, name);
