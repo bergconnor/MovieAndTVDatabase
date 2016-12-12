@@ -441,7 +441,7 @@ namespace MovieAndTVDatabase
         {
             try
             {
-                string query = String.Format("SELECT name, homepage, description " +
+                string query = String.Format("SELECT display_name(name) name, homepage, description " +
                                              "FROM shows where id='{0}'", id);
                 if (this.OpenConnection() == true)
                 {

@@ -29,7 +29,12 @@ namespace MovieAndTVDatabase
             string[] details = _parent.Database.GetMovieDetails(_id);
             titleLabel.Text = details[0];
             _homepage = details[1];
-            descriptionText.Text = details[2];
+            if (_homepage.Length < 1)
+            {
+                linkLabel.Text = "No homepage available for this show.";
+                linkLabel.LinkArea = new LinkArea(0, 0);
+            }
+            descriptionText.Text = details[2] + "";
         }
 
         private void fillActors()
@@ -75,7 +80,10 @@ namespace MovieAndTVDatabase
             {
                 System.Diagnostics.Process.Start(_homepage);
             }
-            catch { }
+            catch
+            {
+
+            }
         }
 
         private void seasonsCombo_SelectedIndexChanged(object sender, EventArgs e)

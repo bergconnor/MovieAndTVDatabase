@@ -1,7 +1,8 @@
 Things we can improve in the future:
-    - styling
-    - recommendations algorithm
+    - improve recommendations algorithm (include watch history, genres, actors, etc.)
     - improve search function (search by multiple genres, actors, release date, network, etc.)
+    - spelling correction for shows and actors
+    - account payment
 
 Things to do:
     - add copyright information

@@ -135,29 +135,37 @@ namespace MovieAndTVDatabase
         {
             int show_count = 15;
             int max = 4;
-            while ((_results = _parent.Database.GetRecommendations(_parent.Email, _parent.User, max))[0].Count < 1)
+
+            try
             {
-                if (--max < 1)
-                    break;
+                while ((_results = _parent.Database.GetRecommendations(_parent.Email, _parent.User, max))[0].Count < 1)
+                {
+                    if (--max < 1)
+                        break;
+                }
+                resultsCombo.Items.Clear();
+                resultsCombo.ResetText();
+
+                infoButton.Enabled = false;
+                watchButton.Enabled = false;
+
+                if (_results[0].Count == 0)
+                {
+                    MessageBox.Show("Favorite some shows to get recommendations");
+                }
+                else if (_results[0].Count > show_count)
+                {
+                    MessageBox.Show(String.Format("Over {0} shows found.\r\n" +
+                            "Favorite more shows to narrow result.", show_count));
+                }
+                foreach (string result in _results[0])
+                {
+                    resultsCombo.Items.Add(result);
+                }
             }
-            resultsCombo.Items.Clear();
-            resultsCombo.ResetText();
-
-            infoButton.Enabled = false;
-            watchButton.Enabled = false;
-
-            if (_results[0].Count == 0)
+            catch (NullReferenceException ex)
             {
                 MessageBox.Show("Favorite some shows to get recommendations");
-            }
-            else if (_results[0].Count > show_count)
-            {
-                MessageBox.Show(String.Format("Over {0} shows found.\r\n" +
-                        "Favorite more shows to narrow result.", show_count));
-            }
-            foreach (string result in _results[0])
-            {
-                resultsCombo.Items.Add(result);
             }
         }
 
