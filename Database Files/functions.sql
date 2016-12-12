@@ -19,7 +19,7 @@ BEGIN
 END;
 $$
 
-CREATE FUNCTION subscription_length(start date) RETURNS varchar(20)
+CREATE FUNCTION subscription_length(start date) RETURNS varchar(24)
     DETERMINISTIC
 BEGIN
     DECLARE days_in_a_year  int DEFAULT 365;
@@ -27,13 +27,14 @@ BEGIN
     DECLARE flt             float DEFAULT 0.0;
     DECLARE years           varchar(4) DEFAULT "0000";
     DECLARE days            varchar(3) DEFAULT "000";
-    DECLARE sub_length      varchar(20) DEFAULT "0 years, 0 days";
+    DECLARE sub_length      varchar(24) DEFAULT "0 years, 0 days";
 
     SET total_days  = datediff(curdate(), start);
     SET years       = cast(floor(total_days/days_in_a_year) AS char(4));
     SET flt         = mod((total_days/days_in_a_year), 1);
-    SET days        = cast((flt*days_in_a_year) AS char(3));
-    SET sub_length  = concat(years, ' years, ', days, ' days');
+    SET total_days  = (flt*days_in_a_year);
+    SET days        = cast(total_days AS char(3));
+    SET sub_length  = concat(years, ' year(s), ', days, ' day(s)');
 
     RETURN sub_length;
 END;

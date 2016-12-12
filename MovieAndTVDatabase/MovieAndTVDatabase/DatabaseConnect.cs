@@ -337,33 +337,43 @@ namespace MovieAndTVDatabase
             return null;
         }
 
-        public string GetSubscriptionEnd(string email)
+        public List<string>[] GetMembershipInfo(string email)
         {
-            string query = String.Format("SELECT end " +
-                             "FROM accounts " +
-                             "WHERE email='{0}'", email);
-
-            if (this.OpenConnection() == true)
+            string query = String.Format("SELECT date(start) start, " +
+                                         "date(end) end, " +
+                                         "subscription_length(start) membership " +
+                                         "FROM accounts " +
+                                         "WHERE email='{0}'", email);
+            try
             {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                List<string>[] result = new List<string>[1];
-                result[0] = new List<string>();
-
-                while (rdr.Read())
+                if (this.OpenConnection() == true)
                 {
-                    result[0].Add(rdr["end"] + "");
-                }
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    List<string>[] result = new List<string>[3];
+                    result[0] = new List<string>();
+                    result[1] = new List<string>();
+                    result[2] = new List<string>();
 
-                rdr.Close();
-                this.CloseConnection();
+                    while (rdr.Read())
+                    {
+                        result[0].Add(rdr["start"] + "");
+                        result[1].Add(rdr["end"] + "");
+                        result[2].Add(rdr["membership"] + "");
+                    }
 
-                if (result[0].Count > 0)
-                {
-                    return result[0][0];
+                    rdr.Close();
+                    this.CloseConnection();
+
+                    return result;
                 }
             }
-            return "";
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
+                return null;
+            }
+            return null;
         }
 
         public List<string> GetGenres()
@@ -1019,7 +1029,7 @@ namespace MovieAndTVDatabase
             return null;
         }
 
-        public List<string> GetRecommendations(string email, string user)
+        public List<string> GetRecommendations(string email, string user, int max)
         {
             List<string>[] users = GetUserIDs(email);
             int index = users[0].IndexOf(user);
@@ -1036,7 +1046,7 @@ namespace MovieAndTVDatabase
                           "where g.id = {0}) {1} ";
 
             char letter = 'a';
-            int limit = Math.Min(genres[0].Count, 4);
+            int limit = Math.Min(genres[0].Count, max);
 
             for (int i = 0; i < limit; i++)
             {
@@ -1080,6 +1090,71 @@ namespace MovieAndTVDatabase
             return new List<string>();
         }
 
-        //public bool CheckExpired
+        public bool CheckExpired(string email)
+        {
+            DateTime dt = DateTime.Today;
+            string today = dt.ToString("yyyy-MM-dd");
+            string end = GetMembershipInfo(email)[1][0];
+            string query = String.Format("select datediff('{0}', curdate()) expired", end);
+
+            if (this.OpenConnection() == true)
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    List<string>[] result = new List<string>[1];
+                    result[0] = new List<string>();
+
+                    while (rdr.Read())
+                    {
+                        result[0].Add(rdr["expired"] + "");
+                    }
+
+                    rdr.Close();
+                    this.CloseConnection();
+
+                    if (Convert.ToInt32(result[0][0]) < 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    this.CloseConnection();
+                    return false;
+                }
+
+            }
+            return false;
+        }
+
+        public void UpdateSubscription(string email)
+        {   
+            string account_id = GetAccountID(email);
+            string end = GetMembershipInfo(email)[1][0];
+            DateTime dt = Convert.ToDateTime(end).AddYears(1);
+            end = dt.ToString("yyyy-MM-dd");
+            string query = String.Format("update accounts " +
+                                         "set end = '{0}' " +
+                                         "where id = {1}", end, account_id);
+            try
+            {
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+                    this.CloseConnection();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
+            }
+        }
     }
 }

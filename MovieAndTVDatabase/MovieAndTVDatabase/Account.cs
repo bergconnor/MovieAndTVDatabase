@@ -15,7 +15,9 @@ namespace MovieAndTVDatabase
         private DatabaseConnect db;
         private string email;
         private string user;
+        private string start;
         private string end;
+        private string length;
 
         public Account()
         {
@@ -88,15 +90,33 @@ namespace MovieAndTVDatabase
             }
         }
 
+        private void updateValues()
+        {
+            List<string>[] membershipInfo = db.GetMembershipInfo(email);
+
+            this.start = membershipInfo[0][0];
+            this.end = membershipInfo[1][0];
+            this.length = membershipInfo[2][0];
+            userTxt.Text = this.user;
+            startTxt.Text = this.start.Split(' ')[0];
+            endTxt.Text = this.end.Split(' ')[0];
+            membershipTxt.Text = this.length;
+        }
+
         private void Account_Shown(object sender, EventArgs e)
         {
             this.email = ((Container)this.MdiParent).Email;
             this.user = ((Container)this.MdiParent).User;
-            this.end = (db.GetSubscriptionEnd(this.email)).Split(' ')[0];
-            currentUserLbl.Text += this.user;
-            endLbl.Text += this.end;
+
+            updateValues();
             FillUsers();
             nameTxt.Focus();
+        }
+
+        private void extendBtn_Click(object sender, EventArgs e)
+        {
+            db.UpdateSubscription(this.email);
+            updateValues();
         }
     }
 }

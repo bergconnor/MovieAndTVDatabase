@@ -134,7 +134,13 @@ namespace MovieAndTVDatabase
         private void recommendButton_Click(object sender, EventArgs e)
         {
             string user = ((Container)this.MdiParent).User;
-            List<string> shows = db.GetRecommendations(email, user);
+            List<string> shows;
+            int show_count = 25;
+            int max = 4;
+            while ((shows = db.GetRecommendations(email, user, max)).Count < 1)
+            {
+                max--;
+            }
             resultCombo.Items.Clear();
             resultCombo.ResetText();
 
@@ -142,16 +148,14 @@ namespace MovieAndTVDatabase
             {
                 MessageBox.Show("Favorite some shows to get recommendations");
             }
-            else if (shows.Count > 25)
+            else if (shows.Count > show_count)
             {
-                MessageBox.Show("Favorite more shows to improve result.");
+                MessageBox.Show(String.Format("Over {0} shows found.\r\n" + 
+                        "Favorite more shows to narrow result.", show_count));
             }
-            else
+            foreach (string result in shows)
             {
-                foreach (string result in shows)
-                {
-                    resultCombo.Items.Add(result);
-                }
+                resultCombo.Items.Add(result);
             }
         }
     }

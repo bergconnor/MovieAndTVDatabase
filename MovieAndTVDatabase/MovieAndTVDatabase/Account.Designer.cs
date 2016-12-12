@@ -36,12 +36,18 @@
             this.currentUserLbl = new System.Windows.Forms.Label();
             this.endLbl = new System.Windows.Forms.Label();
             this.subscriptionLengthLbl = new System.Windows.Forms.Label();
+            this.startLbl = new System.Windows.Forms.Label();
+            this.extendBtn = new System.Windows.Forms.Button();
+            this.membershipTxt = new System.Windows.Forms.TextBox();
+            this.endTxt = new System.Windows.Forms.TextBox();
+            this.startTxt = new System.Windows.Forms.TextBox();
+            this.userTxt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // addUserBtn
             // 
             this.addUserBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.addUserBtn.Location = new System.Drawing.Point(310, 310);
+            this.addUserBtn.Location = new System.Drawing.Point(310, 434);
             this.addUserBtn.Name = "addUserBtn";
             this.addUserBtn.Size = new System.Drawing.Size(216, 49);
             this.addUserBtn.TabIndex = 2;
@@ -52,7 +58,7 @@
             // nameTxt
             // 
             this.nameTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.nameTxt.Location = new System.Drawing.Point(310, 110);
+            this.nameTxt.Location = new System.Drawing.Point(310, 234);
             this.nameTxt.Name = "nameTxt";
             this.nameTxt.Size = new System.Drawing.Size(216, 22);
             this.nameTxt.TabIndex = 1;
@@ -60,7 +66,7 @@
             // resultTxt
             // 
             this.resultTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.resultTxt.Location = new System.Drawing.Point(310, 138);
+            this.resultTxt.Location = new System.Drawing.Point(310, 262);
             this.resultTxt.Multiline = true;
             this.resultTxt.Name = "resultTxt";
             this.resultTxt.ReadOnly = true;
@@ -72,7 +78,7 @@
             this.usersCombo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.usersCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.usersCombo.FormattingEnabled = true;
-            this.usersCombo.Location = new System.Drawing.Point(310, 380);
+            this.usersCombo.Location = new System.Drawing.Point(310, 504);
             this.usersCombo.MaxDropDownItems = 5;
             this.usersCombo.Name = "usersCombo";
             this.usersCombo.Size = new System.Drawing.Size(216, 24);
@@ -81,7 +87,7 @@
             // rmvUserBtn
             // 
             this.rmvUserBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rmvUserBtn.Location = new System.Drawing.Point(310, 410);
+            this.rmvUserBtn.Location = new System.Drawing.Point(310, 534);
             this.rmvUserBtn.Name = "rmvUserBtn";
             this.rmvUserBtn.Size = new System.Drawing.Size(216, 49);
             this.rmvUserBtn.TabIndex = 4;
@@ -101,7 +107,7 @@
             // endLbl
             // 
             this.endLbl.AutoSize = true;
-            this.endLbl.Location = new System.Drawing.Point(12, 69);
+            this.endLbl.Location = new System.Drawing.Point(12, 104);
             this.endLbl.Name = "endLbl";
             this.endLbl.Size = new System.Drawing.Size(123, 17);
             this.endLbl.TabIndex = 5;
@@ -110,11 +116,62 @@
             // subscriptionLengthLbl
             // 
             this.subscriptionLengthLbl.AutoSize = true;
-            this.subscriptionLengthLbl.Location = new System.Drawing.Point(12, 98);
+            this.subscriptionLengthLbl.Location = new System.Drawing.Point(12, 136);
             this.subscriptionLengthLbl.Name = "subscriptionLengthLbl";
             this.subscriptionLengthLbl.Size = new System.Drawing.Size(157, 17);
             this.subscriptionLengthLbl.TabIndex = 6;
             this.subscriptionLengthLbl.Text = "Length of Membership: ";
+            // 
+            // startLbl
+            // 
+            this.startLbl.AutoSize = true;
+            this.startLbl.Location = new System.Drawing.Point(12, 72);
+            this.startLbl.Name = "startLbl";
+            this.startLbl.Size = new System.Drawing.Size(128, 17);
+            this.startLbl.TabIndex = 7;
+            this.startLbl.Text = "Subscription Start: ";
+            // 
+            // extendBtn
+            // 
+            this.extendBtn.Location = new System.Drawing.Point(12, 196);
+            this.extendBtn.Name = "extendBtn";
+            this.extendBtn.Size = new System.Drawing.Size(178, 45);
+            this.extendBtn.TabIndex = 8;
+            this.extendBtn.Text = "Extend Membership";
+            this.extendBtn.UseVisualStyleBackColor = true;
+            this.extendBtn.Click += new System.EventHandler(this.extendBtn_Click);
+            // 
+            // membershipTxt
+            // 
+            this.membershipTxt.Location = new System.Drawing.Point(175, 136);
+            this.membershipTxt.Name = "membershipTxt";
+            this.membershipTxt.ReadOnly = true;
+            this.membershipTxt.Size = new System.Drawing.Size(125, 22);
+            this.membershipTxt.TabIndex = 9;
+            // 
+            // endTxt
+            // 
+            this.endTxt.Location = new System.Drawing.Point(175, 100);
+            this.endTxt.Name = "endTxt";
+            this.endTxt.ReadOnly = true;
+            this.endTxt.Size = new System.Drawing.Size(125, 22);
+            this.endTxt.TabIndex = 10;
+            // 
+            // startTxt
+            // 
+            this.startTxt.Location = new System.Drawing.Point(175, 64);
+            this.startTxt.Name = "startTxt";
+            this.startTxt.ReadOnly = true;
+            this.startTxt.Size = new System.Drawing.Size(125, 22);
+            this.startTxt.TabIndex = 11;
+            // 
+            // userTxt
+            // 
+            this.userTxt.Location = new System.Drawing.Point(175, 28);
+            this.userTxt.Name = "userTxt";
+            this.userTxt.ReadOnly = true;
+            this.userTxt.Size = new System.Drawing.Size(125, 22);
+            this.userTxt.TabIndex = 12;
             // 
             // Account
             // 
@@ -123,6 +180,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 614);
             this.ControlBox = false;
+            this.Controls.Add(this.userTxt);
+            this.Controls.Add(this.startTxt);
+            this.Controls.Add(this.endTxt);
+            this.Controls.Add(this.membershipTxt);
+            this.Controls.Add(this.extendBtn);
+            this.Controls.Add(this.startLbl);
             this.Controls.Add(this.subscriptionLengthLbl);
             this.Controls.Add(this.endLbl);
             this.Controls.Add(this.currentUserLbl);
@@ -151,5 +214,11 @@
         private System.Windows.Forms.Label currentUserLbl;
         private System.Windows.Forms.Label endLbl;
         private System.Windows.Forms.Label subscriptionLengthLbl;
+        private System.Windows.Forms.Label startLbl;
+        private System.Windows.Forms.Button extendBtn;
+        private System.Windows.Forms.TextBox membershipTxt;
+        private System.Windows.Forms.TextBox endTxt;
+        private System.Windows.Forms.TextBox startTxt;
+        private System.Windows.Forms.TextBox userTxt;
     }
 }
