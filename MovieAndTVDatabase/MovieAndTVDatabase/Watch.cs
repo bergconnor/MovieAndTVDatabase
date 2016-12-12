@@ -180,5 +180,14 @@ namespace MovieAndTVDatabase
                 seCombo.Items.Add(temp.ToString());
             }
         }
+
+        private void episodeCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            etitleLabel1.Visible = true;
+            etitleLabel2.Visible = true;
+            string result = db.GetETitle(this.id, episodeCombo.Text);
+            int temp;
+            etitleLabel2.Text = result;
+        }
     }
 }

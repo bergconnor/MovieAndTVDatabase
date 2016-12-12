@@ -132,6 +132,7 @@
             this.episodeCombo.Size = new System.Drawing.Size(137, 39);
             this.episodeCombo.TabIndex = 21;
             this.episodeCombo.Visible = false;
+            this.episodeCombo.SelectedIndexChanged += new System.EventHandler(this.episodeCombo_SelectedIndexChanged);
             // 
             // episodeLabel
             // 
