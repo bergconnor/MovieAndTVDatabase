@@ -42,7 +42,17 @@ namespace MovieAndTVDatabase
             this.showTxt.Text = title;
             this.showTxt2.Text = title;
             //this.pictureBox1.Load(defaultImageString);
-           
+
+            if (type == "TV Show")
+            {
+                //channelLabel.Visible = true;
+                //channel2Label.Visible = true;
+                seCombo.Visible = true;
+                seLabel.Visible = true;
+                //channel2Label.Text = db.GetChannel(title);
+                FillSeason();
+            }
+
             this.pictureBox1.Refresh();
         }
 
@@ -136,6 +146,38 @@ namespace MovieAndTVDatabase
             else
             {
                 this.db.removeFavorite(this.email, this.user, name);
+            }
+        }
+
+        private void seCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            etitleLabel1.Visible = false;
+            etitleLabel2.Visible = false;
+            episodeCombo.Visible = true;
+            episodeLabel.Visible = true;
+            int num = db.GetEpisode(this.id, seCombo.Text);
+            int temp;
+            episodeCombo.Items.Clear();
+            episodeCombo.ResetText();
+
+            for (int i = 0; i < num; i++)
+            {
+                temp = i + 1;
+                episodeCombo.Items.Add(temp.ToString());
+            }
+        }
+
+        private void FillSeason()
+        {
+            int num = db.GetSeason(this.id);
+            int temp;
+            seCombo.Items.Clear();
+            seCombo.ResetText();
+
+            for (int i = 0; i < num; i++)
+            {
+                temp = i + 1;
+                seCombo.Items.Add(temp.ToString());
             }
         }
     }

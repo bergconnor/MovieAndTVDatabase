@@ -33,6 +33,12 @@
             this.currentUserLbl = new System.Windows.Forms.Label();
             this.FavoriteCheckBox3 = new System.Windows.Forms.CheckBox();
             this.showTxt2 = new System.Windows.Forms.Label();
+            this.etitleLabel2 = new System.Windows.Forms.Label();
+            this.etitleLabel1 = new System.Windows.Forms.Label();
+            this.episodeCombo = new System.Windows.Forms.ComboBox();
+            this.episodeLabel = new System.Windows.Forms.Label();
+            this.seCombo = new System.Windows.Forms.ComboBox();
+            this.seLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,12 +98,89 @@
             this.showTxt2.TabIndex = 4;
             this.showTxt2.Text = "label1";
             // 
+            // etitleLabel2
+            // 
+            this.etitleLabel2.AutoSize = true;
+            this.etitleLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.etitleLabel2.Location = new System.Drawing.Point(19, 340);
+            this.etitleLabel2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.etitleLabel2.Name = "etitleLabel2";
+            this.etitleLabel2.Size = new System.Drawing.Size(95, 46);
+            this.etitleLabel2.TabIndex = 23;
+            this.etitleLabel2.Text = "Title";
+            this.etitleLabel2.Visible = false;
+            // 
+            // etitleLabel1
+            // 
+            this.etitleLabel1.AutoSize = true;
+            this.etitleLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.etitleLabel1.Location = new System.Drawing.Point(17, 257);
+            this.etitleLabel1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.etitleLabel1.Name = "etitleLabel1";
+            this.etitleLabel1.Size = new System.Drawing.Size(326, 55);
+            this.etitleLabel1.TabIndex = 22;
+            this.etitleLabel1.Text = "Episode Title: ";
+            this.etitleLabel1.Visible = false;
+            // 
+            // episodeCombo
+            // 
+            this.episodeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.episodeCombo.FormattingEnabled = true;
+            this.episodeCombo.Location = new System.Drawing.Point(258, 566);
+            this.episodeCombo.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.episodeCombo.Name = "episodeCombo";
+            this.episodeCombo.Size = new System.Drawing.Size(137, 39);
+            this.episodeCombo.TabIndex = 21;
+            this.episodeCombo.Visible = false;
+            // 
+            // episodeLabel
+            // 
+            this.episodeLabel.AutoSize = true;
+            this.episodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.episodeLabel.Location = new System.Drawing.Point(20, 550);
+            this.episodeLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.episodeLabel.Name = "episodeLabel";
+            this.episodeLabel.Size = new System.Drawing.Size(222, 55);
+            this.episodeLabel.TabIndex = 20;
+            this.episodeLabel.Text = "Episodes";
+            this.episodeLabel.Visible = false;
+            // 
+            // seCombo
+            // 
+            this.seCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.seCombo.FormattingEnabled = true;
+            this.seCombo.Location = new System.Drawing.Point(245, 460);
+            this.seCombo.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.seCombo.Name = "seCombo";
+            this.seCombo.Size = new System.Drawing.Size(153, 39);
+            this.seCombo.TabIndex = 19;
+            this.seCombo.Visible = false;
+            this.seCombo.SelectedIndexChanged += new System.EventHandler(this.seCombo_SelectedIndexChanged);
+            // 
+            // seLabel
+            // 
+            this.seLabel.AutoSize = true;
+            this.seLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seLabel.Location = new System.Drawing.Point(11, 441);
+            this.seLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.seLabel.Name = "seLabel";
+            this.seLabel.Size = new System.Drawing.Size(261, 61);
+            this.seLabel.TabIndex = 18;
+            this.seLabel.Text = "Seasons: ";
+            this.seLabel.Visible = false;
+            // 
             // Watch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1638, 1286);
             this.ControlBox = false;
+            this.Controls.Add(this.etitleLabel2);
+            this.Controls.Add(this.etitleLabel1);
+            this.Controls.Add(this.episodeCombo);
+            this.Controls.Add(this.episodeLabel);
+            this.Controls.Add(this.seCombo);
+            this.Controls.Add(this.seLabel);
             this.Controls.Add(this.showTxt2);
             this.Controls.Add(this.FavoriteCheckBox3);
             this.Controls.Add(this.currentUserLbl);
@@ -122,5 +205,11 @@
         private System.Windows.Forms.Label currentUserLbl;
         private System.Windows.Forms.CheckBox FavoriteCheckBox3;
         private System.Windows.Forms.Label showTxt2;
+        private System.Windows.Forms.Label etitleLabel2;
+        private System.Windows.Forms.Label etitleLabel1;
+        private System.Windows.Forms.ComboBox episodeCombo;
+        private System.Windows.Forms.Label episodeLabel;
+        private System.Windows.Forms.ComboBox seCombo;
+        private System.Windows.Forms.Label seLabel;
     }
 }
