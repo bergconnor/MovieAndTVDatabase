@@ -113,11 +113,19 @@ namespace MovieAndTVDatabase
 
         private void infoButton_Click(object sender, EventArgs e)
         {
-            string title = resultCombo.Text;
-            Information form = new Information(this, title);
-            form.MdiParent = this.MdiParent;
-            form.Show();
-            this.Hide();
+            if (resultCombo.Text.Equals(""))
+            {
+
+            }
+            else
+            {
+                string title = resultCombo.Text;
+                Information form = new Information(this, title);
+                form.MdiParent = this.MdiParent;
+                form.Show();
+                this.Hide();
+            }
+            
         }
 
         private void resultCombo_SelectedIndexChanged(object sender, EventArgs e)
@@ -128,11 +136,20 @@ namespace MovieAndTVDatabase
 
         private void watchButton_Click(object sender, EventArgs e)
         {
-            string title = resultCombo.Text;
-            Watch form = new Watch(this, title);
-            form.MdiParent = this.MdiParent;
-            form.Show();
-            this.Hide();
+            if (resultCombo.Text.Equals(""))
+            {
+
+            }
+            else
+            {
+                string title = resultCombo.Text;
+                Watch form = new Watch(this, title);
+                form.MdiParent = this.MdiParent;
+                form.Show();
+                this.Hide();
+
+            }
+            
         }
 
         private void recommendButton_Click(object sender, EventArgs e)
