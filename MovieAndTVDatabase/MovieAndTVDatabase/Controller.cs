@@ -55,6 +55,15 @@ namespace MovieAndTVDatabase
             this.Close();
         }
 
+        public void WatchShow()
+        {
+            closeChildren();
+
+            Watch form = new Watch();
+            form.MdiParent = this;
+            form.Show();
+        }
+
         public void EnableMenuItems()
         {
             this.homeToolStripMenuItem.Enabled = true;
@@ -73,15 +82,6 @@ namespace MovieAndTVDatabase
             closeChildren();
 
             Account form = new Account();
-            form.MdiParent = this;
-            form.Show();
-        }
-
-        private void watchToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            closeChildren();
-
-            Watch form = new Watch();
             form.MdiParent = this;
             form.Show();
         }

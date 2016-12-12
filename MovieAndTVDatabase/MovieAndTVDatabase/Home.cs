@@ -17,7 +17,6 @@ namespace MovieAndTVDatabase
         public Home()
         {
             InitializeComponent();
-            _parent = (Controller)MdiParent;
         }
 
         private void fillUsers()
@@ -63,6 +62,7 @@ namespace MovieAndTVDatabase
 
         private void Home_Shown(object sender, EventArgs e)
         {
+            _parent = (Controller)this.MdiParent;
             fillUsers();
             fillGenres();
             fillMovieTV();
@@ -121,7 +121,7 @@ namespace MovieAndTVDatabase
 
         private void watchButton_Click(object sender, EventArgs e)
         {
-
+            _parent.WatchShow();
         }
 
         private void recommendButton_Click(object sender, EventArgs e)

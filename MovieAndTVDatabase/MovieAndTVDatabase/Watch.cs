@@ -18,7 +18,6 @@ namespace MovieAndTVDatabase
         public Watch()
         {
             InitializeComponent();
-            _parent = (Controller)MdiParent;
             _defaultImage = "http://www.amfmph.com/wp-content/plugins/" +
                             "social-media-builder//img/no-image.png";
             pictureBox.Load(_defaultImage);
@@ -27,6 +26,7 @@ namespace MovieAndTVDatabase
 
         private void Watch_Shown(object sender, EventArgs e)
         {
+            _parent = (Controller)MdiParent;
             userLabel.Text += _parent.User;
         }
 

@@ -34,8 +34,7 @@ namespace MovieAndTVDatabase
             {
                 this.Hide();
                 Controller parent = new Controller(this, email);
-                MdiParent = parent;
-                parent.Show();
+                parent.Show(this);
             }
             else
             {

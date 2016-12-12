@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.usersCombo = new System.Windows.Forms.ComboBox();
             this.logoutButton = new System.Windows.Forms.Button();
             this.genreCombo = new System.Windows.Forms.ComboBox();
@@ -47,17 +46,8 @@
             this.movieLabel = new System.Windows.Forms.Label();
             this.movieCombo = new System.Windows.Forms.ComboBox();
             this.recommendButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(277, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(245, 59);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Home";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // usersCombo
             // 
@@ -264,11 +254,21 @@
             this.recommendButton.UseVisualStyleBackColor = true;
             this.recommendButton.Click += new System.EventHandler(this.recommendButton_Click);
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(277, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(245, 59);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Home";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 614);
+            this.ClientSize = new System.Drawing.Size(819, 643);
             this.ControlBox = false;
             this.Controls.Add(this.recommendButton);
             this.Controls.Add(this.movieCombo);
@@ -302,8 +302,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox usersCombo;
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.ComboBox genreCombo;
@@ -322,5 +320,6 @@
         private System.Windows.Forms.Label movieLabel;
         private System.Windows.Forms.ComboBox movieCombo;
         private System.Windows.Forms.Button recommendButton;
+        private System.Windows.Forms.Label label1;
     }
 }
