@@ -59,6 +59,8 @@ namespace MovieAndTVDatabase
             ((Container)MdiParent).User = usersCombo.SelectedItem.ToString();
             ((Container)MdiParent).EnableMenuItems();
             recommendButton.Enabled = true;
+            HistoryButton.Enabled = true;
+            FavoritesButton.Enabled = true;
             showText.Enabled = true;
             genreCombo.Enabled = true;
             actorText.Enabled = true;
@@ -173,6 +175,39 @@ namespace MovieAndTVDatabase
                 {
                     resultCombo.Items.Add(result);
                 }
+            }
+        }
+
+        private void HistoryButton_Click(object sender, EventArgs e)
+        {
+            string user = ((Container)this.MdiParent).User;
+            
+            string user2 = this.db.getSingleUser(email,user);
+            List<string> shows = db.GetHistory(user2);
+            resultCombo.Items.Clear();
+            resultCombo.ResetText();
+
+             
+                foreach (string result in shows)
+                {
+                    resultCombo.Items.Add(result);
+                }
+            
+        }
+
+        private void Fav_Click(object sender, EventArgs e)
+        {
+            string user = ((Container)this.MdiParent).User;
+             
+            string user2 = this.db.getSingleUser(email, user);
+            List<string> shows = db.GetFavorites(user2);
+            resultCombo.Items.Clear();
+            resultCombo.ResetText();
+
+
+            foreach (string result in shows)
+            {
+                resultCombo.Items.Add(result);
             }
         }
     }
