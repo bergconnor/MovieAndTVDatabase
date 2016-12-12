@@ -28,50 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.addUserBtn = new System.Windows.Forms.Button();
-            this.nameTxt = new System.Windows.Forms.TextBox();
-            this.resultTxt = new System.Windows.Forms.TextBox();
+            this.addButton = new System.Windows.Forms.Button();
+            this.nameText = new System.Windows.Forms.TextBox();
+            this.outputText = new System.Windows.Forms.TextBox();
             this.usersCombo = new System.Windows.Forms.ComboBox();
-            this.rmvUserBtn = new System.Windows.Forms.Button();
-            this.currentUserLbl = new System.Windows.Forms.Label();
-            this.endLbl = new System.Windows.Forms.Label();
-            this.subscriptionLengthLbl = new System.Windows.Forms.Label();
-            this.startLbl = new System.Windows.Forms.Label();
-            this.extendBtn = new System.Windows.Forms.Button();
-            this.membershipTxt = new System.Windows.Forms.TextBox();
-            this.endTxt = new System.Windows.Forms.TextBox();
-            this.startTxt = new System.Windows.Forms.TextBox();
-            this.userTxt = new System.Windows.Forms.TextBox();
+            this.removeButton = new System.Windows.Forms.Button();
+            this.userLabel = new System.Windows.Forms.Label();
+            this.endLabel = new System.Windows.Forms.Label();
+            this.membershipLabel = new System.Windows.Forms.Label();
+            this.startLabel = new System.Windows.Forms.Label();
+            this.extendButton = new System.Windows.Forms.Button();
+            this.membershipText = new System.Windows.Forms.TextBox();
+            this.endText = new System.Windows.Forms.TextBox();
+            this.startText = new System.Windows.Forms.TextBox();
+            this.userText = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // addUserBtn
+            // addButton
             // 
-            this.addUserBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.addUserBtn.Location = new System.Drawing.Point(310, 434);
-            this.addUserBtn.Name = "addUserBtn";
-            this.addUserBtn.Size = new System.Drawing.Size(216, 49);
-            this.addUserBtn.TabIndex = 2;
-            this.addUserBtn.Text = "Add User";
-            this.addUserBtn.UseVisualStyleBackColor = true;
-            this.addUserBtn.Click += new System.EventHandler(this.addUserBtn_Click);
+            this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.addButton.Location = new System.Drawing.Point(310, 434);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(216, 49);
+            this.addButton.TabIndex = 2;
+            this.addButton.Text = "Add User";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // nameTxt
+            // nameText
             // 
-            this.nameTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.nameTxt.Location = new System.Drawing.Point(310, 234);
-            this.nameTxt.Name = "nameTxt";
-            this.nameTxt.Size = new System.Drawing.Size(216, 22);
-            this.nameTxt.TabIndex = 1;
+            this.nameText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.nameText.Location = new System.Drawing.Point(310, 234);
+            this.nameText.Name = "nameText";
+            this.nameText.Size = new System.Drawing.Size(216, 22);
+            this.nameText.TabIndex = 1;
             // 
-            // resultTxt
+            // outputText
             // 
-            this.resultTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.resultTxt.Location = new System.Drawing.Point(310, 262);
-            this.resultTxt.Multiline = true;
-            this.resultTxt.Name = "resultTxt";
-            this.resultTxt.ReadOnly = true;
-            this.resultTxt.Size = new System.Drawing.Size(216, 157);
-            this.resultTxt.TabIndex = 0;
+            this.outputText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.outputText.Location = new System.Drawing.Point(310, 262);
+            this.outputText.Multiline = true;
+            this.outputText.Name = "outputText";
+            this.outputText.ReadOnly = true;
+            this.outputText.Size = new System.Drawing.Size(216, 157);
+            this.outputText.TabIndex = 0;
             // 
             // usersCombo
             // 
@@ -84,116 +84,116 @@
             this.usersCombo.Size = new System.Drawing.Size(216, 24);
             this.usersCombo.TabIndex = 3;
             // 
-            // rmvUserBtn
+            // removeButton
             // 
-            this.rmvUserBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rmvUserBtn.Location = new System.Drawing.Point(310, 534);
-            this.rmvUserBtn.Name = "rmvUserBtn";
-            this.rmvUserBtn.Size = new System.Drawing.Size(216, 49);
-            this.rmvUserBtn.TabIndex = 4;
-            this.rmvUserBtn.Text = "Remove User";
-            this.rmvUserBtn.UseVisualStyleBackColor = true;
-            this.rmvUserBtn.Click += new System.EventHandler(this.rmvUserBtn_Click);
+            this.removeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.removeButton.Location = new System.Drawing.Point(310, 534);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(216, 49);
+            this.removeButton.TabIndex = 4;
+            this.removeButton.Text = "Remove User";
+            this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
-            // currentUserLbl
+            // userLabel
             // 
-            this.currentUserLbl.AutoSize = true;
-            this.currentUserLbl.Location = new System.Drawing.Point(12, 40);
-            this.currentUserLbl.Name = "currentUserLbl";
-            this.currentUserLbl.Size = new System.Drawing.Size(97, 17);
-            this.currentUserLbl.TabIndex = 0;
-            this.currentUserLbl.Text = "Current User: ";
+            this.userLabel.AutoSize = true;
+            this.userLabel.Location = new System.Drawing.Point(12, 40);
+            this.userLabel.Name = "userLabel";
+            this.userLabel.Size = new System.Drawing.Size(97, 17);
+            this.userLabel.TabIndex = 0;
+            this.userLabel.Text = "Current User: ";
             // 
-            // endLbl
+            // endLabel
             // 
-            this.endLbl.AutoSize = true;
-            this.endLbl.Location = new System.Drawing.Point(12, 104);
-            this.endLbl.Name = "endLbl";
-            this.endLbl.Size = new System.Drawing.Size(123, 17);
-            this.endLbl.TabIndex = 5;
-            this.endLbl.Text = "Subscription End: ";
+            this.endLabel.AutoSize = true;
+            this.endLabel.Location = new System.Drawing.Point(12, 104);
+            this.endLabel.Name = "endLabel";
+            this.endLabel.Size = new System.Drawing.Size(123, 17);
+            this.endLabel.TabIndex = 5;
+            this.endLabel.Text = "Subscription End: ";
             // 
-            // subscriptionLengthLbl
+            // membershipLabel
             // 
-            this.subscriptionLengthLbl.AutoSize = true;
-            this.subscriptionLengthLbl.Location = new System.Drawing.Point(12, 136);
-            this.subscriptionLengthLbl.Name = "subscriptionLengthLbl";
-            this.subscriptionLengthLbl.Size = new System.Drawing.Size(157, 17);
-            this.subscriptionLengthLbl.TabIndex = 6;
-            this.subscriptionLengthLbl.Text = "Length of Membership: ";
+            this.membershipLabel.AutoSize = true;
+            this.membershipLabel.Location = new System.Drawing.Point(12, 136);
+            this.membershipLabel.Name = "membershipLabel";
+            this.membershipLabel.Size = new System.Drawing.Size(157, 17);
+            this.membershipLabel.TabIndex = 6;
+            this.membershipLabel.Text = "Length of Membership: ";
             // 
-            // startLbl
+            // startLabel
             // 
-            this.startLbl.AutoSize = true;
-            this.startLbl.Location = new System.Drawing.Point(12, 72);
-            this.startLbl.Name = "startLbl";
-            this.startLbl.Size = new System.Drawing.Size(128, 17);
-            this.startLbl.TabIndex = 7;
-            this.startLbl.Text = "Subscription Start: ";
+            this.startLabel.AutoSize = true;
+            this.startLabel.Location = new System.Drawing.Point(12, 72);
+            this.startLabel.Name = "startLabel";
+            this.startLabel.Size = new System.Drawing.Size(128, 17);
+            this.startLabel.TabIndex = 7;
+            this.startLabel.Text = "Subscription Start: ";
             // 
-            // extendBtn
+            // extendButton
             // 
-            this.extendBtn.Location = new System.Drawing.Point(12, 196);
-            this.extendBtn.Name = "extendBtn";
-            this.extendBtn.Size = new System.Drawing.Size(178, 45);
-            this.extendBtn.TabIndex = 8;
-            this.extendBtn.Text = "Extend Membership";
-            this.extendBtn.UseVisualStyleBackColor = true;
-            this.extendBtn.Click += new System.EventHandler(this.extendBtn_Click);
+            this.extendButton.Location = new System.Drawing.Point(12, 196);
+            this.extendButton.Name = "extendButton";
+            this.extendButton.Size = new System.Drawing.Size(178, 45);
+            this.extendButton.TabIndex = 8;
+            this.extendButton.Text = "Extend Membership";
+            this.extendButton.UseVisualStyleBackColor = true;
+            this.extendButton.Click += new System.EventHandler(this.extendButton_Click);
             // 
-            // membershipTxt
+            // membershipText
             // 
-            this.membershipTxt.Location = new System.Drawing.Point(175, 136);
-            this.membershipTxt.Name = "membershipTxt";
-            this.membershipTxt.ReadOnly = true;
-            this.membershipTxt.Size = new System.Drawing.Size(125, 22);
-            this.membershipTxt.TabIndex = 9;
+            this.membershipText.Location = new System.Drawing.Point(175, 136);
+            this.membershipText.Name = "membershipText";
+            this.membershipText.ReadOnly = true;
+            this.membershipText.Size = new System.Drawing.Size(125, 22);
+            this.membershipText.TabIndex = 9;
             // 
-            // endTxt
+            // endText
             // 
-            this.endTxt.Location = new System.Drawing.Point(175, 100);
-            this.endTxt.Name = "endTxt";
-            this.endTxt.ReadOnly = true;
-            this.endTxt.Size = new System.Drawing.Size(125, 22);
-            this.endTxt.TabIndex = 10;
+            this.endText.Location = new System.Drawing.Point(175, 100);
+            this.endText.Name = "endText";
+            this.endText.ReadOnly = true;
+            this.endText.Size = new System.Drawing.Size(125, 22);
+            this.endText.TabIndex = 10;
             // 
-            // startTxt
+            // startText
             // 
-            this.startTxt.Location = new System.Drawing.Point(175, 64);
-            this.startTxt.Name = "startTxt";
-            this.startTxt.ReadOnly = true;
-            this.startTxt.Size = new System.Drawing.Size(125, 22);
-            this.startTxt.TabIndex = 11;
+            this.startText.Location = new System.Drawing.Point(175, 64);
+            this.startText.Name = "startText";
+            this.startText.ReadOnly = true;
+            this.startText.Size = new System.Drawing.Size(125, 22);
+            this.startText.TabIndex = 11;
             // 
-            // userTxt
+            // userText
             // 
-            this.userTxt.Location = new System.Drawing.Point(175, 28);
-            this.userTxt.Name = "userTxt";
-            this.userTxt.ReadOnly = true;
-            this.userTxt.Size = new System.Drawing.Size(125, 22);
-            this.userTxt.TabIndex = 12;
+            this.userText.Location = new System.Drawing.Point(175, 28);
+            this.userText.Name = "userText";
+            this.userText.ReadOnly = true;
+            this.userText.Size = new System.Drawing.Size(125, 22);
+            this.userText.TabIndex = 12;
             // 
             // Account
             // 
-            this.AcceptButton = this.addUserBtn;
+            this.AcceptButton = this.addButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 614);
             this.ControlBox = false;
-            this.Controls.Add(this.userTxt);
-            this.Controls.Add(this.startTxt);
-            this.Controls.Add(this.endTxt);
-            this.Controls.Add(this.membershipTxt);
-            this.Controls.Add(this.extendBtn);
-            this.Controls.Add(this.startLbl);
-            this.Controls.Add(this.subscriptionLengthLbl);
-            this.Controls.Add(this.endLbl);
-            this.Controls.Add(this.currentUserLbl);
-            this.Controls.Add(this.rmvUserBtn);
+            this.Controls.Add(this.userText);
+            this.Controls.Add(this.startText);
+            this.Controls.Add(this.endText);
+            this.Controls.Add(this.membershipText);
+            this.Controls.Add(this.extendButton);
+            this.Controls.Add(this.startLabel);
+            this.Controls.Add(this.membershipLabel);
+            this.Controls.Add(this.endLabel);
+            this.Controls.Add(this.userLabel);
+            this.Controls.Add(this.removeButton);
             this.Controls.Add(this.usersCombo);
-            this.Controls.Add(this.resultTxt);
-            this.Controls.Add(this.nameTxt);
-            this.Controls.Add(this.addUserBtn);
+            this.Controls.Add(this.outputText);
+            this.Controls.Add(this.nameText);
+            this.Controls.Add(this.addButton);
             this.Name = "Account";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -206,19 +206,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Button addUserBtn;
-        private System.Windows.Forms.TextBox nameTxt;
-        private System.Windows.Forms.TextBox resultTxt;
+        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.TextBox nameText;
+        private System.Windows.Forms.TextBox outputText;
         private System.Windows.Forms.ComboBox usersCombo;
-        private System.Windows.Forms.Button rmvUserBtn;
-        private System.Windows.Forms.Label currentUserLbl;
-        private System.Windows.Forms.Label endLbl;
-        private System.Windows.Forms.Label subscriptionLengthLbl;
-        private System.Windows.Forms.Label startLbl;
-        private System.Windows.Forms.Button extendBtn;
-        private System.Windows.Forms.TextBox membershipTxt;
-        private System.Windows.Forms.TextBox endTxt;
-        private System.Windows.Forms.TextBox startTxt;
-        private System.Windows.Forms.TextBox userTxt;
+        private System.Windows.Forms.Button removeButton;
+        private System.Windows.Forms.Label userLabel;
+        private System.Windows.Forms.Label endLabel;
+        private System.Windows.Forms.Label startLabel;
+        private System.Windows.Forms.Button extendButton;
+        private System.Windows.Forms.TextBox membershipText;
+        private System.Windows.Forms.TextBox endText;
+        private System.Windows.Forms.TextBox startText;
+        private System.Windows.Forms.TextBox userText;
+        private System.Windows.Forms.Label membershipLabel;
     }
 }

@@ -53,13 +53,13 @@
     <Compile Include="Account.Designer.cs">
       <DependentUpon>Account.cs</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseConnect.cs" />
-    <Compile Include="Container.cs">
+    <Compile Include="Controller.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Container.Designer.cs">
-      <DependentUpon>Container.cs</DependentUpon>
+    <Compile Include="Controller.Designer.cs">
+      <DependentUpon>Controller.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseConnect.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,8 +95,8 @@
     <EmbeddedResource Include="Account.resx">
       <DependentUpon>Account.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Container.resx">
-      <DependentUpon>Container.cs</DependentUpon>
+    <EmbeddedResource Include="Controller.resx">
+      <DependentUpon>Controller.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

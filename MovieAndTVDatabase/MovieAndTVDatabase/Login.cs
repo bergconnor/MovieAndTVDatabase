@@ -12,44 +12,46 @@ namespace MovieAndTVDatabase
 {
     public partial class Login : Form
     {
-        private DatabaseConnect db;
+        private DatabaseConnect _database;
 
-        public TextBox result { get; set; }
+        public string Output
+        {
+            set { outputText.Text = value; }
+        }
 
         public Login()
         {
             InitializeComponent();
-            db = new DatabaseConnect();
-            result = this.resultsTxt;
+            _database = new DatabaseConnect();
         }
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            string email = emailTxt.Text;
-            string password = passTxt.Text;
+            string email = emailText.Text;
+            string password = passwordText.Text;
 
-            if (db.CheckPassword(email, password))
+            if (_database.CheckPassword(email, password))
             {
                 this.Hide();
-                Container container = new Container(this, email);
-                container.Show(this);
+                Controller parent = new Controller(this, email);
+                MdiParent = parent;
+                parent.Show();
             }
             else
             {
-                result.Text = "Invalid email address or password.";
+                outputText.Text = "Invalid email address or password.";
             }
-            emailTxt.Text = "";
-            passTxt.Text = "";
+            emailText.Text = "";
+            passwordText.Text = "";
         }
 
         private void signupBtn_Click(object sender, EventArgs e)
         {
-            emailTxt.Text = "";
-            passTxt.Text = "";
+            emailText.Text = "";
+            passwordText.Text = "";
             this.Hide();
             SignUp form = new SignUp(this);
             form.Show();
-            //resultsTxt.Text = "You successfully signed up.";
         }
     }
 }

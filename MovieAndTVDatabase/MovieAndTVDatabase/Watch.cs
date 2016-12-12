@@ -12,41 +12,36 @@ namespace MovieAndTVDatabase
 {
     public partial class Watch : Form
     {
-        private DatabaseConnect db;
-        private string email;
-        private string user;
-        private string defaultImageString;
+        private Controller _parent;
+        private string _defaultImage;
 
         public Watch()
         {
             InitializeComponent();
-            this.db = new DatabaseConnect();
-            this.defaultImageString = "http://www.amfmph.com/wp-content/plugins/" +
-                                    "social-media-builder//img/no-image.png";
-            this.pictureBox1.Load(defaultImageString);
-            this.pictureBox1.Refresh();
-        }
-
-        private void watchBtn_Click(object sender, EventArgs e)
-        {
-            string name = this.showTxt.Text;
-            string show = this.db.GetShowLink(name);
-            //pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            if (show.Length > 0)
-            {
-                this.pictureBox1.Load(show);
-            }
-            else
-            {
-                this.pictureBox1.Load(defaultImageString);
-            }
+            _parent = (Controller)MdiParent;
+            _defaultImage = "http://www.amfmph.com/wp-content/plugins/" +
+                            "social-media-builder//img/no-image.png";
+            pictureBox.Load(_defaultImage);
+            pictureBox.Refresh();
         }
 
         private void Watch_Shown(object sender, EventArgs e)
         {
-            this.email = ((Container)this.MdiParent).Email;
-            this.user = ((Container)this.MdiParent).User;
-            currentUserLbl.Text += this.user;
+            userLabel.Text += _parent.User;
+        }
+
+        private void watchButton_Click(object sender, EventArgs e)
+        {
+            string name = showText.Text;
+            string show = _parent.Database.GetShowLink(name);
+            if (show.Length > 0)
+            {
+                this.pictureBox.Load(show);
+            }
+            else
+            {
+                this.pictureBox.Load(_defaultImage);
+            }
         }
     }
 }

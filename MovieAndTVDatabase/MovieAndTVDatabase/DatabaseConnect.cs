@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace MovieAndTVDatabase
 {
-    class DatabaseConnect
+    public class DatabaseConnect
     {
         private MySqlConnection conn;
         private string server;

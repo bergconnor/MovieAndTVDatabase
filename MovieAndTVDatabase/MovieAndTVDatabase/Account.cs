@@ -12,22 +12,21 @@ namespace MovieAndTVDatabase
 {
     public partial class Account : Form
     {
-        private DatabaseConnect db;
-        private string email;
-        private string user;
-        private string start;
-        private string end;
-        private string length;
+        private Controller _parent;
+
+        private string _start;
+        private string _end;
+        private string _membership;
 
         public Account()
         {
             InitializeComponent();
-            this.db = new DatabaseConnect();
+            _parent = (Controller)MdiParent;
         }
 
-        private void FillUsers()
+        private void fillUsers()
         {
-            List<string> users = db.GetUsers(email);
+            List<string> users = _parent.Database.GetUsers(_parent.Email);
             usersCombo.Items.Clear();
             usersCombo.ResetText();
 
@@ -37,85 +36,82 @@ namespace MovieAndTVDatabase
             }
         }
 
-        private void addUserBtn_Click(object sender, EventArgs e)
-        {
-            string name = nameTxt.Text;
-            if (name.Length < 1)
-            {
-                resultTxt.Text = "No name found.";
-            }
-            else
-            {
-                int result = db.AddUser(name, email);
-                switch (result)
-                {
-                    case 0:
-                        resultTxt.Text = String.Format("Welcome {0}!", name);
-                        FillUsers();
-                        break;
-                    case 1062:
-                        resultTxt.Text = "Duplicate name. Please enter a unique name for this account.";
-                        break;
-                    case 1644:
-                        resultTxt.Text = "Too many users. Each account can only have 5 users.";
-                        break;
-                }
-            }
-            nameTxt.Text = "";
-        }
-
-        private void rmvUserBtn_Click(object sender, EventArgs e)
-        {
-            if (usersCombo.SelectedItem == null)
-            {
-                resultTxt.Text = "Select a user before attempting to remove one.";
-            }
-            else if (String.Compare(usersCombo.SelectedItem.ToString(), this.user) == 0 )
-            {
-                resultTxt.Text = "Can't remove the currently selected user.";
-            }
-            else
-            {
-                string user = usersCombo.SelectedItem.ToString();
-                int result = db.RemoveUser(user, email);
-                if (result == 0)
-                {
-                    resultTxt.Text = String.Format("{0} successfully removed.", user);
-                }
-                else if (result == 3)
-                {
-                    resultTxt.Text = "Can't delete user. Each account must have at least one user.";
-                }
-                FillUsers();
-            }
-        }
-
         private void updateValues()
         {
-            List<string>[] membershipInfo = db.GetMembershipInfo(email);
+            List<string>[] membershipInfo = _parent.Database.GetMembershipInfo(_parent.Email);
 
-            this.start = membershipInfo[0][0];
-            this.end = membershipInfo[1][0];
-            this.length = membershipInfo[2][0];
-            userTxt.Text = this.user;
-            startTxt.Text = this.start.Split(' ')[0];
-            endTxt.Text = this.end.Split(' ')[0];
-            membershipTxt.Text = this.length;
+            _start = membershipInfo[0][0].Split(' ')[0];
+            _end = membershipInfo[1][0].Split(' ')[0];
+            _membership = membershipInfo[2][0];
+            userText.Text = _parent.User;
+            startText.Text = _start;
+            endText.Text = _end;
+            membershipText.Text = _membership;
         }
 
         private void Account_Shown(object sender, EventArgs e)
         {
-            this.email = ((Container)this.MdiParent).Email;
-            this.user = ((Container)this.MdiParent).User;
-
             updateValues();
-            FillUsers();
-            nameTxt.Focus();
+            fillUsers();
+            nameText.Focus();
         }
 
-        private void extendBtn_Click(object sender, EventArgs e)
+        private void addButton_Click(object sender, EventArgs e)
         {
-            db.UpdateSubscription(this.email);
+            string name = nameText.Text;
+            if (name.Length < 1)
+            {
+                outputText.Text = "No name found.";
+            }
+            else
+            {
+                int result = _parent.Database.AddUser(name, _parent.Email);
+                switch (result)
+                {
+                    case 0:
+                        outputText.Text = String.Format("Welcome {0}!", name);
+                        fillUsers();
+                        break;
+                    case 1062:
+                        outputText.Text = "Duplicate name. Please enter a unique name for this account.";
+                        break;
+                    case 1644:
+                        outputText.Text = "Too many users. Each account can only have 5 users.";
+                        break;
+                }
+            }
+            nameText.Text = "";
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            if (usersCombo.SelectedItem == null)
+            {
+                outputText.Text = "Select a user before attempting to remove one.";
+            }
+            else if (String.Compare(usersCombo.SelectedItem.ToString(), _parent.User) == 0)
+            {
+                outputText.Text = "Can't remove the currently selected user.";
+            }
+            else
+            {
+                string user = usersCombo.SelectedItem.ToString();
+                int result = _parent.Database.RemoveUser(user, _parent.Email);
+                if (result == 0)
+                {
+                    outputText.Text = String.Format("{0} successfully removed.", user);
+                }
+                else if (result == 3)
+                {
+                    outputText.Text = "Can't delete user. Each account must have at least one user.";
+                }
+                fillUsers();
+            }
+        }
+
+        private void extendButton_Click(object sender, EventArgs e)
+        {
+            _parent.Database.UpdateSubscription(_parent.Email);
             updateValues();
         }
     }

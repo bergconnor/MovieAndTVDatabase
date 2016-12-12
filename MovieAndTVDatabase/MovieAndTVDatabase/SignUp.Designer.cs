@@ -28,143 +28,143 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.resultsTxt = new System.Windows.Forms.TextBox();
-            this.emailTxt = new System.Windows.Forms.TextBox();
-            this.emailLbl = new System.Windows.Forms.Label();
-            this.pass1Lbl = new System.Windows.Forms.Label();
-            this.pass1Txt = new System.Windows.Forms.TextBox();
-            this.signupBtn = new System.Windows.Forms.Button();
-            this.pass2Txt = new System.Windows.Forms.TextBox();
-            this.pass2Lbl = new System.Windows.Forms.Label();
-            this.nameTxt = new System.Windows.Forms.TextBox();
-            this.nameLbl = new System.Windows.Forms.Label();
-            this.backBtn = new System.Windows.Forms.Button();
+            this.outputText = new System.Windows.Forms.TextBox();
+            this.emailText = new System.Windows.Forms.TextBox();
+            this.emailLabel = new System.Windows.Forms.Label();
+            this.passwordLabel1 = new System.Windows.Forms.Label();
+            this.passwordText1 = new System.Windows.Forms.TextBox();
+            this.signupButton = new System.Windows.Forms.Button();
+            this.password2Text = new System.Windows.Forms.TextBox();
+            this.passwordLabel2 = new System.Windows.Forms.Label();
+            this.nameText = new System.Windows.Forms.TextBox();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.backButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // resultsTxt
+            // outputText
             // 
-            this.resultsTxt.Location = new System.Drawing.Point(13, 183);
-            this.resultsTxt.Margin = new System.Windows.Forms.Padding(4);
-            this.resultsTxt.Multiline = true;
-            this.resultsTxt.Name = "resultsTxt";
-            this.resultsTxt.ReadOnly = true;
-            this.resultsTxt.Size = new System.Drawing.Size(350, 68);
-            this.resultsTxt.TabIndex = 0;
-            this.resultsTxt.TabStop = false;
+            this.outputText.Location = new System.Drawing.Point(13, 183);
+            this.outputText.Margin = new System.Windows.Forms.Padding(4);
+            this.outputText.Multiline = true;
+            this.outputText.Name = "outputText";
+            this.outputText.ReadOnly = true;
+            this.outputText.Size = new System.Drawing.Size(350, 68);
+            this.outputText.TabIndex = 0;
+            this.outputText.TabStop = false;
             // 
-            // emailTxt
+            // emailText
             // 
-            this.emailTxt.Location = new System.Drawing.Point(184, 52);
-            this.emailTxt.Margin = new System.Windows.Forms.Padding(4);
-            this.emailTxt.Name = "emailTxt";
-            this.emailTxt.Size = new System.Drawing.Size(181, 22);
-            this.emailTxt.TabIndex = 2;
+            this.emailText.Location = new System.Drawing.Point(184, 53);
+            this.emailText.Margin = new System.Windows.Forms.Padding(4);
+            this.emailText.Name = "emailText";
+            this.emailText.Size = new System.Drawing.Size(181, 22);
+            this.emailText.TabIndex = 2;
             // 
-            // emailLbl
+            // emailLabel
             // 
-            this.emailLbl.AutoSize = true;
-            this.emailLbl.Location = new System.Drawing.Point(13, 57);
-            this.emailLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.emailLbl.Name = "emailLbl";
-            this.emailLbl.Size = new System.Drawing.Size(42, 17);
-            this.emailLbl.TabIndex = 0;
-            this.emailLbl.Text = "Email";
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.Location = new System.Drawing.Point(13, 58);
+            this.emailLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(42, 17);
+            this.emailLabel.TabIndex = 0;
+            this.emailLabel.Text = "Email";
             // 
-            // pass1Lbl
+            // passwordLabel1
             // 
-            this.pass1Lbl.AutoSize = true;
-            this.pass1Lbl.Location = new System.Drawing.Point(12, 98);
-            this.pass1Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.pass1Lbl.Name = "pass1Lbl";
-            this.pass1Lbl.Size = new System.Drawing.Size(69, 17);
-            this.pass1Lbl.TabIndex = 0;
-            this.pass1Lbl.Text = "Password";
+            this.passwordLabel1.AutoSize = true;
+            this.passwordLabel1.Location = new System.Drawing.Point(12, 98);
+            this.passwordLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.passwordLabel1.Name = "passwordLabel1";
+            this.passwordLabel1.Size = new System.Drawing.Size(69, 17);
+            this.passwordLabel1.TabIndex = 0;
+            this.passwordLabel1.Text = "Password";
             // 
-            // pass1Txt
+            // passwordText1
             // 
-            this.pass1Txt.Location = new System.Drawing.Point(184, 93);
-            this.pass1Txt.Margin = new System.Windows.Forms.Padding(4);
-            this.pass1Txt.Name = "pass1Txt";
-            this.pass1Txt.PasswordChar = '*';
-            this.pass1Txt.Size = new System.Drawing.Size(181, 22);
-            this.pass1Txt.TabIndex = 3;
+            this.passwordText1.Location = new System.Drawing.Point(184, 93);
+            this.passwordText1.Margin = new System.Windows.Forms.Padding(4);
+            this.passwordText1.Name = "passwordText1";
+            this.passwordText1.PasswordChar = '*';
+            this.passwordText1.Size = new System.Drawing.Size(181, 22);
+            this.passwordText1.TabIndex = 3;
             // 
-            // signupBtn
+            // signupButton
             // 
-            this.signupBtn.Location = new System.Drawing.Point(200, 274);
-            this.signupBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.signupBtn.Name = "signupBtn";
-            this.signupBtn.Size = new System.Drawing.Size(163, 28);
-            this.signupBtn.TabIndex = 5;
-            this.signupBtn.Text = "Sign Up";
-            this.signupBtn.UseVisualStyleBackColor = true;
-            this.signupBtn.Click += new System.EventHandler(this.signupBtn_Click);
+            this.signupButton.Location = new System.Drawing.Point(200, 274);
+            this.signupButton.Margin = new System.Windows.Forms.Padding(4);
+            this.signupButton.Name = "signupButton";
+            this.signupButton.Size = new System.Drawing.Size(163, 28);
+            this.signupButton.TabIndex = 5;
+            this.signupButton.Text = "Sign Up";
+            this.signupButton.UseVisualStyleBackColor = true;
+            this.signupButton.Click += new System.EventHandler(this.signupBtn_Click);
             // 
-            // pass2Txt
+            // password2Text
             // 
-            this.pass2Txt.Location = new System.Drawing.Point(184, 135);
-            this.pass2Txt.Margin = new System.Windows.Forms.Padding(4);
-            this.pass2Txt.Name = "pass2Txt";
-            this.pass2Txt.PasswordChar = '*';
-            this.pass2Txt.Size = new System.Drawing.Size(181, 22);
-            this.pass2Txt.TabIndex = 4;
+            this.password2Text.Location = new System.Drawing.Point(184, 133);
+            this.password2Text.Margin = new System.Windows.Forms.Padding(4);
+            this.password2Text.Name = "password2Text";
+            this.password2Text.PasswordChar = '*';
+            this.password2Text.Size = new System.Drawing.Size(181, 22);
+            this.password2Text.TabIndex = 4;
             // 
-            // pass2Lbl
+            // passwordLabel2
             // 
-            this.pass2Lbl.AutoSize = true;
-            this.pass2Lbl.Location = new System.Drawing.Point(13, 140);
-            this.pass2Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.pass2Lbl.Name = "pass2Lbl";
-            this.pass2Lbl.Size = new System.Drawing.Size(129, 17);
-            this.pass2Lbl.TabIndex = 0;
-            this.pass2Lbl.Text = "Re-enter Password";
+            this.passwordLabel2.AutoSize = true;
+            this.passwordLabel2.Location = new System.Drawing.Point(13, 138);
+            this.passwordLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.passwordLabel2.Name = "passwordLabel2";
+            this.passwordLabel2.Size = new System.Drawing.Size(129, 17);
+            this.passwordLabel2.TabIndex = 0;
+            this.passwordLabel2.Text = "Re-enter Password";
             // 
-            // nameTxt
+            // nameText
             // 
-            this.nameTxt.Location = new System.Drawing.Point(184, 13);
-            this.nameTxt.Margin = new System.Windows.Forms.Padding(4);
-            this.nameTxt.Name = "nameTxt";
-            this.nameTxt.Size = new System.Drawing.Size(181, 22);
-            this.nameTxt.TabIndex = 1;
+            this.nameText.Location = new System.Drawing.Point(184, 13);
+            this.nameText.Margin = new System.Windows.Forms.Padding(4);
+            this.nameText.Name = "nameText";
+            this.nameText.Size = new System.Drawing.Size(181, 22);
+            this.nameText.TabIndex = 1;
             // 
-            // nameLbl
+            // nameLabel
             // 
-            this.nameLbl.AutoSize = true;
-            this.nameLbl.Location = new System.Drawing.Point(13, 18);
-            this.nameLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.nameLbl.Name = "nameLbl";
-            this.nameLbl.Size = new System.Drawing.Size(45, 17);
-            this.nameLbl.TabIndex = 0;
-            this.nameLbl.Text = "Name";
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(13, 18);
+            this.nameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(45, 17);
+            this.nameLabel.TabIndex = 0;
+            this.nameLabel.Text = "Name";
             // 
-            // backBtn
+            // backButton
             // 
-            this.backBtn.Location = new System.Drawing.Point(13, 274);
-            this.backBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(163, 28);
-            this.backBtn.TabIndex = 6;
-            this.backBtn.Text = "Back";
-            this.backBtn.UseVisualStyleBackColor = true;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            this.backButton.Location = new System.Drawing.Point(13, 274);
+            this.backButton.Margin = new System.Windows.Forms.Padding(4);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(163, 28);
+            this.backButton.TabIndex = 6;
+            this.backButton.Text = "Back";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // SignUp
             // 
-            this.AcceptButton = this.signupBtn;
+            this.AcceptButton = this.signupButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 311);
-            this.Controls.Add(this.backBtn);
-            this.Controls.Add(this.nameLbl);
-            this.Controls.Add(this.nameTxt);
-            this.Controls.Add(this.pass2Lbl);
-            this.Controls.Add(this.pass2Txt);
-            this.Controls.Add(this.resultsTxt);
-            this.Controls.Add(this.emailTxt);
-            this.Controls.Add(this.emailLbl);
-            this.Controls.Add(this.pass1Lbl);
-            this.Controls.Add(this.pass1Txt);
-            this.Controls.Add(this.signupBtn);
+            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.nameLabel);
+            this.Controls.Add(this.nameText);
+            this.Controls.Add(this.passwordLabel2);
+            this.Controls.Add(this.password2Text);
+            this.Controls.Add(this.outputText);
+            this.Controls.Add(this.emailText);
+            this.Controls.Add(this.emailLabel);
+            this.Controls.Add(this.passwordLabel1);
+            this.Controls.Add(this.passwordText1);
+            this.Controls.Add(this.signupButton);
             this.MaximumSize = new System.Drawing.Size(394, 358);
             this.MinimumSize = new System.Drawing.Size(394, 358);
             this.Name = "SignUp";
@@ -178,16 +178,16 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox resultsTxt;
-        private System.Windows.Forms.TextBox emailTxt;
-        private System.Windows.Forms.Label emailLbl;
-        private System.Windows.Forms.Label pass1Lbl;
-        private System.Windows.Forms.TextBox pass1Txt;
-        private System.Windows.Forms.Button signupBtn;
-        private System.Windows.Forms.TextBox pass2Txt;
-        private System.Windows.Forms.Label pass2Lbl;
-        private System.Windows.Forms.TextBox nameTxt;
-        private System.Windows.Forms.Label nameLbl;
-        private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.TextBox outputText;
+        private System.Windows.Forms.TextBox emailText;
+        private System.Windows.Forms.Label emailLabel;
+        private System.Windows.Forms.Label passwordLabel1;
+        private System.Windows.Forms.TextBox passwordText1;
+        private System.Windows.Forms.Button signupButton;
+        private System.Windows.Forms.TextBox password2Text;
+        private System.Windows.Forms.Label passwordLabel2;
+        private System.Windows.Forms.TextBox nameText;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.Button backButton;
     }
 }

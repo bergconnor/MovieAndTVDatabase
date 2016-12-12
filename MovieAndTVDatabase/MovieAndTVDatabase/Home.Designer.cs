@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.usersCombo = new System.Windows.Forms.ComboBox();
-            this.logoutBtn = new System.Windows.Forms.Button();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.genreCombo = new System.Windows.Forms.ComboBox();
             this.searchLabel = new System.Windows.Forms.Label();
             this.userLabel = new System.Windows.Forms.Label();
@@ -71,16 +71,16 @@
             this.usersCombo.TabIndex = 1;
             this.usersCombo.SelectedIndexChanged += new System.EventHandler(this.usersCombo_SelectedIndexChanged);
             // 
-            // logoutBtn
+            // logoutButton
             // 
-            this.logoutBtn.Location = new System.Drawing.Point(703, 32);
-            this.logoutBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.logoutBtn.Name = "logoutBtn";
-            this.logoutBtn.Size = new System.Drawing.Size(100, 28);
-            this.logoutBtn.TabIndex = 2;
-            this.logoutBtn.Text = "Logout";
-            this.logoutBtn.UseVisualStyleBackColor = true;
-            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
+            this.logoutButton.Location = new System.Drawing.Point(703, 32);
+            this.logoutButton.Margin = new System.Windows.Forms.Padding(4);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(100, 28);
+            this.logoutButton.TabIndex = 2;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // genreCombo
             // 
@@ -142,7 +142,7 @@
             // 
             this.actorText.Enabled = false;
             this.actorText.Location = new System.Drawing.Point(15, 428);
-            this.actorText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.actorText.Margin = new System.Windows.Forms.Padding(4);
             this.actorText.Name = "actorText";
             this.actorText.Size = new System.Drawing.Size(243, 22);
             this.actorText.TabIndex = 8;
@@ -162,7 +162,7 @@
             // 
             this.showText.Enabled = false;
             this.showText.Location = new System.Drawing.Point(15, 305);
-            this.showText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.showText.Margin = new System.Windows.Forms.Padding(4);
             this.showText.Name = "showText";
             this.showText.Size = new System.Drawing.Size(243, 22);
             this.showText.TabIndex = 10;
@@ -173,7 +173,7 @@
             this.resultCombo.Enabled = false;
             this.resultCombo.FormattingEnabled = true;
             this.resultCombo.Location = new System.Drawing.Point(300, 340);
-            this.resultCombo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.resultCombo.Margin = new System.Windows.Forms.Padding(4);
             this.resultCombo.Name = "resultCombo";
             this.resultCombo.Size = new System.Drawing.Size(437, 200);
             this.resultCombo.TabIndex = 11;
@@ -184,7 +184,7 @@
             this.searchButton.Enabled = false;
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchButton.Location = new System.Drawing.Point(15, 542);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(4);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(223, 58);
             this.searchButton.TabIndex = 12;
@@ -197,7 +197,7 @@
             this.infoButton.Enabled = false;
             this.infoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infoButton.Location = new System.Drawing.Point(300, 546);
-            this.infoButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.infoButton.Margin = new System.Windows.Forms.Padding(4);
             this.infoButton.Name = "infoButton";
             this.infoButton.Size = new System.Drawing.Size(195, 42);
             this.infoButton.TabIndex = 13;
@@ -221,7 +221,7 @@
             this.watchButton.Enabled = false;
             this.watchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.watchButton.Location = new System.Drawing.Point(544, 546);
-            this.watchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.watchButton.Margin = new System.Windows.Forms.Padding(4);
             this.watchButton.Name = "watchButton";
             this.watchButton.Size = new System.Drawing.Size(195, 42);
             this.watchButton.TabIndex = 15;
@@ -246,7 +246,7 @@
             this.movieCombo.Enabled = false;
             this.movieCombo.FormattingEnabled = true;
             this.movieCombo.Location = new System.Drawing.Point(16, 491);
-            this.movieCombo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.movieCombo.Margin = new System.Windows.Forms.Padding(4);
             this.movieCombo.Name = "movieCombo";
             this.movieCombo.Size = new System.Drawing.Size(241, 24);
             this.movieCombo.TabIndex = 17;
@@ -256,7 +256,7 @@
             this.recommendButton.Enabled = false;
             this.recommendButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recommendButton.Location = new System.Drawing.Point(16, 105);
-            this.recommendButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.recommendButton.Margin = new System.Windows.Forms.Padding(4);
             this.recommendButton.Name = "recommendButton";
             this.recommendButton.Size = new System.Drawing.Size(155, 60);
             this.recommendButton.TabIndex = 18;
@@ -286,7 +286,7 @@
             this.Controls.Add(this.userLabel);
             this.Controls.Add(this.searchLabel);
             this.Controls.Add(this.genreCombo);
-            this.Controls.Add(this.logoutBtn);
+            this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.usersCombo);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -305,7 +305,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox usersCombo;
-        private System.Windows.Forms.Button logoutBtn;
+        private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.ComboBox genreCombo;
         private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.Label userLabel;

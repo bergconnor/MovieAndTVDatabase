@@ -12,18 +12,17 @@ namespace MovieAndTVDatabase
 {
     public partial class Home : Form
     {
-        private DatabaseConnect db;
-        private string email;
+        private Controller _parent;
 
         public Home()
         {
             InitializeComponent();
-            this.db = new DatabaseConnect();
+            _parent = (Controller)MdiParent;
         }
 
-        private void FillUsers()
+        private void fillUsers()
         {
-            List<string> users = db.GetUsers(email);
+            List<string> users = _parent.Database.GetUsers(_parent.Email);
             usersCombo.Items.Clear();
             usersCombo.ResetText();
 
@@ -33,9 +32,9 @@ namespace MovieAndTVDatabase
             }
         }
 
-        private void FillGenres()
+        private void fillGenres()
         {
-            List<string> genres = db.GetGenres();
+            List<string> genres = _parent.Database.GetGenres();
             genreCombo.Items.Clear();
             genreCombo.ResetText();
 
@@ -49,15 +48,10 @@ namespace MovieAndTVDatabase
             genreCombo.Text = "All Genres";
         }
 
-        private void logoutBtn_Click(object sender, EventArgs e)
-        {
-            ((Container)this.MdiParent).logout(); 
-        }
-
         private void usersCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ((Container)MdiParent).User = usersCombo.SelectedItem.ToString();
-            ((Container)MdiParent).EnableMenuItems();
+            _parent.User = usersCombo.SelectedItem.ToString();
+            _parent.EnableMenuItems();
             recommendButton.Enabled = true;
             showText.Enabled = true;
             genreCombo.Enabled = true;
@@ -69,36 +63,17 @@ namespace MovieAndTVDatabase
 
         private void Home_Shown(object sender, EventArgs e)
         {
-            this.email = ((Container)this.MdiParent).Email;
-            FillUsers();
-            FillGenres();
-            FillMovieTV();
-            string user = ((Container)this.MdiParent).User;
+            fillUsers();
+            fillGenres();
+            fillMovieTV();
+            string user = _parent.User;
             if (user != null)
             {
                 usersCombo.Text = user;
             }
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-            string genre = genreCombo.Text;
-            string actor = actorText.Text;
-            string show = showText.Text;
-            string type = movieCombo.Text;
-
-            List<string>[] results = db.GetResults(genre, actor, show, type);
-            resultCombo.Items.Clear();
-            resultCombo.ResetText();
-
-            foreach (string result in results[0])
-            {
-                resultCombo.Items.Add(result);
-            }
-
-        }
-
-        private void FillMovieTV()
+        private void fillMovieTV()
         {
             
             movieCombo.Items.Clear();
@@ -111,6 +86,12 @@ namespace MovieAndTVDatabase
             movieCombo.Text = "Both";
         }
 
+        private void resultCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            infoButton.Enabled = true;
+            watchButton.Enabled = true;
+        }
+
         private void infoButton_Click(object sender, EventArgs e)
         {
             string title = resultCombo.Text;
@@ -120,10 +101,22 @@ namespace MovieAndTVDatabase
             this.Hide();
         }
 
-        private void resultCombo_SelectedIndexChanged(object sender, EventArgs e)
+        private void searchButton_Click(object sender, EventArgs e)
         {
-            infoButton.Enabled = true;
-            watchButton.Enabled = true;
+            string genre = genreCombo.Text;
+            string actor = actorText.Text;
+            string show = showText.Text;
+            string type = movieCombo.Text;
+
+            List<string>[] results = _parent.Database.GetResults(genre, actor, show, type);
+            resultCombo.Items.Clear();
+            resultCombo.ResetText();
+
+            foreach (string result in results[0])
+            {
+                resultCombo.Items.Add(result);
+            }
+
         }
 
         private void watchButton_Click(object sender, EventArgs e)
@@ -133,11 +126,10 @@ namespace MovieAndTVDatabase
 
         private void recommendButton_Click(object sender, EventArgs e)
         {
-            string user = ((Container)this.MdiParent).User;
             List<string> shows;
             int show_count = 25;
             int max = 4;
-            while ((shows = db.GetRecommendations(email, user, max)).Count < 1)
+            while ((shows = _parent.Database.GetRecommendations(_parent.Email, _parent.User, max)).Count < 1)
             {
                 max--;
             }
@@ -150,13 +142,18 @@ namespace MovieAndTVDatabase
             }
             else if (shows.Count > show_count)
             {
-                MessageBox.Show(String.Format("Over {0} shows found.\r\n" + 
+                MessageBox.Show(String.Format("Over {0} shows found.\r\n" +
                         "Favorite more shows to narrow result.", show_count));
             }
             foreach (string result in shows)
             {
                 resultCombo.Items.Add(result);
             }
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            _parent.Logout();
         }
     }
 }
