@@ -54,10 +54,13 @@ namespace MovieAndTVDatabase
 
         private void watchToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            /*
             closeChildren();
-            Watch form = new Watch();
+            string title = resultCombo.Text;
+            Watch form = new Watch(this, title);
             form.MdiParent = this;
             form.Show();
+            */
         }
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -87,14 +90,14 @@ namespace MovieAndTVDatabase
         {
             this.homeToolStripMenuItem.Enabled = true;
             this.accountToolStripMenuItem.Enabled = true;
-            this.watchToolStripMenuItem.Enabled = true;
+           // this.watchToolStripMenuItem.Enabled = true;
         }
 
         public void DisableMenuItems()
         {
             this.homeToolStripMenuItem.Enabled = false;
             this.accountToolStripMenuItem.Enabled = false;
-            this.watchToolStripMenuItem.Enabled = false;
+           // this.watchToolStripMenuItem.Enabled = false;
         }
     }
 }
