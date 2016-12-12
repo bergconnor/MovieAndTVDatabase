@@ -35,7 +35,19 @@ namespace MovieAndTVDatabase
             if (show.Length > 0)
             {
                 this.pictureBox1.Load(show);
-                FavoriteCheckBox.Enabled = true;
+                
+
+                this.FavoriteCheckBox3.Enabled = true;
+
+                string fav = this.db.getSingleFavorit(user, name);
+                if (fav.Equals(""))
+                {
+                    this.FavoriteCheckBox3.Checked = false;
+                }
+                else
+                {
+                    this.FavoriteCheckBox3.Checked = true;
+                }
             }
             else
             {
@@ -53,7 +65,20 @@ namespace MovieAndTVDatabase
         private void FavoriteCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             string name = this.showTxt.Text;
-            if (FavoriteCheckBox.Checked)
+            if (this.FavoriteCheckBox3.Checked)
+            {
+                this.db.addFavorite(this.email, this.user, name);
+            }
+            else
+            {
+                this.db.removeFavorite(this.email, this.user, name);
+            }
+        }
+
+        private void FavoriteCheckBox_CheckedChanged_1(object sender, EventArgs e)
+        {
+            string name = this.showTxt.Text;
+            if (this.FavoriteCheckBox3.Checked)
             {
                 this.db.addFavorite(this.email, this.user, name);
             }

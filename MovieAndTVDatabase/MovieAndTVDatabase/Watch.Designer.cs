@@ -32,7 +32,7 @@
             this.watchBtn = new System.Windows.Forms.Button();
             this.showTxt = new System.Windows.Forms.TextBox();
             this.currentUserLbl = new System.Windows.Forms.Label();
-            this.FavoriteCheckBox = new System.Windows.Forms.CheckBox();
+            this.FavoriteCheckBox3 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,7 +41,7 @@
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Location = new System.Drawing.Point(414, 20);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(8);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(840, 968);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -52,7 +52,7 @@
             // 
             this.watchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.watchBtn.Location = new System.Drawing.Point(396, 1116);
-            this.watchBtn.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.watchBtn.Margin = new System.Windows.Forms.Padding(8);
             this.watchBtn.Name = "watchBtn";
             this.watchBtn.Size = new System.Drawing.Size(678, 58);
             this.watchBtn.TabIndex = 1;
@@ -64,7 +64,7 @@
             // 
             this.showTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.showTxt.Location = new System.Drawing.Point(396, 1050);
-            this.showTxt.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.showTxt.Margin = new System.Windows.Forms.Padding(8);
             this.showTxt.Name = "showTxt";
             this.showTxt.Size = new System.Drawing.Size(672, 38);
             this.showTxt.TabIndex = 0;
@@ -80,16 +80,17 @@
             this.currentUserLbl.TabIndex = 2;
             this.currentUserLbl.Text = "Current User: ";
             // 
-            // FavoriteCheckBox
+            // FavoriteCheckBox3
             // 
-            this.FavoriteCheckBox.AutoSize = true;
-            this.FavoriteCheckBox.Enabled = false;
-            this.FavoriteCheckBox.Location = new System.Drawing.Point(1302, 732);
-            this.FavoriteCheckBox.Name = "FavoriteCheckBox";
-            this.FavoriteCheckBox.Size = new System.Drawing.Size(156, 36);
-            this.FavoriteCheckBox.TabIndex = 3;
-            this.FavoriteCheckBox.Text = "Favorite";
-            this.FavoriteCheckBox.UseVisualStyleBackColor = true;
+            this.FavoriteCheckBox3.AutoSize = true;
+            this.FavoriteCheckBox3.Enabled = false;
+            this.FavoriteCheckBox3.Location = new System.Drawing.Point(1302, 732);
+            this.FavoriteCheckBox3.Name = "FavoriteCheckBox3";
+            this.FavoriteCheckBox3.Size = new System.Drawing.Size(156, 36);
+            this.FavoriteCheckBox3.TabIndex = 3;
+            this.FavoriteCheckBox3.Text = "Favorite";
+            this.FavoriteCheckBox3.UseVisualStyleBackColor = true;
+            this.FavoriteCheckBox3.CheckedChanged += new System.EventHandler(this.FavoriteCheckBox_CheckedChanged_1);
             // 
             // Watch
             // 
@@ -98,12 +99,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1638, 1286);
             this.ControlBox = false;
-            this.Controls.Add(this.FavoriteCheckBox);
+            this.Controls.Add(this.FavoriteCheckBox3);
             this.Controls.Add(this.currentUserLbl);
             this.Controls.Add(this.showTxt);
             this.Controls.Add(this.watchBtn);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Margin = new System.Windows.Forms.Padding(8);
             this.Name = "Watch";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -121,6 +122,6 @@
         private System.Windows.Forms.Button watchBtn;
         private System.Windows.Forms.TextBox showTxt;
         private System.Windows.Forms.Label currentUserLbl;
-        private System.Windows.Forms.CheckBox FavoriteCheckBox;
+        private System.Windows.Forms.CheckBox FavoriteCheckBox3;
     }
 }
