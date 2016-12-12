@@ -43,7 +43,7 @@ namespace MovieAndTVDatabase
             }
             catch (MySqlException ex)
             {
-                switch(ex.Number)
+                switch (ex.Number)
                 {
                     case 0:
                         //MessageBox.Show("Cannot connect to server. Contact administrator.");
@@ -230,12 +230,12 @@ namespace MovieAndTVDatabase
                                          "VALUES ({0},'{1}',{2})", user_id, name, account_id);
             try
             {
-                    if (this.OpenConnection() == true)
-                    {
-                        MySqlCommand cmd = new MySqlCommand(query, conn);
-                        cmd.ExecuteNonQuery();
-                        this.CloseConnection();
-                    }
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+                    this.CloseConnection();
+                }
             }
             catch (MySqlException ex)
             {
@@ -496,7 +496,7 @@ namespace MovieAndTVDatabase
 
             string query = String.Format("SELECT display_name(s.name) as name, poster " +
                                          "FROM shows s {0} {1} {2} " +
-                                         "WHERE s.name like '%{3}%' {4} {5} {6} order by s.name",genre2a,actor2a,type2a,show,actor2b,genre2b,type2b);
+                                         "WHERE s.name like '%{3}%' {4} {5} {6} order by s.name", genre2a, actor2a, type2a, show, actor2b, genre2b, type2b);
             try
             {
                 if (this.OpenConnection() == true)
@@ -527,65 +527,8 @@ namespace MovieAndTVDatabase
             return null;
         }
 
-        public string getSingleUser(string email, string user)
-        {
-            string query = String.Format("SELECT u.id id " +
-                                         "FROM users u " +
-                                           "JOIN accounts a " +
-                                             "ON a.id = u.account_id " +
-                                         "WHERE email='{0}' and u.name = '{1}'", email, user);
 
-            if (this.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                List<string>[] result = new List<string>[1];
-                result[0] = new List<string>();
 
-                while (rdr.Read())
-                {
-                    result[0].Add(rdr["id"] + "");
-                }
-
-                rdr.Close();
-                this.CloseConnection();
-
-                if (result[0].Count > 0)
-                {
-                    return result[0][0];
-                }
-            }
-            //return new List<string>();
-            return "";
-        }
-
-        public void addHistory(string email, string userName, string showName)
-        {
-
-            string showId = GetShowId(showName);//"10";
-            string date = "20161210";
-            DateTime today = DateTime.Today;
-            date = today.ToString("yyyy/MM/dd");
-            string userId = getSingleUser(email, userName);
-
-            try
-            {
-                string query = String.Format("insert into history(user_id, show_id, date) values({0}, {1}, '{2}')", userId, showId, date);
-                if (this.OpenConnection() == true)
-                {
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.ExecuteReader();
-                    this.CloseConnection();
-                }
-                //return "";
-            }
-
-            catch (MySqlException ex)
-            {
-                //return "";
-            }
-
-        }
 
         public string GetShowId(string name)
         {
@@ -616,6 +559,82 @@ namespace MovieAndTVDatabase
                 return "";
             }
         }
+        public string getSingleUser(string email, string user)
+        {
+            string query = String.Format("SELECT u.id id " +
+                                         "FROM users u " +
+                                           "JOIN accounts a " +
+                                             "ON a.id = u.account_id " +
+                                         "WHERE email='{0}' and u.name = '{1}'", email, user);
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                List<string>[] result = new List<string>[1];
+                result[0] = new List<string>();
+                while (rdr.Read())
+                {
+                    result[0].Add(rdr["id"] + "");
+                }
+                rdr.Close();
+                this.CloseConnection();
+                if (result[0].Count > 0)
+                {
+                    return result[0][0];
+                }
+            }
+            //return new List<string>();
+            return "";
+        }
+        public void addHistory(string email, string userName, string showName)
+        {
+            string showId = GetShowId(showName);//"10";
+            string date = "20161210";
+            DateTime today = DateTime.Today;
+            date = today.ToString("yyyy/MM/dd");
+            string userId = getSingleUser(email, userName);
+            try
+            {
+                string query = String.Format("insert into history(user_id, show_id, date) values({0}, {1}, '{2}')", userId, showId, date);
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.ExecuteReader();
+                    this.CloseConnection();
+                }
+                //return "";
+            }
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
+                //return "";
+            }
+        }
+
+        public void addFavorite(string email, string userName, string showName)
+        {
+            string showId = GetShowId(showName);//"10";
+            string date = "20161210";
+            DateTime today = DateTime.Today;
+            date = today.ToString("yyyy/MM/dd");
+            string userId = getSingleUser(email, userName);
+            try
+            {
+                string query = String.Format("insert into favorites(user_id, show_id, date) values({0}, {1}, '{2}')", userId, showId, date);
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.ExecuteReader();
+                    this.CloseConnection();
+                }
+                //return "";
+            }
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
+                //return "";
+            }
+        }
 
         public List<string> GetFavorites(string userId)
         {
@@ -624,9 +643,9 @@ namespace MovieAndTVDatabase
                                          "where h.user_id = {0}", userId
                                          );
 
-            if (this.OpenConnection() == true)
+            try
             {
-                try
+                if (this.OpenConnection() == true)
                 {
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader rdr = cmd.ExecuteReader();
@@ -646,11 +665,14 @@ namespace MovieAndTVDatabase
                         return result[0];
                     }
                 }
-                catch (MySqlException ex)
-                {
-                    return new List<string>();
-                }
 
+
+            }
+
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
+                return new List<string>();
             }
             return new List<string>();
         }
@@ -659,12 +681,12 @@ namespace MovieAndTVDatabase
         {
             string query = String.Format("select s.name name from favorites h " +
                                          "join shows s on s.id = h.show_id " +
-                                         "where h.user_id = {0} and name = '{1}'", userId, showName
+                                         "where h.user_id = '{0}' and name = '{1}'", userId, showName
                                          );
 
-            if (this.OpenConnection() == true)
+            try
             {
-                try
+                if (this.OpenConnection() == true)
                 {
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader rdr = cmd.ExecuteReader();
@@ -684,11 +706,13 @@ namespace MovieAndTVDatabase
                         return result[0][0];
                     }
                 }
-                catch (MySqlException ex)
-                {
-                    return "";
-                }
 
+
+            }
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
+                return "";
             }
             return "";
         }
@@ -697,12 +721,12 @@ namespace MovieAndTVDatabase
         {
             string query = String.Format("select s.name name from history h " +
                                          "join shows s on s.id = h.show_id " +
-                                         "where h.user_id = {0} and name = '{1}'", userId, showName
+                                         "where h.user_id = '{0}' and name = '{1}'", userId, showName
                                          );
 
-            if (this.OpenConnection() == true)
+            try
             {
-                try
+                if (this.OpenConnection() == true)
                 {
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader rdr = cmd.ExecuteReader();
@@ -722,11 +746,14 @@ namespace MovieAndTVDatabase
                         return result[0][0];
                     }
                 }
-                catch (MySqlException ex)
-                {
-                    return "";
-                }
 
+
+            }
+
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
+                return "";
             }
             return "";
         }
@@ -738,9 +765,9 @@ namespace MovieAndTVDatabase
                                          "where h.user_id = {0}", userId
                                          );
 
-            if (this.OpenConnection() == true)
+            try
             {
-                try
+                if (this.OpenConnection() == true)
                 {
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader rdr = cmd.ExecuteReader();
@@ -760,14 +787,48 @@ namespace MovieAndTVDatabase
                         return result[0];
                     }
                 }
-                catch (MySqlException ex)
-                {
-                    return new List<string>();
-                }
 
+
+            }
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
+                return new List<string>();
             }
             return new List<string>();
         }
+
+        public void removeFavorite(string email, string userName, string showName)
+        {
+            string showId = GetShowId(showName);//"10";
+            string date = "20161210";
+            DateTime today = DateTime.Today;
+            date = today.ToString("yyyy/MM/dd");
+            string userId = getSingleUser(email, userName);
+            try
+            {
+                string query = String.Format("delete from favorites where user_id = {0} and show_id = {1} ", userId, showId);
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.ExecuteReader();
+                    this.CloseConnection();
+                }
+                //return "";
+            }
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
+                //return "";
+            }
+        }
+
+
+
+
+
+
+
 
         public List<string> GetActors(string title)
         {
@@ -840,7 +901,7 @@ namespace MovieAndTVDatabase
 
             string query = String.Format("SELECT distinct s.name " +
                                          "FROM shows s " +
-                                            "JOIN movies m " + 
+                                            "JOIN movies m " +
                                                 "ON s.id = m.show_id " +
                                          "WHERE s.name = '{0}'", title);
 
@@ -880,7 +941,7 @@ namespace MovieAndTVDatabase
                 {
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader rdr = cmd.ExecuteReader();
-                    string result= "";
+                    string result = "";
                     while (rdr.Read())
                     {
                         result = (rdr["channel"] + "");
@@ -929,7 +990,7 @@ namespace MovieAndTVDatabase
         {
             string query = String.Format("SELECT num " +
                                          "FROM episodes " +
-                                         "WHERE show_id = {0} and season_num = {1}", id,season);
+                                         "WHERE show_id = {0} and season_num = {1}", id, season);
 
             if (this.OpenConnection() == true)
             {
@@ -972,8 +1033,8 @@ namespace MovieAndTVDatabase
 
                 rdr.Close();
                 this.CloseConnection();
-                
-                    return result;
+
+                return result;
 
             }
             return "";
@@ -1041,7 +1102,7 @@ namespace MovieAndTVDatabase
             for (int i = 0; i < limit; i++)
             {
                 query += String.Format(join, genres[0][i], letter);
-                if ( i > 0)
+                if (i > 0)
                 {
                     query += String.Format("on {0}.id = {1}.id ", letter, (char)(letter - 1));
                 }

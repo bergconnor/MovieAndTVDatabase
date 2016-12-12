@@ -32,6 +32,7 @@
             this.watchBtn = new System.Windows.Forms.Button();
             this.showTxt = new System.Windows.Forms.TextBox();
             this.currentUserLbl = new System.Windows.Forms.Label();
+            this.FavoriteCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,10 +40,10 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(207, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(414, 20);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(422, 486);
+            this.pictureBox1.Size = new System.Drawing.Size(840, 968);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -50,10 +51,10 @@
             // watchBtn
             // 
             this.watchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.watchBtn.Location = new System.Drawing.Point(198, 558);
-            this.watchBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.watchBtn.Location = new System.Drawing.Point(396, 1116);
+            this.watchBtn.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.watchBtn.Name = "watchBtn";
-            this.watchBtn.Size = new System.Drawing.Size(339, 29);
+            this.watchBtn.Size = new System.Drawing.Size(678, 58);
             this.watchBtn.TabIndex = 1;
             this.watchBtn.Text = "Watch Show";
             this.watchBtn.UseVisualStyleBackColor = true;
@@ -62,34 +63,47 @@
             // showTxt
             // 
             this.showTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.showTxt.Location = new System.Drawing.Point(198, 525);
-            this.showTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.showTxt.Location = new System.Drawing.Point(396, 1050);
+            this.showTxt.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.showTxt.Name = "showTxt";
-            this.showTxt.Size = new System.Drawing.Size(338, 22);
+            this.showTxt.Size = new System.Drawing.Size(672, 38);
             this.showTxt.TabIndex = 0;
             this.showTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // currentUserLbl
             // 
             this.currentUserLbl.AutoSize = true;
-            this.currentUserLbl.Location = new System.Drawing.Point(12, 43);
+            this.currentUserLbl.Location = new System.Drawing.Point(24, 86);
+            this.currentUserLbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.currentUserLbl.Name = "currentUserLbl";
-            this.currentUserLbl.Size = new System.Drawing.Size(97, 17);
+            this.currentUserLbl.Size = new System.Drawing.Size(190, 32);
             this.currentUserLbl.TabIndex = 2;
             this.currentUserLbl.Text = "Current User: ";
+            // 
+            // FavoriteCheckBox
+            // 
+            this.FavoriteCheckBox.AutoSize = true;
+            this.FavoriteCheckBox.Enabled = false;
+            this.FavoriteCheckBox.Location = new System.Drawing.Point(1302, 732);
+            this.FavoriteCheckBox.Name = "FavoriteCheckBox";
+            this.FavoriteCheckBox.Size = new System.Drawing.Size(156, 36);
+            this.FavoriteCheckBox.TabIndex = 3;
+            this.FavoriteCheckBox.Text = "Favorite";
+            this.FavoriteCheckBox.UseVisualStyleBackColor = true;
             // 
             // Watch
             // 
             this.AcceptButton = this.watchBtn;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(819, 643);
+            this.ClientSize = new System.Drawing.Size(1638, 1286);
             this.ControlBox = false;
+            this.Controls.Add(this.FavoriteCheckBox);
             this.Controls.Add(this.currentUserLbl);
             this.Controls.Add(this.showTxt);
             this.Controls.Add(this.watchBtn);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.Name = "Watch";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -107,5 +121,6 @@
         private System.Windows.Forms.Button watchBtn;
         private System.Windows.Forms.TextBox showTxt;
         private System.Windows.Forms.Label currentUserLbl;
+        private System.Windows.Forms.CheckBox FavoriteCheckBox;
     }
 }

@@ -35,6 +35,7 @@ namespace MovieAndTVDatabase
             if (show.Length > 0)
             {
                 this.pictureBox1.Load(show);
+                FavoriteCheckBox.Enabled = true;
             }
             else
             {
@@ -47,6 +48,19 @@ namespace MovieAndTVDatabase
             this.email = ((Container)this.MdiParent).Email;
             this.user = ((Container)this.MdiParent).User;
             currentUserLbl.Text += this.user;
+        }
+
+        private void FavoriteCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            string name = this.showTxt.Text;
+            if (FavoriteCheckBox.Checked)
+            {
+                this.db.addFavorite(this.email, this.user, name);
+            }
+            else
+            {
+                this.db.removeFavorite(this.email, this.user, name);
+            }
         }
     }
 }
