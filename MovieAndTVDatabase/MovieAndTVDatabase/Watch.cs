@@ -42,6 +42,7 @@ namespace MovieAndTVDatabase
             this.showTxt.Text = title;
             this.showTxt2.Text = title;
             //this.pictureBox1.Load(defaultImageString);
+           
             this.pictureBox1.Refresh();
         }
 
@@ -109,6 +110,7 @@ namespace MovieAndTVDatabase
             currentUserLbl.Text += this.user;
 
             watchShow(this.title);
+            this.db.addHistory(this.email, this.user, this.title);
         }
 
         private void FavoriteCheckBox_CheckedChanged(object sender, EventArgs e)
