@@ -1140,6 +1140,29 @@ namespace MovieAndTVDatabase
             return null;
         }
 
+        public void RenewSubscription(string email)
+        {
+            string account_id = GetAccountID(email);
+            DateTime dt = DateTime.Today.AddYears(1);
+            string end = dt.ToString("yyyy-MM-dd");
+            string query = String.Format("update accounts " +
+                                         "set end = '{0}' " +
+                                         "where id = {1}", end, account_id);
+            try
+            {
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+                    this.CloseConnection();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
+            }
+        }
+
         public bool CheckExpired(string email)
         {
             DateTime dt = DateTime.Today;
@@ -1189,29 +1212,6 @@ namespace MovieAndTVDatabase
             string end = GetMembershipInfo(email)[1][0];
             DateTime dt = Convert.ToDateTime(end).AddYears(1);
             end = dt.ToString("yyyy-MM-dd");
-            string query = String.Format("update accounts " +
-                                         "set end = '{0}' " +
-                                         "where id = {1}", end, account_id);
-            try
-            {
-                if (this.OpenConnection() == true)
-                {
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.ExecuteNonQuery();
-                    this.CloseConnection();
-                }
-            }
-            catch (MySqlException ex)
-            {
-                this.CloseConnection();
-            }
-        }
-
-        public void RenewSubscription(string email)
-        {
-            string account_id = GetAccountID(email);
-            DateTime dt = DateTime.Today.AddYears(1);
-            string end = dt.ToString("yyyy-MM-dd");
             string query = String.Format("update accounts " +
                                          "set end = '{0}' " +
                                          "where id = {1}", end, account_id);
