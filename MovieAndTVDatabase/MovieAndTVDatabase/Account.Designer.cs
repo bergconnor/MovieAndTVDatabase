@@ -48,7 +48,7 @@
             // 
             this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.addButton.Location = new System.Drawing.Point(232, 353);
-            this.addButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addButton.Margin = new System.Windows.Forms.Padding(2);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(162, 40);
             this.addButton.TabIndex = 2;
@@ -60,7 +60,7 @@
             // 
             this.nameText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.nameText.Location = new System.Drawing.Point(232, 190);
-            this.nameText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nameText.Margin = new System.Windows.Forms.Padding(2);
             this.nameText.Name = "nameText";
             this.nameText.Size = new System.Drawing.Size(163, 20);
             this.nameText.TabIndex = 1;
@@ -69,7 +69,7 @@
             // 
             this.outputText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.outputText.Location = new System.Drawing.Point(232, 213);
-            this.outputText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.outputText.Margin = new System.Windows.Forms.Padding(2);
             this.outputText.Multiline = true;
             this.outputText.Name = "outputText";
             this.outputText.ReadOnly = true;
@@ -82,7 +82,7 @@
             this.usersCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.usersCombo.FormattingEnabled = true;
             this.usersCombo.Location = new System.Drawing.Point(232, 410);
-            this.usersCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.usersCombo.Margin = new System.Windows.Forms.Padding(2);
             this.usersCombo.MaxDropDownItems = 5;
             this.usersCombo.Name = "usersCombo";
             this.usersCombo.Size = new System.Drawing.Size(163, 21);
@@ -92,7 +92,7 @@
             // 
             this.removeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.removeButton.Location = new System.Drawing.Point(232, 434);
-            this.removeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.removeButton.Margin = new System.Windows.Forms.Padding(2);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(162, 40);
             this.removeButton.TabIndex = 4;
@@ -126,9 +126,9 @@
             this.membershipLabel.Location = new System.Drawing.Point(9, 110);
             this.membershipLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.membershipLabel.Name = "membershipLabel";
-            this.membershipLabel.Size = new System.Drawing.Size(118, 13);
+            this.membershipLabel.Size = new System.Drawing.Size(97, 13);
             this.membershipLabel.TabIndex = 6;
-            this.membershipLabel.Text = "Length of Membership: ";
+            this.membershipLabel.Text = "Time as a Member:";
             // 
             // startLabel
             // 
@@ -143,7 +143,7 @@
             // renewButton
             // 
             this.renewButton.Location = new System.Drawing.Point(9, 159);
-            this.renewButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.renewButton.Margin = new System.Windows.Forms.Padding(2);
             this.renewButton.Name = "renewButton";
             this.renewButton.Size = new System.Drawing.Size(134, 37);
             this.renewButton.TabIndex = 8;
@@ -154,7 +154,7 @@
             // membershipText
             // 
             this.membershipText.Location = new System.Drawing.Point(131, 110);
-            this.membershipText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.membershipText.Margin = new System.Windows.Forms.Padding(2);
             this.membershipText.Name = "membershipText";
             this.membershipText.ReadOnly = true;
             this.membershipText.Size = new System.Drawing.Size(95, 20);
@@ -163,7 +163,7 @@
             // endText
             // 
             this.endText.Location = new System.Drawing.Point(131, 81);
-            this.endText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.endText.Margin = new System.Windows.Forms.Padding(2);
             this.endText.Name = "endText";
             this.endText.ReadOnly = true;
             this.endText.Size = new System.Drawing.Size(95, 20);
@@ -172,7 +172,7 @@
             // startText
             // 
             this.startText.Location = new System.Drawing.Point(131, 52);
-            this.startText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.startText.Margin = new System.Windows.Forms.Padding(2);
             this.startText.Name = "startText";
             this.startText.ReadOnly = true;
             this.startText.Size = new System.Drawing.Size(95, 20);
@@ -181,7 +181,7 @@
             // userText
             // 
             this.userText.Location = new System.Drawing.Point(131, 23);
-            this.userText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userText.Margin = new System.Windows.Forms.Padding(2);
             this.userText.Name = "userText";
             this.userText.ReadOnly = true;
             this.userText.Size = new System.Drawing.Size(95, 20);
@@ -208,7 +208,7 @@
             this.Controls.Add(this.outputText);
             this.Controls.Add(this.nameText);
             this.Controls.Add(this.addButton);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Account";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
