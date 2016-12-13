@@ -909,7 +909,7 @@ namespace MovieAndTVDatabase
 
         public string GetShowName(string id)
         {
-            string query = String.Format("SELECT name " +
+            string query = String.Format("SELECT display_name(name) name " +
                                          "FROM shows " +
                                          "WHERE id={0}", id);
             try

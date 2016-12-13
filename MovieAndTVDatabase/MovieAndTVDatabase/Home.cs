@@ -190,9 +190,12 @@ namespace MovieAndTVDatabase
             resultsCombo.Items.Clear();
             resultsCombo.ResetText();
 
-            foreach (string result in _results[0])
+            if (_results != null)
             {
-                resultsCombo.Items.Add(result);
+                foreach (string result in _results[0])
+                {
+                    resultsCombo.Items.Add(result);
+                }
             }
         }
 
@@ -204,9 +207,12 @@ namespace MovieAndTVDatabase
             resultsCombo.Items.Clear();
             resultsCombo.ResetText();
 
-            foreach (string result in _results[0])
+            if (_results != null)
             {
-                resultsCombo.Items.Add(result);
+                foreach (string result in _results[0])
+                {
+                    resultsCombo.Items.Add(result);
+                }
             }
         }
     }
