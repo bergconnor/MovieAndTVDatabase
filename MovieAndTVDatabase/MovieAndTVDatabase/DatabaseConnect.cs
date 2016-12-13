@@ -1229,5 +1229,34 @@ namespace MovieAndTVDatabase
                 this.CloseConnection();
             }
         }
+
+        public string GetDuration(string id)
+        {
+            try
+            {
+                string query = String.Format("SELECT m.duration FROM movies m JOIN shows s on s.id = m.show_id  WHERE s.id={0}", id);
+
+
+
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    string result = "";
+                    while (rdr.Read())
+                    {
+                        result = (rdr["duration"] + "");
+                    }
+                    rdr.Close();
+                    this.CloseConnection();
+                    return result;
+                }
+                return "";
+            }
+            catch (MySqlException ex)
+            {
+                return "";
+            }
+        }
     }
 }
