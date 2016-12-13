@@ -17,10 +17,12 @@ namespace MovieAndTVDatabase
         private string _start;
         private string _end;
         private string _membership;
+        private bool _valid;
 
-        public Account()
+        public Account(bool valid)
         {
             InitializeComponent();
+            _valid = valid;
         }
 
         private void fillUsers()
@@ -54,6 +56,14 @@ namespace MovieAndTVDatabase
             updateValues();
             fillUsers();
             nameText.Focus();
+            if (_valid)
+            {
+                _parent.EnableMenuItems();
+            }
+            else
+            {
+                MessageBox.Show("Give us your money.");
+            }
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -109,9 +119,26 @@ namespace MovieAndTVDatabase
             }
         }
 
-        private void extendButton_Click(object sender, EventArgs e)
+        private void checkSubscription()
         {
-            _parent.Database.UpdateSubscription(_parent.Email);
+            string end = _parent.Database.GetMembershipInfo(_parent.Email)[1][0];
+            DateTime today = DateTime.Today;
+            DateTime subscription_end = Convert.ToDateTime(end);
+            int cmp = DateTime.Compare(today, subscription_end);
+            if (cmp <= 0)
+            {
+                _parent.Database.UpdateSubscription(_parent.Email);
+            }
+            else
+            {
+                _parent.Database.RenewSubscription(_parent.Email);
+            }
+            _parent.EnableMenuItems();
+        }
+
+        private void renewButton_Click(object sender, EventArgs e)
+        {
+            checkSubscription();
             updateValues();
         }
     }

@@ -173,5 +173,11 @@ namespace MovieAndTVDatabase
         {
             _parent.Logout();
         }
+
+        private void resultsCombo_TextUpdate(object sender, EventArgs e)
+        {
+            infoButton.Enabled = false;
+            watchButton.Enabled = false;
+        }
     }
 }

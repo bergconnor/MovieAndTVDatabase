@@ -43,9 +43,7 @@ namespace MovieAndTVDatabase
             _userClosing = false;
             _login = login;
 
-            Home form = new Home();
-            form.MdiParent = this;
-            form.Show();
+            checkSubscription();
         }
 
         public void Logout()
@@ -54,6 +52,7 @@ namespace MovieAndTVDatabase
             _login.Show();
             this.Close();
         }
+
 
         public void EnableMenuItems()
         {
@@ -67,12 +66,31 @@ namespace MovieAndTVDatabase
             this.accountToolStripMenuItem.Enabled = false;
         }
 
+        private void checkSubscription()
+        {
+            string end = _database.GetMembershipInfo(_email)[1][0];
+            DateTime today = DateTime.Today;
+            DateTime subscription_end = Convert.ToDateTime(end);
+            int cmp = DateTime.Compare(today, subscription_end);
+            if (cmp <= 0)
+            {
+                Home form = new Home();
+                form.MdiParent = this;
+                form.Show();
+            }
+            else
+            {
+                Account form = new Account(false);
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
 
         private void accountToolStripMenuItem_Click(object sender, EventArgs e)
         {
             closeChildren();
 
-            Account form = new Account();
+            Account form = new Account(true);
             form.MdiParent = this;
             form.Show();
         }
