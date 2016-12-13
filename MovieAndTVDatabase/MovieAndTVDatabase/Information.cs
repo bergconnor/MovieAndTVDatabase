@@ -139,8 +139,12 @@ namespace MovieAndTVDatabase
             {
                 channelDecoratorLabel.Visible = true;
                 channelLabel.Visible = true;
-                channelDecoratorLabel.Text = "Duration:";
-                channelLabel.Text = _parent.Database.GetDuration(_id) + " Minutes";
+                channelDecoratorLabel.Text = "Duration: ";
+                channelLabel.Text = _parent.Database.GetDuration(_id) + " minutes";
+                episodesDecoratorLabel.Visible = true;
+                episodesLabel.Visible = true;
+                episodesDecoratorLabel.Text = "Relase Date: ";
+                episodesLabel.Text = _parent.Database.GetReleased(_id).Split(' ')[0];
             }
         }
 

@@ -805,9 +805,9 @@ namespace MovieAndTVDatabase
 
         public List<string>[] GetHistory(string userId)
         {
-            string query = String.Format("select display_name(s.name) name, s.id id from history h " +
+            string query = String.Format("select display_name(s.name) name, s.id id, h.date date from history h " +
                                          "join shows s on s.id = h.show_id " +
-                                         "where h.user_id = {0}", userId
+                                         "where h.user_id = {0} order by date", userId
                                          );
 
             if (this.OpenConnection() == true)
@@ -816,14 +816,16 @@ namespace MovieAndTVDatabase
                 {
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader rdr = cmd.ExecuteReader();
-                    List<string>[] result = new List<string>[2];
+                    List<string>[] result = new List<string>[3];
                     result[0] = new List<string>();
                     result[1] = new List<string>();
+                    result[2] = new List<string>();
 
                     while (rdr.Read())
                     {
                         result[0].Add(rdr["name"] + "");
                         result[1].Add(rdr["id"] + "");
+                        result[2].Add(rdr["date"] + "");
                     }
 
                     rdr.Close();
@@ -1311,6 +1313,37 @@ namespace MovieAndTVDatabase
             }
             catch (MySqlException ex)
             {
+                this.CloseConnection();
+                return "";
+            }
+        }
+
+        public string GetReleased(string id)
+        {
+            try
+            {
+                string query = String.Format("SELECT m.released FROM movies m JOIN shows s on s.id = m.show_id  WHERE s.id={0}", id);
+
+
+
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    string result = "";
+                    while (rdr.Read())
+                    {
+                        result = (rdr["released"] + "");
+                    }
+                    rdr.Close();
+                    this.CloseConnection();
+                    return result;
+                }
+                return "";
+            }
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
                 return "";
             }
         }

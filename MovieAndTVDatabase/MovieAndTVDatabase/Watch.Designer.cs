@@ -45,9 +45,9 @@
             // 
             this.pictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox.Location = new System.Drawing.Point(170, 12);
+            this.pictureBox.Location = new System.Drawing.Point(170, 70);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(319, 382);
+            this.pictureBox.Size = new System.Drawing.Size(284, 355);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
@@ -67,7 +67,7 @@
             this.favoriteCheckBox.AutoSize = true;
             this.favoriteCheckBox.Enabled = false;
             this.favoriteCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.favoriteCheckBox.Location = new System.Drawing.Point(369, 406);
+            this.favoriteCheckBox.Location = new System.Drawing.Point(369, 424);
             this.favoriteCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.favoriteCheckBox.Name = "favoriteCheckBox";
             this.favoriteCheckBox.Size = new System.Drawing.Size(85, 24);
@@ -80,7 +80,7 @@
             // 
             this.showLabel.AutoSize = true;
             this.showLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showLabel.Location = new System.Drawing.Point(11, 342);
+            this.showLabel.Location = new System.Drawing.Point(165, 6);
             this.showLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.showLabel.Name = "showLabel";
             this.showLabel.Size = new System.Drawing.Size(41, 25);
@@ -91,7 +91,7 @@
             // 
             this.episodesCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.episodesCombo.FormattingEnabled = true;
-            this.episodesCombo.Location = new System.Drawing.Point(297, 411);
+            this.episodesCombo.Location = new System.Drawing.Point(297, 429);
             this.episodesCombo.Name = "episodesCombo";
             this.episodesCombo.Size = new System.Drawing.Size(38, 21);
             this.episodesCombo.TabIndex = 19;
@@ -102,7 +102,7 @@
             // 
             this.episodeLabel.AutoSize = true;
             this.episodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.episodeLabel.Location = new System.Drawing.Point(192, 411);
+            this.episodeLabel.Location = new System.Drawing.Point(192, 429);
             this.episodeLabel.Name = "episodeLabel";
             this.episodeLabel.Size = new System.Drawing.Size(71, 20);
             this.episodeLabel.TabIndex = 18;
@@ -114,7 +114,7 @@
             // 
             this.seasonsCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.seasonsCombo.FormattingEnabled = true;
-            this.seasonsCombo.Location = new System.Drawing.Point(120, 411);
+            this.seasonsCombo.Location = new System.Drawing.Point(120, 429);
             this.seasonsCombo.Name = "seasonsCombo";
             this.seasonsCombo.Size = new System.Drawing.Size(38, 21);
             this.seasonsCombo.TabIndex = 17;
@@ -125,7 +125,7 @@
             // 
             this.seasonsDecoratorLabel.AutoSize = true;
             this.seasonsDecoratorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seasonsDecoratorLabel.Location = new System.Drawing.Point(11, 410);
+            this.seasonsDecoratorLabel.Location = new System.Drawing.Point(11, 428);
             this.seasonsDecoratorLabel.Name = "seasonsDecoratorLabel";
             this.seasonsDecoratorLabel.Size = new System.Drawing.Size(72, 20);
             this.seasonsDecoratorLabel.TabIndex = 16;
@@ -137,7 +137,7 @@
             // 
             this.episodesLabel.AutoSize = true;
             this.episodesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.episodesLabel.Location = new System.Drawing.Point(147, 377);
+            this.episodesLabel.Location = new System.Drawing.Point(147, 395);
             this.episodesLabel.Name = "episodesLabel";
             this.episodesLabel.Size = new System.Drawing.Size(38, 20);
             this.episodesLabel.TabIndex = 21;
@@ -148,7 +148,7 @@
             // 
             this.episodesDecoratorLabel.AutoSize = true;
             this.episodesDecoratorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.episodesDecoratorLabel.Location = new System.Drawing.Point(11, 373);
+            this.episodesDecoratorLabel.Location = new System.Drawing.Point(11, 391);
             this.episodesDecoratorLabel.Name = "episodesDecoratorLabel";
             this.episodesDecoratorLabel.Size = new System.Drawing.Size(130, 24);
             this.episodesDecoratorLabel.TabIndex = 20;
