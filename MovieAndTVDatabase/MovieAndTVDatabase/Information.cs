@@ -143,5 +143,10 @@ namespace MovieAndTVDatabase
                 channelLabel.Text = _parent.Database.GetDuration(_id) + " Minutes";
             }
         }
+
+        private void Information_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

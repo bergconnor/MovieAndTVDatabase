@@ -59,6 +59,8 @@ namespace MovieAndTVDatabase
             movieCombo.Enabled = true;
             searchButton.Enabled = true;
             resultsCombo.Enabled = true;
+            historyButton.Enabled = true;
+            favoritesButton.Enabled = true;
         }
 
         private void Home_Shown(object sender, EventArgs e)
@@ -178,6 +180,34 @@ namespace MovieAndTVDatabase
         {
             infoButton.Enabled = false;
             watchButton.Enabled = false;
+        }
+
+        private void historyButton_Click(object sender, EventArgs e)
+        {
+            string user = _parent.User;
+            string user_id = _parent.Database.getSingleUser(_parent.Email, user);
+            _results = _parent.Database.GetHistory(user_id);
+            resultsCombo.Items.Clear();
+            resultsCombo.ResetText();
+
+            foreach (string result in _results[0])
+            {
+                resultsCombo.Items.Add(result);
+            }
+        }
+
+        private void favoritesButton_Click(object sender, EventArgs e)
+        {
+            string user = _parent.User;
+            string user_id = _parent.Database.getSingleUser(_parent.Email, user);
+            _results = _parent.Database.GetFavorites(user_id);
+            resultsCombo.Items.Clear();
+            resultsCombo.ResetText();
+
+            foreach (string result in _results[0])
+            {
+                resultsCombo.Items.Add(result);
+            }
         }
     }
 }

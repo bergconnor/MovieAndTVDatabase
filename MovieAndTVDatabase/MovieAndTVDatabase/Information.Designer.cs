@@ -63,7 +63,7 @@
             // descriptionText
             // 
             this.descriptionText.Location = new System.Drawing.Point(182, 251);
-            this.descriptionText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.descriptionText.Margin = new System.Windows.Forms.Padding(2);
             this.descriptionText.Multiline = true;
             this.descriptionText.Name = "descriptionText";
             this.descriptionText.ReadOnly = true;
@@ -270,12 +270,13 @@
             this.Controls.Add(this.actorsLabel);
             this.Controls.Add(this.descriptionText);
             this.Controls.Add(this.titleLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Information";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Information_Load);
             this.Shown += new System.EventHandler(this.Information_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();

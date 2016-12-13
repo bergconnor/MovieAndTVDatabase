@@ -15,10 +15,12 @@ namespace MovieAndTVDatabase
         private Controller _parent;
         private string _id;
         private string _defaultImage;
+        private List<List<string>[]> _episodes;
 
         public Watch(string id)
         {
             InitializeComponent();
+            _episodes = new List<List<string>[]>();
             _id = id;
             _defaultImage = "http://www.amfmph.com/wp-content/plugins/" +
                             "social-media-builder//img/no-image.png";
@@ -52,20 +54,33 @@ namespace MovieAndTVDatabase
                 pictureBox.Load(_defaultImage);
             }
 
+            showLabel.Text = _parent.Database.GetShowName(_id);
+            string type = _parent.Database.MovieTVShow(_id);
+
+            if (type == "TV Show")
+            {
+                seasonsCombo.Visible = true;
+                seasonsDecoratorLabel.Visible = true;
+                seasonsCombo.Visible = true;
+                seasonsDecoratorLabel.Visible = true;
+                fillSeason();
+            }
+
             _parent.Database.addHistory(_parent.Email, _parent.User, _id);
         }
 
-        private void watchButton_Click(object sender, EventArgs e)
+        private void fillSeason()
         {
-            string name = showText.Text;
-            string show = _parent.Database.GetShowLink(name);
-            if (show.Length > 0)
+            int seasons = _parent.Database.GetSeason(_id);
+            seasonsCombo.Items.Clear();
+            seasonsCombo.ResetText();
+
+            for (int i = 0; i < seasons; i++)
             {
-                this.pictureBox.Load(show);
-            }
-            else
-            {
-                this.pictureBox.Load(_defaultImage);
+                List<string>[] temp = _parent.Database.GetEpisode(_id, (i + 1).ToString());
+                _episodes.Add(temp);
+                if (_episodes[i][0].Count > 0)
+                    seasonsCombo.Items.Add((i + 1).ToString());
             }
         }
 
@@ -79,6 +94,48 @@ namespace MovieAndTVDatabase
             {
                 _parent.Database.removeFavorite(_parent.Email, _parent.User, _id);
             }
+        }
+
+        private void seasonsCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            episodesDecoratorLabel.Visible = false;
+            episodesLabel.Visible = false;
+            episodesCombo.Visible = true;
+            episodeLabel.Visible = true;
+            int season_num = (seasonsCombo.SelectedIndex + 1);
+            int index = season_num - 1;
+            episodesCombo.Items.Clear();
+            episodesCombo.ResetText();
+
+            for (int i = 0; i < _episodes[index][0].Count; i++)
+                episodesCombo.Items.Add(_episodes[index][0][i]);
+        }
+
+        private void episodeCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            episodesDecoratorLabel.Visible = true;
+            episodesLabel.Visible = true;
+
+            int season_num = (seasonsCombo.SelectedIndex + 1);
+            int sIndex = season_num - 1;
+            int episode_num = (episodesCombo.SelectedIndex + 1);
+            int eIndex = episode_num - 1;
+            episodesLabel.Text = _episodes[sIndex][2][eIndex];
+        }
+
+        private void Watch_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void seasonsDecoratorLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void episodeLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

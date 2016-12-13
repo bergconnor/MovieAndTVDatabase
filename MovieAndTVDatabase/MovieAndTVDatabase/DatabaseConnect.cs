@@ -433,6 +433,7 @@ namespace MovieAndTVDatabase
             }
             catch (MySqlException ex)
             {
+                this.CloseConnection();
                 return "";
             }
         }
@@ -540,31 +541,39 @@ namespace MovieAndTVDatabase
 
         public string getSingleUser(string email, string user)
         {
-            string query = String.Format("SELECT u.id id " +
-                                         "FROM users u " +
-                                           "JOIN accounts a " +
-                                             "ON a.id = u.account_id " +
-                                         "WHERE email='{0}' and u.name = '{1}'", email, user);
-
-            if (this.OpenConnection() == true)
+            try
             {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                List<string>[] result = new List<string>[1];
-                result[0] = new List<string>();
+                string query = String.Format("SELECT u.id id " +
+                                             "FROM users u " +
+                                               "JOIN accounts a " +
+                                                 "ON a.id = u.account_id " +
+                                             "WHERE email='{0}' and u.name = '{1}'", email, user);
 
-                while (rdr.Read())
+                if (this.OpenConnection() == true)
                 {
-                    result[0].Add(rdr["id"] + "");
-                }
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    List<string>[] result = new List<string>[1];
+                    result[0] = new List<string>();
 
-                rdr.Close();
+                    while (rdr.Read())
+                    {
+                        result[0].Add(rdr["id"] + "");
+                    }
+
+                    rdr.Close();
+                    this.CloseConnection();
+
+                    if (result[0].Count > 0)
+                    {
+                        return result[0][0];
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
                 this.CloseConnection();
-
-                if (result[0].Count > 0)
-                {
-                    return result[0][0];
-                }
+                return "";
             }
             //return new List<string>();
             return "";
@@ -588,7 +597,10 @@ namespace MovieAndTVDatabase
                 }
             }
 
-            catch (MySqlException ex) { }
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
+            }
 
         }
 
@@ -640,9 +652,9 @@ namespace MovieAndTVDatabase
             }
         }
 
-        public List<string> GetFavorites(string userId)
+        public List<string>[] GetFavorites(string userId)
         {
-            string query = String.Format("select s.name name from favorites h " +
+            string query = String.Format("select display_name(s.name) name, s.id id from favorites h " +
                                          "join shows s on s.id = h.show_id " +
                                          "where h.user_id = {0}", userId
                                          );
@@ -653,12 +665,14 @@ namespace MovieAndTVDatabase
                 {
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader rdr = cmd.ExecuteReader();
-                    List<string>[] result = new List<string>[1];
+                    List<string>[] result = new List<string>[2];
                     result[0] = new List<string>();
+                    result[1] = new List<string>();
 
                     while (rdr.Read())
                     {
                         result[0].Add(rdr["name"] + "");
+                        result[1].Add(rdr["id"] + "");
                     }
 
                     rdr.Close();
@@ -666,7 +680,7 @@ namespace MovieAndTVDatabase
 
                     if (result[0].Count > 0)
                     {
-                        return result[0];
+                        return result;
                     }
                 }
 
@@ -676,9 +690,9 @@ namespace MovieAndTVDatabase
             catch (MySqlException ex)
             {
                 this.CloseConnection();
-                return new List<string>();
+                return null;
             }
-            return new List<string>();
+            return null;
         }
 
         public string GetShowId(string name)
@@ -742,6 +756,7 @@ namespace MovieAndTVDatabase
                 }
                 catch (MySqlException ex)
                 {
+                    this.CloseConnection();
                     return "";
                 }
 
@@ -780,6 +795,7 @@ namespace MovieAndTVDatabase
                 }
                 catch (MySqlException ex)
                 {
+                    this.CloseConnection();
                     return "";
                 }
 
@@ -787,9 +803,9 @@ namespace MovieAndTVDatabase
             return "";
         }
 
-        public List<string> GetHistory(string userId)
+        public List<string>[] GetHistory(string userId)
         {
-            string query = String.Format("select s.name name from history h " +
+            string query = String.Format("select display_name(s.name) name, s.id id from history h " +
                                          "join shows s on s.id = h.show_id " +
                                          "where h.user_id = {0}", userId
                                          );
@@ -800,29 +816,29 @@ namespace MovieAndTVDatabase
                 {
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader rdr = cmd.ExecuteReader();
-                    List<string>[] result = new List<string>[1];
+                    List<string>[] result = new List<string>[2];
                     result[0] = new List<string>();
+                    result[1] = new List<string>();
 
                     while (rdr.Read())
                     {
                         result[0].Add(rdr["name"] + "");
+                        result[1].Add(rdr["id"] + "");
                     }
 
                     rdr.Close();
                     this.CloseConnection();
 
-                    if (result[0].Count > 0)
-                    {
-                        return result[0];
-                    }
+                    return result;
                 }
                 catch (MySqlException ex)
                 {
-                    return new List<string>();
+                    this.CloseConnection();
+                    return null;
                 }
 
             }
-            return new List<string>();
+            return null;
         }
 
         public List<string> GetActors(string id)
@@ -891,6 +907,39 @@ namespace MovieAndTVDatabase
             return new List<string>();
         }
 
+        public string GetShowName(string id)
+        {
+            string query = String.Format("SELECT name " +
+                                         "FROM shows " +
+                                         "WHERE id={0}", id);
+            try
+            {
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    List<string>[] result = new List<string>[1];
+                    result[0] = new List<string>();
+
+                    while (rdr.Read())
+                    {
+                        result[0].Add(rdr["name"] + "");
+                    }
+
+                    rdr.Close();
+                    this.CloseConnection();
+
+                    return result[0][0];
+                }
+            }
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
+                return "";
+            }
+            return "";
+        }
+
         public string MovieTVShow(string id)
         {
 
@@ -900,27 +949,34 @@ namespace MovieAndTVDatabase
                                                 "ON s.id = m.show_id " +
                                          "WHERE s.id = {0}", id);
 
-            if (this.OpenConnection() == true)
+            try
             {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                List<string>[] result = new List<string>[1];
-                result[0] = new List<string>();
-
-                while (rdr.Read())
+                if (this.OpenConnection() == true)
                 {
-                    result[0].Add(rdr["name"] + "");
-                }
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    List<string>[] result = new List<string>[1];
+                    result[0] = new List<string>();
 
-                rdr.Close();
-                this.CloseConnection();
+                    while (rdr.Read())
+                    {
+                        result[0].Add(rdr["name"] + "");
+                    }
 
-                if (result[0].Count > 0)
-                {
-                    return "Movie";
+                    rdr.Close();
+                    this.CloseConnection();
+
+                    if (result[0].Count > 0)
+                    {
+                        return "Movie";
+                    }
                 }
             }
-
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
+                return "TV Show";
+            }
             return "TV Show";
         }
 

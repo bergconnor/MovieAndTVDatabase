@@ -46,6 +46,8 @@
             this.movieCombo = new System.Windows.Forms.ComboBox();
             this.recommendButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.favoritesButton = new System.Windows.Forms.Button();
+            this.historyButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // usersCombo
@@ -53,10 +55,10 @@
             this.usersCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.usersCombo.FormattingEnabled = true;
             this.usersCombo.Location = new System.Drawing.Point(12, 113);
-            this.usersCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.usersCombo.Margin = new System.Windows.Forms.Padding(2);
             this.usersCombo.MaxDropDownItems = 5;
             this.usersCombo.Name = "usersCombo";
-            this.usersCombo.Size = new System.Drawing.Size(209, 21);
+            this.usersCombo.Size = new System.Drawing.Size(172, 21);
             this.usersCombo.TabIndex = 1;
             this.usersCombo.SelectedIndexChanged += new System.EventHandler(this.usersCombo_SelectedIndexChanged);
             // 
@@ -76,10 +78,10 @@
             this.genreCombo.Enabled = false;
             this.genreCombo.FormattingEnabled = true;
             this.genreCombo.Location = new System.Drawing.Point(12, 288);
-            this.genreCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.genreCombo.Margin = new System.Windows.Forms.Padding(2);
             this.genreCombo.MaxDropDownItems = 5;
             this.genreCombo.Name = "genreCombo";
-            this.genreCombo.Size = new System.Drawing.Size(209, 21);
+            this.genreCombo.Size = new System.Drawing.Size(172, 21);
             this.genreCombo.TabIndex = 3;
             // 
             // userLabel
@@ -117,7 +119,7 @@
             this.actorText.Enabled = false;
             this.actorText.Location = new System.Drawing.Point(12, 344);
             this.actorText.Name = "actorText";
-            this.actorText.Size = new System.Drawing.Size(209, 20);
+            this.actorText.Size = new System.Drawing.Size(172, 20);
             this.actorText.TabIndex = 8;
             // 
             // showLabel
@@ -135,7 +137,7 @@
             this.showText.Enabled = false;
             this.showText.Location = new System.Drawing.Point(12, 233);
             this.showText.Name = "showText";
-            this.showText.Size = new System.Drawing.Size(209, 20);
+            this.showText.Size = new System.Drawing.Size(172, 20);
             this.showText.TabIndex = 10;
             // 
             // resultsCombo
@@ -156,7 +158,7 @@
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchButton.Location = new System.Drawing.Point(12, 434);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(208, 37);
+            this.searchButton.Size = new System.Drawing.Size(172, 37);
             this.searchButton.TabIndex = 12;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -213,7 +215,7 @@
             this.movieCombo.FormattingEnabled = true;
             this.movieCombo.Location = new System.Drawing.Point(12, 398);
             this.movieCombo.Name = "movieCombo";
-            this.movieCombo.Size = new System.Drawing.Size(209, 21);
+            this.movieCombo.Size = new System.Drawing.Size(172, 21);
             this.movieCombo.TabIndex = 17;
             // 
             // recommendButton
@@ -222,7 +224,7 @@
             this.recommendButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recommendButton.Location = new System.Drawing.Point(12, 150);
             this.recommendButton.Name = "recommendButton";
-            this.recommendButton.Size = new System.Drawing.Size(208, 37);
+            this.recommendButton.Size = new System.Drawing.Size(172, 37);
             this.recommendButton.TabIndex = 18;
             this.recommendButton.Text = "Recommend Shows";
             this.recommendButton.UseVisualStyleBackColor = true;
@@ -239,6 +241,30 @@
             this.label1.Text = "Home";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // favoritesButton
+            // 
+            this.favoritesButton.Enabled = false;
+            this.favoritesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.favoritesButton.Location = new System.Drawing.Point(434, 150);
+            this.favoritesButton.Name = "favoritesButton";
+            this.favoritesButton.Size = new System.Drawing.Size(172, 37);
+            this.favoritesButton.TabIndex = 19;
+            this.favoritesButton.Text = "View Favorites";
+            this.favoritesButton.UseVisualStyleBackColor = true;
+            this.favoritesButton.Click += new System.EventHandler(this.favoritesButton_Click);
+            // 
+            // historyButton
+            // 
+            this.historyButton.Enabled = false;
+            this.historyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.historyButton.Location = new System.Drawing.Point(240, 150);
+            this.historyButton.Name = "historyButton";
+            this.historyButton.Size = new System.Drawing.Size(172, 37);
+            this.historyButton.TabIndex = 20;
+            this.historyButton.Text = "View History";
+            this.historyButton.UseVisualStyleBackColor = true;
+            this.historyButton.Click += new System.EventHandler(this.historyButton_Click);
+            // 
             // Home
             // 
             this.AcceptButton = this.searchButton;
@@ -246,6 +272,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 522);
             this.ControlBox = false;
+            this.Controls.Add(this.historyButton);
+            this.Controls.Add(this.favoritesButton);
             this.Controls.Add(this.recommendButton);
             this.Controls.Add(this.movieCombo);
             this.Controls.Add(this.movieLabel);
@@ -264,7 +292,7 @@
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.usersCombo);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Home";
             this.ShowInTaskbar = false;
@@ -295,5 +323,7 @@
         private System.Windows.Forms.ComboBox movieCombo;
         private System.Windows.Forms.Button recommendButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button favoritesButton;
+        private System.Windows.Forms.Button historyButton;
     }
 }

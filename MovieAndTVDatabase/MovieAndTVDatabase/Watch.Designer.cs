@@ -29,10 +29,15 @@
         private void InitializeComponent()
         {
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.watchButton = new System.Windows.Forms.Button();
-            this.showText = new System.Windows.Forms.TextBox();
             this.userLabel = new System.Windows.Forms.Label();
             this.favoriteCheckBox = new System.Windows.Forms.CheckBox();
+            this.showLabel = new System.Windows.Forms.Label();
+            this.episodesCombo = new System.Windows.Forms.ComboBox();
+            this.episodeLabel = new System.Windows.Forms.Label();
+            this.seasonsCombo = new System.Windows.Forms.ComboBox();
+            this.seasonsDecoratorLabel = new System.Windows.Forms.Label();
+            this.episodesLabel = new System.Windows.Forms.Label();
+            this.episodesDecoratorLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,42 +45,20 @@
             // 
             this.pictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox.Location = new System.Drawing.Point(207, 10);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox.Location = new System.Drawing.Point(170, 12);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(422, 486);
+            this.pictureBox.Size = new System.Drawing.Size(319, 382);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             // 
-            // watchButton
-            // 
-            this.watchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.watchButton.Location = new System.Drawing.Point(198, 558);
-            this.watchButton.Margin = new System.Windows.Forms.Padding(4);
-            this.watchButton.Name = "watchButton";
-            this.watchButton.Size = new System.Drawing.Size(339, 29);
-            this.watchButton.TabIndex = 1;
-            this.watchButton.Text = "Watch Show";
-            this.watchButton.UseVisualStyleBackColor = true;
-            this.watchButton.Click += new System.EventHandler(this.watchButton_Click);
-            // 
-            // showText
-            // 
-            this.showText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.showText.Location = new System.Drawing.Point(198, 525);
-            this.showText.Margin = new System.Windows.Forms.Padding(4);
-            this.showText.Name = "showText";
-            this.showText.Size = new System.Drawing.Size(338, 22);
-            this.showText.TabIndex = 0;
-            this.showText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // userLabel
             // 
             this.userLabel.AutoSize = true;
-            this.userLabel.Location = new System.Drawing.Point(12, 43);
+            this.userLabel.Location = new System.Drawing.Point(10, 34);
+            this.userLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(97, 17);
+            this.userLabel.Size = new System.Drawing.Size(72, 13);
             this.userLabel.TabIndex = 2;
             this.userLabel.Text = "Current User: ";
             // 
@@ -83,32 +66,117 @@
             // 
             this.favoriteCheckBox.AutoSize = true;
             this.favoriteCheckBox.Enabled = false;
-            this.favoriteCheckBox.Location = new System.Drawing.Point(28, 194);
+            this.favoriteCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.favoriteCheckBox.Location = new System.Drawing.Point(369, 406);
             this.favoriteCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.favoriteCheckBox.Name = "favoriteCheckBox";
-            this.favoriteCheckBox.Size = new System.Drawing.Size(81, 21);
+            this.favoriteCheckBox.Size = new System.Drawing.Size(85, 24);
             this.favoriteCheckBox.TabIndex = 4;
             this.favoriteCheckBox.Text = "Favorite";
             this.favoriteCheckBox.UseVisualStyleBackColor = true;
             this.favoriteCheckBox.CheckedChanged += new System.EventHandler(this.favoriteCheckBox_CheckedChanged);
             // 
+            // showLabel
+            // 
+            this.showLabel.AutoSize = true;
+            this.showLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showLabel.Location = new System.Drawing.Point(11, 342);
+            this.showLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.showLabel.Name = "showLabel";
+            this.showLabel.Size = new System.Drawing.Size(41, 25);
+            this.showLabel.TabIndex = 5;
+            this.showLabel.Text = "title";
+            // 
+            // episodesCombo
+            // 
+            this.episodesCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.episodesCombo.FormattingEnabled = true;
+            this.episodesCombo.Location = new System.Drawing.Point(297, 411);
+            this.episodesCombo.Name = "episodesCombo";
+            this.episodesCombo.Size = new System.Drawing.Size(38, 21);
+            this.episodesCombo.TabIndex = 19;
+            this.episodesCombo.Visible = false;
+            this.episodesCombo.SelectedIndexChanged += new System.EventHandler(this.episodeCombo_SelectedIndexChanged);
+            // 
+            // episodeLabel
+            // 
+            this.episodeLabel.AutoSize = true;
+            this.episodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.episodeLabel.Location = new System.Drawing.Point(192, 411);
+            this.episodeLabel.Name = "episodeLabel";
+            this.episodeLabel.Size = new System.Drawing.Size(71, 20);
+            this.episodeLabel.TabIndex = 18;
+            this.episodeLabel.Text = "Episode:";
+            this.episodeLabel.Visible = false;
+            this.episodeLabel.Click += new System.EventHandler(this.episodeLabel_Click);
+            // 
+            // seasonsCombo
+            // 
+            this.seasonsCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.seasonsCombo.FormattingEnabled = true;
+            this.seasonsCombo.Location = new System.Drawing.Point(120, 411);
+            this.seasonsCombo.Name = "seasonsCombo";
+            this.seasonsCombo.Size = new System.Drawing.Size(38, 21);
+            this.seasonsCombo.TabIndex = 17;
+            this.seasonsCombo.Visible = false;
+            this.seasonsCombo.SelectedIndexChanged += new System.EventHandler(this.seasonsCombo_SelectedIndexChanged);
+            // 
+            // seasonsDecoratorLabel
+            // 
+            this.seasonsDecoratorLabel.AutoSize = true;
+            this.seasonsDecoratorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seasonsDecoratorLabel.Location = new System.Drawing.Point(11, 410);
+            this.seasonsDecoratorLabel.Name = "seasonsDecoratorLabel";
+            this.seasonsDecoratorLabel.Size = new System.Drawing.Size(72, 20);
+            this.seasonsDecoratorLabel.TabIndex = 16;
+            this.seasonsDecoratorLabel.Text = "Season: ";
+            this.seasonsDecoratorLabel.Visible = false;
+            this.seasonsDecoratorLabel.Click += new System.EventHandler(this.seasonsDecoratorLabel_Click);
+            // 
+            // episodesLabel
+            // 
+            this.episodesLabel.AutoSize = true;
+            this.episodesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.episodesLabel.Location = new System.Drawing.Point(147, 377);
+            this.episodesLabel.Name = "episodesLabel";
+            this.episodesLabel.Size = new System.Drawing.Size(38, 20);
+            this.episodesLabel.TabIndex = 21;
+            this.episodesLabel.Text = "Title";
+            this.episodesLabel.Visible = false;
+            // 
+            // episodesDecoratorLabel
+            // 
+            this.episodesDecoratorLabel.AutoSize = true;
+            this.episodesDecoratorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.episodesDecoratorLabel.Location = new System.Drawing.Point(11, 373);
+            this.episodesDecoratorLabel.Name = "episodesDecoratorLabel";
+            this.episodesDecoratorLabel.Size = new System.Drawing.Size(130, 24);
+            this.episodesDecoratorLabel.TabIndex = 20;
+            this.episodesDecoratorLabel.Text = "Episode Title: ";
+            this.episodesDecoratorLabel.Visible = false;
+            // 
             // Watch
             // 
-            this.AcceptButton = this.watchButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(819, 643);
+            this.ClientSize = new System.Drawing.Size(655, 514);
             this.ControlBox = false;
+            this.Controls.Add(this.episodesLabel);
+            this.Controls.Add(this.episodesDecoratorLabel);
+            this.Controls.Add(this.episodesCombo);
+            this.Controls.Add(this.episodeLabel);
+            this.Controls.Add(this.seasonsCombo);
+            this.Controls.Add(this.seasonsDecoratorLabel);
+            this.Controls.Add(this.showLabel);
             this.Controls.Add(this.favoriteCheckBox);
             this.Controls.Add(this.userLabel);
-            this.Controls.Add(this.showText);
-            this.Controls.Add(this.watchButton);
             this.Controls.Add(this.pictureBox);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Watch";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "s";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Watch_Load);
             this.Shown += new System.EventHandler(this.Watch_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
@@ -119,9 +187,14 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Button watchButton;
-        private System.Windows.Forms.TextBox showText;
         private System.Windows.Forms.Label userLabel;
         private System.Windows.Forms.CheckBox favoriteCheckBox;
+        private System.Windows.Forms.Label showLabel;
+        private System.Windows.Forms.ComboBox episodesCombo;
+        private System.Windows.Forms.Label episodeLabel;
+        private System.Windows.Forms.ComboBox seasonsCombo;
+        private System.Windows.Forms.Label seasonsDecoratorLabel;
+        private System.Windows.Forms.Label episodesLabel;
+        private System.Windows.Forms.Label episodesDecoratorLabel;
     }
 }
