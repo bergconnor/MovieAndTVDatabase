@@ -167,10 +167,10 @@ namespace MovieAndTVDatabase
         {
             DateTime dt = DateTime.Today;
             string start = dt.ToString("yyyy/MM/dd");
-            dt = dt.AddYears(1);
-            string end = dt.ToString("yyyy/MM/dd");
+            //dt = dt.AddYears(1);
+            //string end = dt.ToString("yyyy/MM/dd");
             string query = String.Format("INSERT INTO accounts (email,password,start,end) VALUES ('{0}','{1}','{2}','{3}')",
-                email, password, start, end);
+                email, password, start, start);
             try
             {
                 if (this.OpenConnection() == true)
@@ -247,7 +247,11 @@ namespace MovieAndTVDatabase
 
         public int RemoveUser(string name, string email)
         {
-            string id = GetAccountID(email);
+            string account_id = GetAccountID(email);
+            string user_id = GetSpecificUserID(account_id, name);
+            List<string>[] favorites = GetFavorites(user_id);
+            List<string>[] history = GetHistory(user_id);
+
             string query = String.Format("DELETE u " +
                                          "FROM users u " +
                                            "JOIN accounts a " +
@@ -257,10 +261,27 @@ namespace MovieAndTVDatabase
 
             try
             {
-                if (GetNumberOfUsers(id) > 1)
+                if (GetNumberOfUsers(account_id) > 1)
                 {
+                    if (favorites != null)
+                    {
+                        for (int i = 0; i < favorites[1].Count; i++)
+                        {
+                            removeFavorite(email, name, favorites[1][i]);
+                        }
+                    }
+
+                    if (history != null)
+                    {
+                        for (int i = 0; i < history[1].Count; i++)
+                        {
+                            removeHistory(email, name, history[1][i]);
+                        }
+                    }
+
                     if (this.OpenConnection() == true)
                     {
+
                         MySqlCommand cmd = new MySqlCommand(query, conn);
                         cmd.ExecuteNonQuery();
                         this.CloseConnection();
@@ -333,6 +354,32 @@ namespace MovieAndTVDatabase
                 this.CloseConnection();
 
                 return result;
+            }
+            return null;
+        }
+
+        public string GetSpecificUserID(string account_id, string name)
+        {
+            string query = String.Format("SELECT id " +
+                                         "FROM users " +
+                                         "WHERE account_id = {0} and name = '{1}'", account_id, name);
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                List<string>[] result = new List<string>[1];
+                result[0] = new List<string>();
+
+                while (rdr.Read())
+                {
+                    result[0].Add(rdr["id"] + "");
+                }
+
+                rdr.Close();
+                this.CloseConnection();
+
+                return result[0][0];
             }
             return null;
         }
@@ -469,6 +516,7 @@ namespace MovieAndTVDatabase
             }
             catch (MySqlException ex)
             {
+                this.CloseConnection();
                 return null;
             }
         }
@@ -652,6 +700,30 @@ namespace MovieAndTVDatabase
             }
         }
 
+        public void removeHistory(string email, string userName, string showId)
+        {
+            string date = "20161210";
+            DateTime today = DateTime.Today;
+            date = today.ToString("yyyy/MM/dd");
+            string userId = getSingleUser(email, userName);
+            try
+            {
+                string query = String.Format("delete from history where user_id = {0} and show_id = {1} ", userId, showId);
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.ExecuteReader();
+                    this.CloseConnection();
+                }
+                //return "";
+            }
+            catch (MySqlException ex)
+            {
+                this.CloseConnection();
+                //return "";
+            }
+        }
+
         public List<string>[] GetFavorites(string userId)
         {
             string query = String.Format("select display_name(s.name) name, s.id id from favorites h " +
@@ -721,6 +793,7 @@ namespace MovieAndTVDatabase
             }
             catch (MySqlException ex)
             {
+                this.CloseConnection();
                 return "";
             }
         }
@@ -1007,6 +1080,7 @@ namespace MovieAndTVDatabase
             }
             catch (MySqlException ex)
             {
+                this.CloseConnection();
                 return "";
             }
         }

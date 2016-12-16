@@ -72,7 +72,7 @@ namespace MovieAndTVDatabase
             DateTime today = DateTime.Today;
             DateTime subscription_end = Convert.ToDateTime(end);
             int cmp = DateTime.Compare(today, subscription_end);
-            if (cmp <= 0)
+            if (cmp < 0)
             {
                 Home form = new Home();
                 form.MdiParent = this;

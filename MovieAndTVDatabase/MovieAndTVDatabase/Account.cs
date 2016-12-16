@@ -62,7 +62,7 @@ namespace MovieAndTVDatabase
             }
             else
             {
-                MessageBox.Show("Give us your money.");
+                MessageBox.Show("Please extend your subscription to use our service.");
             }
         }
 
